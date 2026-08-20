@@ -1,0 +1,15 @@
+game,dimension,status,details
+poker,balance,confirmed,engineered balanced cycle under the poker-specific frozen protocol
+poker,pressure,confirmed,cross-family invariant observable component(s) selected
+poker,control,unresolved,no component survived the frozen family-invariance gate
+poker,chaos,unresolved,no component survived the frozen family-invariance gate
+poker,mechanism:control-pressure contextual mechanism,confirmed,engineered synthetic poker agents
+poker,mechanism:contextual Control observable,partial,positive/discriminant in both families but not family-invariant in strength
+poker,mechanism:effective Chaos construct,failed,frozen construct-validation gate
+liars-dice,balance,failed,all pairwise matchups competitive in two independent policy families
+liars-dice,pressure,unresolved,construct-recovery has not yet been run; v0.3 is mechanism/balance evidence only
+liars-dice,control,unresolved,construct-recovery has not yet been run; v0.3 is mechanism/balance evidence only
+liars-dice,chaos,unresolved,construct-recovery has not yet been run; v0.3 is mechanism/balance evidence only
+liars-dice,mechanism:Control-vs-Chaos challenge timing,confirmed,replicated across both independent Liar's Dice policy families
+liars-dice,mechanism:Chaos bid-plausibility cost,confirmed,replicated across both independent Liar's Dice policy families
+liars-dice,mechanism:history dependence,partial,family-specific rather than universal

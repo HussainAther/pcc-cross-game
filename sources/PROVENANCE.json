@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "note": "Exact frozen validation summaries copied from the named source release snapshots solely to reproduce the cross-game matrix. No human data are included.",
+  "files": [
+    {
+      "path": "sources/pcc-liars-dice-v0.3.0/validation/balance.json",
+      "bytes": 3272,
+      "sha256": "ec430fdd5bd356626d54a6e93b047d22acbedd63364d587aae6b9a3318d432a3"
+    },
+    {
+      "path": "sources/pcc-liars-dice-v0.3.0/validation/control-chaos-mechanism.json",
+      "bytes": 24841,
+      "sha256": "b4ae5f88f8a2035b69ed623823c382621d82a032f28d5b37d8ceb73a0bc06ad8"
+    },
+    {
+      "path": "sources/pcc-poker-v0.8.0/validation/balanced-cycle.json",
+      "bytes": 4072,
+      "sha256": "16d04fd11c2504e2da0710831b70c49fde88d99e04736d887c40bbac0ccdbcf9"
+    },
+    {
+      "path": "sources/pcc-poker-v0.8.0/validation/contextual-control-observable.json",
+      "bytes": 1888,
+      "sha256": "6e6efc0bbaa43f532c5a700e684592f8de7f66443abf8bb76d99a2892b9025fc"
+    },
+    {
+      "path": "sources/pcc-poker-v0.8.0/validation/control-pressure-mechanism.json",
+      "bytes": 229144,
+      "sha256": "6b1c983952ca22007c9d327d508293277aef79f491b68fc084b3a66ed81f995c"
+    },
+    {
+      "path": "sources/pcc-poker-v0.8.0/validation/effective-chaos-validation.json",
+      "bytes": 3548,
+      "sha256": "5543717f081b33e6f5db0fc7c591ea485cc08e87938190b6ab00006ac1c70fc5"
+    },
+    {
+      "path": "sources/pcc-poker-v0.8.0/validation/family-invariant-panel.json",
+      "bytes": 7112,
+      "sha256": "2e0c429dea18e05cb7d1acaa8cf9f1ebcdb6e5d0f4b96702423f9439295a6850"
+    },
+    {
+      "path": "sources/pcc-poker-v0.8.0/validation/research-status.json",
+      "bytes": 7028,
+      "sha256": "1d428079f5dee394f61416f564b87295d39d255f5f13216324e3afe8bd25d1df"
+    }
+  ]
+}

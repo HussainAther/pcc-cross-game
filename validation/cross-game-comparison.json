@@ -1,0 +1,312 @@
+{
+  "schema_version": 1,
+  "purpose": "Cross-game comparison of frozen synthetic evidence without assuming identical PCC topology or measurement validity across games.",
+  "games": [
+    {
+      "game": "poker",
+      "source_version": "0.8.0 synthetic evidence freeze",
+      "source_root": "sources/pcc-poker-v0.8.0",
+      "balance": {
+        "status": "confirmed",
+        "criterion": "engineered balanced cycle under the poker-specific frozen protocol",
+        "cycle_required": true,
+        "cross_game_comparability_warning": "A poker cycle is not assumed to be a universal PCC topology."
+      },
+      "axis_evidence": {
+        "pressure": {
+          "status": "confirmed",
+          "selected_components": [
+            "pressure_exposure",
+            "predicted_fold_probability"
+          ],
+          "basis": "cross-family invariant observable component(s) selected",
+          "research_status_claims": [
+            {
+              "claim_id": "engineered-cycle",
+              "claim": "Frozen engineered PCC policies exhibit the prespecified balanced Pressure\u2192Chaos\u2192Control\u2192Pressure cycle.",
+              "status": "confirmed",
+              "evidence": "balanced_cycle_confirmed=True; edge_strength_ratio=1.553",
+              "source": "validation/balanced-cycle.json",
+              "scope": "synthetic frozen policy family"
+            },
+            {
+              "claim_id": "control-pressure-mechanism",
+              "claim": "Contextually aligned Control specifically improves performance against Pressure under matched counterfactual controls.",
+              "status": "confirmed",
+              "evidence": "passed 6/6 prespecified checks",
+              "source": "validation/control-pressure-mechanism.json",
+              "scope": "synthetic causal-mechanism intervention"
+            },
+            {
+              "claim_id": "pressure-surprise-suppression",
+              "claim": "Public Pressure exposure universally explains the negative Pressure/effective-surprisal association and improves Chaos discrimination.",
+              "status": "partial",
+              "evidence": "passed 5/6 prespecified checks; failed: independent_chaos_margin_improves_by_0_03",
+              "source": "validation/pressure-surprise-decomposition.json",
+              "scope": "two synthetic policy families"
+            },
+            {
+              "claim_id": "family-invariant-pressure-panel",
+              "claim": "At least one conservative label-free Pressure observable is stable across both policy families.",
+              "status": "confirmed",
+              "evidence": "selected: pressure_exposure, predicted_fold_probability",
+              "source": "validation/family-invariant-panel.json",
+              "scope": "two synthetic policy families"
+            }
+          ]
+        },
+        "control": {
+          "status": "unresolved",
+          "selected_components": [],
+          "basis": "no component survived the frozen family-invariance gate",
+          "research_status_claims": [
+            {
+              "claim_id": "engineered-cycle",
+              "claim": "Frozen engineered PCC policies exhibit the prespecified balanced Pressure\u2192Chaos\u2192Control\u2192Pressure cycle.",
+              "status": "confirmed",
+              "evidence": "balanced_cycle_confirmed=True; edge_strength_ratio=1.553",
+              "source": "validation/balanced-cycle.json",
+              "scope": "synthetic frozen policy family"
+            },
+            {
+              "claim_id": "control-pressure-mechanism",
+              "claim": "Contextually aligned Control specifically improves performance against Pressure under matched counterfactual controls.",
+              "status": "confirmed",
+              "evidence": "passed 6/6 prespecified checks",
+              "source": "validation/control-pressure-mechanism.json",
+              "scope": "synthetic causal-mechanism intervention"
+            },
+            {
+              "claim_id": "generic-counterfactual-control",
+              "claim": "Generic model-alignment counterfactuals identify a Control-specific dependence across targets.",
+              "status": "failed",
+              "evidence": "failed: control_aligned_beats_swapped, control_aligned_beats_prior, control_model_dependence_is_discriminant, control_largest_for_at_least_two_targets",
+              "source": "validation/counterfactual-control.json",
+              "scope": "synthetic counterfactual intervention"
+            },
+            {
+              "claim_id": "temporal-control-observable",
+              "claim": "Public temporal-history prediction gain is a discriminant observational measure of Control.",
+              "status": "partial",
+              "evidence": "passed 2/4 prespecified checks; failed: control_correlation_at_least_0_20, control_correlation_discriminant",
+              "source": "validation/temporal-control.json",
+              "scope": "synthetic observational measurement"
+            },
+            {
+              "claim_id": "contextual-control-observable",
+              "claim": "Matched public-history likelihood contrast is a family-invariant observational measure of Control.",
+              "status": "partial",
+              "evidence": "cross_family_control_gap=0.602; passed 2/3 prespecified checks; failed: cross_family_control_gap_at_most_0_20",
+              "source": "validation/contextual-control-observable.json",
+              "scope": "two synthetic policy families"
+            },
+            {
+              "claim_id": "chaos-control-decomposition",
+              "claim": "Conditioning on public history universally separates Control-linked surprise from Chaos-linked residual surprise.",
+              "status": "partial",
+              "evidence": "passed 2/4 prespecified checks; failed: independent_history_explained_is_control_discriminant_by_0_03, independent_residual_improves_chaos_margin_by_0_03",
+              "source": "validation/chaos-control-decomposition.json",
+              "scope": "two synthetic policy families"
+            },
+            {
+              "claim_id": "family-invariant-control-panel",
+              "claim": "A conservative label-free Control observable is currently supported across both policy families.",
+              "status": "unresolved",
+              "evidence": "selected: none",
+              "source": "validation/family-invariant-panel.json",
+              "scope": "two synthetic policy families"
+            }
+          ],
+          "mechanism_evidence": {
+            "control_pressure_mechanism_confirmed": true,
+            "contextual_control_observable_confirmed": false,
+            "note": "Mechanism evidence is kept separate from family-invariant observational measurement."
+          }
+        },
+        "chaos": {
+          "status": "unresolved",
+          "selected_components": [],
+          "basis": "no component survived the frozen family-invariance gate",
+          "research_status_claims": [
+            {
+              "claim_id": "engineered-cycle",
+              "claim": "Frozen engineered PCC policies exhibit the prespecified balanced Pressure\u2192Chaos\u2192Control\u2192Pressure cycle.",
+              "status": "confirmed",
+              "evidence": "balanced_cycle_confirmed=True; edge_strength_ratio=1.553",
+              "source": "validation/balanced-cycle.json",
+              "scope": "synthetic frozen policy family"
+            },
+            {
+              "claim_id": "effective-chaos",
+              "claim": "Value-floor-weighted effective surprisal is a cross-family discriminant observational measure of Chaos.",
+              "status": "partial",
+              "evidence": "passed 3/4 prespecified checks; failed: all_families_discriminant",
+              "source": "validation/effective-chaos-validation.json",
+              "scope": "two synthetic policy families"
+            },
+            {
+              "claim_id": "chaos-control-decomposition",
+              "claim": "Conditioning on public history universally separates Control-linked surprise from Chaos-linked residual surprise.",
+              "status": "partial",
+              "evidence": "passed 2/4 prespecified checks; failed: independent_history_explained_is_control_discriminant_by_0_03, independent_residual_improves_chaos_margin_by_0_03",
+              "source": "validation/chaos-control-decomposition.json",
+              "scope": "two synthetic policy families"
+            },
+            {
+              "claim_id": "pressure-surprise-suppression",
+              "claim": "Public Pressure exposure universally explains the negative Pressure/effective-surprisal association and improves Chaos discrimination.",
+              "status": "partial",
+              "evidence": "passed 5/6 prespecified checks; failed: independent_chaos_margin_improves_by_0_03",
+              "source": "validation/pressure-surprise-decomposition.json",
+              "scope": "two synthetic policy families"
+            },
+            {
+              "claim_id": "family-invariant-chaos-panel",
+              "claim": "A conservative label-free Chaos observable is currently supported across both policy families.",
+              "status": "unresolved",
+              "evidence": "selected: none",
+              "source": "validation/family-invariant-panel.json",
+              "scope": "two synthetic policy families"
+            }
+          ],
+          "mechanism_evidence": {
+            "effective_chaos_construct_confirmed": false
+          }
+        }
+      },
+      "mechanisms": [
+        {
+          "name": "control-pressure contextual mechanism",
+          "status": "confirmed",
+          "scope": "engineered synthetic poker agents"
+        },
+        {
+          "name": "contextual Control observable",
+          "status": "partial",
+          "scope": "positive/discriminant in both families but not family-invariant in strength"
+        },
+        {
+          "name": "effective Chaos construct",
+          "status": "failed",
+          "scope": "frozen construct-validation gate"
+        }
+      ],
+      "negative_controls": {
+        "status": "present",
+        "note": "Poker validation includes shuffled/yoked/counterfactual controls in frozen experiments; this comparison does not collapse them into one score."
+      }
+    },
+    {
+      "game": "liars-dice",
+      "source_version": "0.3.0 control-chaos mechanism",
+      "source_root": "sources/pcc-liars-dice-v0.3.0",
+      "balance": {
+        "status": "failed",
+        "criterion": "all pairwise matchups competitive in two independent policy families",
+        "cycle_required": false,
+        "failure_pattern": "Control over Chaos exceeded the frozen competitiveness bound in both families"
+      },
+      "axis_evidence": {
+        "pressure": {
+          "status": "unresolved",
+          "selected_components": [],
+          "basis": "construct-recovery has not yet been run; v0.3 is mechanism/balance evidence only"
+        },
+        "control": {
+          "status": "unresolved",
+          "selected_components": [],
+          "basis": "construct-recovery has not yet been run; v0.3 is mechanism/balance evidence only"
+        },
+        "chaos": {
+          "status": "unresolved",
+          "selected_components": [],
+          "basis": "construct-recovery has not yet been run; v0.3 is mechanism/balance evidence only"
+        }
+      },
+      "mechanisms": [
+        {
+          "name": "Control-vs-Chaos challenge timing",
+          "status": "confirmed",
+          "scope": "replicated across both independent Liar's Dice policy families"
+        },
+        {
+          "name": "Chaos bid-plausibility cost",
+          "status": "confirmed",
+          "scope": "replicated across both independent Liar's Dice policy families"
+        },
+        {
+          "name": "history dependence",
+          "status": "partial",
+          "scope": "family-specific rather than universal"
+        }
+      ],
+      "mechanism_diagnostics": {
+        "replicated_pathways": [
+          "challenge_timing_supported",
+          "chaos_lower_bid_plausibility_supported"
+        ],
+        "family_specific_pathways": [
+          "history_dependence_supported"
+        ],
+        "family_summaries": {
+          "family-a": {
+            "control_win_rate": 0.7331,
+            "control_win_rate_history_muted": 0.7331,
+            "history_edge_reduction": 0.0,
+            "control_minus_chaos_challenge_accuracy": 0.24552955264242596,
+            "control_minus_chaos_bid_plausibility": 0.13466236555300293,
+            "false_final_bid_rate": 0.7692,
+            "control_challenge_accuracy": 0.8250320722310273,
+            "chaos_challenge_accuracy": 0.5795025195886013,
+            "control_mean_bid_truth_probability": 0.5754407007098555,
+            "chaos_mean_bid_truth_probability": 0.44077833515685255
+          },
+          "family-b": {
+            "control_win_rate": 0.696,
+            "control_win_rate_history_muted": 0.5923999999999999,
+            "history_edge_reduction": 0.1036,
+            "control_minus_chaos_challenge_accuracy": 0.3935081412448927,
+            "control_minus_chaos_bid_plausibility": 0.2462758518204559,
+            "false_final_bid_rate": 0.519,
+            "control_challenge_accuracy": 0.6903249822128792,
+            "chaos_challenge_accuracy": 0.2968168409679865,
+            "control_mean_bid_truth_probability": 0.8210904497930733,
+            "chaos_mean_bid_truth_probability": 0.5748145979726174
+          }
+        }
+      },
+      "negative_controls": {
+        "status": "planned",
+        "note": "No construct-recovery negative-control panel has been frozen yet."
+      }
+    }
+  ],
+  "cross_game_findings": [
+    {
+      "finding": "game topology is not invariant",
+      "status": "supported",
+      "basis": "Poker's frozen engineered cycle passes, whereas Liar's Dice pairwise competitiveness fails because Control exceeds Chaos in both families."
+    },
+    {
+      "finding": "context/history effects are implementation-sensitive",
+      "status": "supported",
+      "basis": "Poker contextual Control strength is not family-invariant; Liar's Dice history dependence appears in one policy family but not the other."
+    },
+    {
+      "finding": "Pressure has cross-family observational support only in poker so far",
+      "status": "supported",
+      "basis": "Poker selected two invariant Pressure components; Liar's Dice has not yet run construct recovery."
+    },
+    {
+      "finding": "Chaos measurement is not yet cross-game validated",
+      "status": "supported",
+      "basis": "Poker effective-Chaos construct gate failed and Liar's Dice has only mechanism diagnostics, not construct recovery."
+    }
+  ],
+  "guardrails": [
+    "Do not infer human psychological states from synthetic-agent labels.",
+    "Do not require a rock-paper-scissors cycle outside the game-specific protocol that defined it.",
+    "Mechanism confirmation and observational construct recovery are distinct evidence classes.",
+    "Missing evidence is reported as unresolved, not imputed from another game."
+  ]
+}
