@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "benchmark": "cross-game-pressure-structural-template",
+  "template": [
+    "commitment_exposure",
+    "response_constriction",
+    "strategic_consequence"
+  ],
+  "purpose": "Test a portable structural template for Pressure without forcing Pressure into games that lack escalating commitment.",
+  "games": {
+    "poker": {
+      "commitment_exposure": {
+        "status": "confirmed",
+        "family_checks": {
+          "independent": true,
+          "score": true
+        },
+        "basis": "label-free public pressure exposure is positive and discriminant in both frozen policy families"
+      },
+      "response_constriction": {
+        "status": "confirmed",
+        "family_checks": {
+          "independent": true,
+          "score": true
+        },
+        "basis": "predicted opponent fold probability is a family-invariant Pressure observable, consistent with constrained opponent response"
+      },
+      "strategic_consequence": {
+        "status": "confirmed",
+        "family_checks": {
+          "independent": true,
+          "score": true
+        },
+        "basis": "pressure exposure explains a substantial Pressure-linked surprisal suppression in both families; the stronger Chaos-margin claim remains only partial"
+      }
+    },
+    "liars-dice": {
+      "commitment_exposure": {
+        "status": "confirmed",
+        "family_checks": {
+          "family-a": true,
+          "family-b": true
+        },
+        "basis": "the prespecified public commitment/escalation score responds strongly to assigned Pressure in both families"
+      },
+      "response_constriction": {
+        "status": "unresolved",
+        "basis": "the frozen Liar\u2019s Dice protocol does not separately measure whether escalating claims constrict an opponent response set"
+      },
+      "strategic_consequence": {
+        "status": "confirmed",
+        "family_checks": {
+          "family-a": true,
+          "family-b": true
+        },
+        "basis": "Pressure commitment signal beats shuffled-label expectation in both families, although Family B fails discriminant recovery because Chaos also drives commitment"
+      }
+    },
+    "rps": {
+      "commitment_exposure": {
+        "status": "absent-by-design",
+        "negative_control": "confirmed",
+        "basis": "simultaneous fixed-cost RPS has no escalating commitment channel; the frozen Pressure candidate is exactly zero across all policies"
+      },
+      "response_constriction": {
+        "status": "not-applicable",
+        "basis": "each RPS round always leaves the opponent the same three actions; no escalating action narrows the legal response set"
+      },
+      "strategic_consequence": {
+        "status": "not-applicable",
+        "basis": "without a Pressure channel there is no Pressure-specific strategic consequence to test"
+      }
+    }
+  },
+  "portable_confirmed_stages": [
+    "commitment_exposure",
+    "strategic_consequence"
+  ],
+  "conclusion": {
+    "single_scalar_pressure_supported": false,
+    "full_three_stage_template_confirmed_cross_game": false,
+    "status": "partial-structural-support",
+    "basis": "Escalating public commitment transfers cleanly between Poker and Liar\u2019s Dice and is correctly absent in RPS. Opponent-response constriction is strongly supported in Poker but not yet separately tested in Liar\u2019s Dice, so the full Pressure mechanism is not yet cross-game confirmed."
+  },
+  "guardrails": [
+    "No source policy, threshold, or frozen result is modified.",
+    "Absent-by-design and not-applicable are structural statements, not failed Pressure recovery.",
+    "Liar\u2019s Dice Family B remains partial for Pressure discriminant recovery; this benchmark does not relabel it as fully recovered.",
+    "This benchmark does not alter PCC Poker v0.8.0 or its human-data measurement contract."
+  ]
+}

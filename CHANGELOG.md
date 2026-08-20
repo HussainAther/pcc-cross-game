@@ -43,3 +43,11 @@
 - Added a three-stage Control benchmark: information uptake -> context alignment -> value-sensitive intervention.
 - No universal scalar Control score is defined.
 - Poker supports all three stages on frozen synthetic evidence; Liar's Dice is partial on information/context but confirmed on value-sensitive intervention; RPS remains unresolved/not-applicable for the later stages.
+
+## 0.7.0
+
+- Added a three-stage Pressure structural benchmark: commitment exposure -> response constriction -> strategic consequence.
+- Added the frozen Poker pressure-surprise decomposition as bundled source evidence.
+- Preserved Liar's Dice Pressure as partial overall rather than promoting it from one successful component.
+- Represented RPS Pressure as absent-by-design/not-applicable instead of failed.
+- Added JSON/CSV/Markdown Pressure structural-template outputs and regression tests.

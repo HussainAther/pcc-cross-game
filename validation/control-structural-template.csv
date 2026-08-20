@@ -1,0 +1,10 @@
+game,stage,status,basis
+poker,information_uptake,confirmed,public-history signal is positively associated with assigned Control in both synthetic families
+poker,context_alignment,confirmed,"aligned public history outperforms yoked/context-destroyed history, although effect magnitude is not cross-family invariant"
+poker,value_sensitive_intervention,confirmed,frozen aligned-vs-round-swapped/context-yoked payoff intervention against Pressure
+liars-dice,information_uptake,partial,muting opponent-history information changes Control advantage in Family B but not Family A
+liars-dice,context_alignment,partial,history dependence is implementation-specific; no separate aligned-vs-yoked context experiment exists
+liars-dice,value_sensitive_intervention,confirmed,Control challenge timing is more accurate in both independent families and contributes to the Control-over-Chaos advantage
+rps,information_uptake,partial,Control candidate exceeds iid-neutral only in one independent family
+rps,context_alignment,unresolved,the frozen RPS protocols do not yet contain an aligned-vs-yoked history intervention
+rps,value_sensitive_intervention,not-applicable,simultaneous one-step RPS lacks the sequential challenge/intervention timing structure used in Poker and Liar's Dice

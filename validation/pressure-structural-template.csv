@@ -1,0 +1,10 @@
+game,stage,status,basis
+poker,commitment_exposure,confirmed,label-free public pressure exposure is positive and discriminant in both frozen policy families
+poker,response_constriction,confirmed,"predicted opponent fold probability is a family-invariant Pressure observable, consistent with constrained opponent response"
+poker,strategic_consequence,confirmed,pressure exposure explains a substantial Pressure-linked surprisal suppression in both families; the stronger Chaos-margin claim remains only partial
+liars-dice,commitment_exposure,confirmed,the prespecified public commitment/escalation score responds strongly to assigned Pressure in both families
+liars-dice,response_constriction,unresolved,the frozen Liar’s Dice protocol does not separately measure whether escalating claims constrict an opponent response set
+liars-dice,strategic_consequence,confirmed,"Pressure commitment signal beats shuffled-label expectation in both families, although Family B fails discriminant recovery because Chaos also drives commitment"
+rps,commitment_exposure,absent-by-design,simultaneous fixed-cost RPS has no escalating commitment channel; the frozen Pressure candidate is exactly zero across all policies
+rps,response_constriction,not-applicable,each RPS round always leaves the opponent the same three actions; no escalating action narrows the legal response set
+rps,strategic_consequence,not-applicable,without a Pressure channel there is no Pressure-specific strategic consequence to test

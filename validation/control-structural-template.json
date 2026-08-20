@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "benchmark": "cross-game-control-structural-template",
+  "template": [
+    "information_uptake",
+    "context_alignment",
+    "value_sensitive_intervention"
+  ],
+  "purpose": "Test a portable structural template for Control without defining or tuning a universal scalar Control score.",
+  "games": {
+    "poker": {
+      "information_uptake": {
+        "status": "confirmed",
+        "family_checks": {
+          "adaptive": true,
+          "score": true
+        },
+        "basis": "public-history signal is positively associated with assigned Control in both synthetic families"
+      },
+      "context_alignment": {
+        "status": "confirmed",
+        "basis": "aligned public history outperforms yoked/context-destroyed history, although effect magnitude is not cross-family invariant"
+      },
+      "value_sensitive_intervention": {
+        "status": "confirmed",
+        "basis": "frozen aligned-vs-round-swapped/context-yoked payoff intervention against Pressure"
+      }
+    },
+    "liars-dice": {
+      "information_uptake": {
+        "status": "partial",
+        "family_checks": {
+          "family-a": false,
+          "family-b": true
+        },
+        "basis": "muting opponent-history information changes Control advantage in Family B but not Family A"
+      },
+      "context_alignment": {
+        "status": "partial",
+        "family_checks": {
+          "family-a": false,
+          "family-b": true
+        },
+        "basis": "history dependence is implementation-specific; no separate aligned-vs-yoked context experiment exists"
+      },
+      "value_sensitive_intervention": {
+        "status": "confirmed",
+        "family_checks": {
+          "family-a": true,
+          "family-b": true
+        },
+        "basis": "Control challenge timing is more accurate in both independent families and contributes to the Control-over-Chaos advantage"
+      }
+    },
+    "rps": {
+      "information_uptake": {
+        "status": "partial",
+        "family_checks": {
+          "A": false,
+          "B": true
+        },
+        "basis": "Control candidate exceeds iid-neutral only in one independent family"
+      },
+      "context_alignment": {
+        "status": "unresolved",
+        "basis": "the frozen RPS protocols do not yet contain an aligned-vs-yoked history intervention"
+      },
+      "value_sensitive_intervention": {
+        "status": "not-applicable",
+        "basis": "simultaneous one-step RPS lacks the sequential challenge/intervention timing structure used in Poker and Liar's Dice"
+      }
+    }
+  },
+  "portable_confirmed_stages": [
+    "value_sensitive_intervention"
+  ],
+  "full_template_confirmed_by_game": {
+    "poker": true,
+    "liars-dice": false,
+    "rps": false
+  },
+  "conclusion": {
+    "single_scalar_control_supported": false,
+    "full_three_stage_template_confirmed_cross_game": false,
+    "status": "partial-structural-support",
+    "basis": "Value-sensitive intervention replicates across Poker and Liar's Dice, while information uptake/context alignment remain implementation-sensitive and RPS lacks the same intervention structure."
+  },
+  "guardrails": [
+    "No source policy, threshold, or frozen result is modified by this benchmark.",
+    "A confirmed stage requires direct evidence in that game; missing evidence remains unresolved.",
+    "Not-applicable denotes a structural mismatch, not a failed Control mechanism.",
+    "This benchmark does not alter the frozen PCC Poker v0.8.0 human measurement contract."
+  ]
+}

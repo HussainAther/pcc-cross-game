@@ -75,3 +75,17 @@ make control-template
 ```
 
 See `docs/CONTROL_STRUCTURAL_TEMPLATE_PROTOCOL.md` and `validation/CONTROL_STRUCTURAL_TEMPLATE.md`.
+
+## Pressure structural template (v0.7.0)
+
+The Pressure benchmark tests a portable structure rather than a universal scalar:
+
+`commitment exposure -> response constriction -> strategic consequence`
+
+Run:
+
+```bash
+make pressure-template
+```
+
+Poker supports all three stages on frozen synthetic evidence. Liar's Dice confirms commitment exposure and strategic consequence but does not yet contain a separate response-constriction test. Repeated RPS is retained as an absent-by-design Pressure negative control. See `docs/PRESSURE_STRUCTURAL_TEMPLATE_PROTOCOL.md` and `validation/PRESSURE_STRUCTURAL_TEMPLATE.md`.
