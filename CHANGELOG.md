@@ -1,3 +1,9 @@
+## 0.4.0
+
+- Add cross-game Control mechanism benchmark over frozen Poker, Liar's Dice, and RPS evidence.
+- Keep missing and structurally unavailable evidence explicit as unresolved/not-applicable.
+- Add frozen Poker counterfactual-Control source artifact to bundled provenance.
+
 # Changelog
 
 ## 0.3.0

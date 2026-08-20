@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "benchmark": "cross-game-control-mechanisms",
+  "purpose": "Compare frozen Control mechanism evidence without defining a new scalar Control score or retuning source experiments.",
+  "games": {
+    "poker": {
+      "history_or_context_use": {
+        "status": "partial",
+        "basis": "aligned-vs-yoked contextual observable is positive/discriminant in both families but not invariant in strength"
+      },
+      "predictive_gain": {
+        "status": "partial",
+        "family_checks": {
+          "adaptive": true,
+          "score": true
+        },
+        "basis": "public-history conditional action likelihood signal"
+      },
+      "counterfactual_value": {
+        "status": "failed",
+        "basis": "frozen counterfactual-control validation"
+      },
+      "timing_or_intervention_sensitivity": {
+        "status": "confirmed",
+        "basis": "round-swapped and context-yoked interventions against Pressure"
+      }
+    },
+    "liars-dice": {
+      "history_or_context_use": {
+        "status": "partial",
+        "family_checks": {
+          "family-a": false,
+          "family-b": true
+        },
+        "basis": "muted opponent-history intervention"
+      },
+      "predictive_gain": {
+        "status": "failed",
+        "family_checks": {
+          "family-a": false,
+          "family-b": false
+        },
+        "basis": "frozen Control construct-recovery observable"
+      },
+      "counterfactual_value": {
+        "status": "unresolved",
+        "basis": "no frozen counterfactual-value experiment"
+      },
+      "timing_or_intervention_sensitivity": {
+        "status": "confirmed",
+        "family_checks": {
+          "family-a": true,
+          "family-b": true
+        },
+        "basis": "challenge-timing accuracy pathway"
+      }
+    },
+    "rps": {
+      "history_or_context_use": {
+        "status": "unresolved",
+        "basis": "v0.1 negative-control protocol did not isolate history use"
+      },
+      "predictive_gain": {
+        "status": "partial",
+        "family_checks": {
+          "A": false,
+          "B": true
+        },
+        "basis": "Control candidate exceeds iid-neutral baseline"
+      },
+      "counterfactual_value": {
+        "status": "unresolved",
+        "basis": "no frozen counterfactual-value experiment"
+      },
+      "timing_or_intervention_sensitivity": {
+        "status": "not-applicable",
+        "basis": "simultaneous RPS actions provide no challenge-timing analogue in v0.1"
+      }
+    }
+  },
+  "portable_confirmed_mechanisms": [
+    "timing_or_intervention_sensitivity"
+  ],
+  "conclusion": {
+    "control_is_single_portable_observable": false,
+    "status": "not-supported",
+    "basis": "No candidate observational Control signal is confirmed across all three environments; intervention/timing evidence is strongest but is not structurally available in RPS."
+  },
+  "guardrails": [
+    "This benchmark is descriptive over frozen synthetic results; it does not rerun or retune source experiments.",
+    "Unmeasured mechanisms remain unresolved rather than being inferred from another game.",
+    "Not-applicable means the game/protocol lacks the relevant structural analogue; it is not a failed Control result.",
+    "Mechanism evidence does not promote any human-facing Control measure in frozen PCC Poker v0.8.0."
+  ]
+}

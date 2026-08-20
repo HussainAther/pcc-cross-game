@@ -47,3 +47,7 @@ make preflight
 ```
 
 No human poker data are bundled or accessed.
+
+## Cross-game Control mechanism benchmark
+
+Version 0.4 adds a descriptive benchmark over frozen source results. It separates history/context use, predictive gain, counterfactual value, and timing/intervention sensitivity rather than creating another scalar Control score. See `docs/CONTROL_MECHANISM_BENCHMARK_PROTOCOL.md` and `validation/CONTROL_MECHANISM_BENCHMARK.md`.

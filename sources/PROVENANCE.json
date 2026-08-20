@@ -33,6 +33,11 @@
       "sha256": "6b1c983952ca22007c9d327d508293277aef79f491b68fc084b3a66ed81f995c"
     },
     {
+      "path": "sources/pcc-poker-v0.8.0/validation/counterfactual-control.json",
+      "bytes": 70103,
+      "sha256": "284226abc734eda1449ff2dfdbdef581a65db8cc29d79cdd1f3df2941840d9e1"
+    },
+    {
       "path": "sources/pcc-poker-v0.8.0/validation/effective-chaos-validation.json",
       "bytes": 3548,
       "sha256": "5543717f081b33e6f5db0fc7c591ea485cc08e87938190b6ab00006ac1c70fc5"

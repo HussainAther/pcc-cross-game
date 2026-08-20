@@ -1,4 +1,4 @@
-.PHONY: install test compare preflight
+.PHONY: install test compare control-benchmark preflight
 
 install:
 	python -m pip install -e ".[dev]"
@@ -13,5 +13,13 @@ compare:
 		--rps-root sources/pcc-rps-v0.1.0 \
 		--output-dir validation
 
-preflight: test compare
+control-benchmark:
+	python -m pcc_cross_game.cli \
+		--poker-root sources/pcc-poker-v0.8.0 \
+		--liars-root sources/pcc-liars-dice-v0.4.0 \
+		--rps-root sources/pcc-rps-v0.1.0 \
+		--output-dir validation \
+		--control-benchmark
+
+preflight: test control-benchmark
 	@echo "Cross-game preflight passed."

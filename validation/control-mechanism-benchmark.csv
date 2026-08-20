@@ -1,0 +1,13 @@
+game,mechanism,status,basis
+poker,history_or_context_use,partial,aligned-vs-yoked contextual observable is positive/discriminant in both families but not invariant in strength
+poker,predictive_gain,partial,public-history conditional action likelihood signal
+poker,counterfactual_value,failed,frozen counterfactual-control validation
+poker,timing_or_intervention_sensitivity,confirmed,round-swapped and context-yoked interventions against Pressure
+liars-dice,history_or_context_use,partial,muted opponent-history intervention
+liars-dice,predictive_gain,failed,frozen Control construct-recovery observable
+liars-dice,counterfactual_value,unresolved,no frozen counterfactual-value experiment
+liars-dice,timing_or_intervention_sensitivity,confirmed,challenge-timing accuracy pathway
+rps,history_or_context_use,unresolved,v0.1 negative-control protocol did not isolate history use
+rps,predictive_gain,partial,Control candidate exceeds iid-neutral baseline
+rps,counterfactual_value,unresolved,no frozen counterfactual-value experiment
+rps,timing_or_intervention_sensitivity,not-applicable,simultaneous RPS actions provide no challenge-timing analogue in v0.1
