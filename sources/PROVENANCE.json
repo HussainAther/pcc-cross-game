@@ -1,14 +1,19 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "note": "Exact frozen validation summaries copied from the named source release snapshots solely to reproduce the cross-game matrix. No human data are included.",
   "files": [
     {
-      "path": "sources/pcc-liars-dice-v0.3.0/validation/balance.json",
+      "path": "sources/pcc-liars-dice-v0.4.0/validation/balance.json",
       "bytes": 3272,
       "sha256": "ec430fdd5bd356626d54a6e93b047d22acbedd63364d587aae6b9a3318d432a3"
     },
     {
-      "path": "sources/pcc-liars-dice-v0.3.0/validation/control-chaos-mechanism.json",
+      "path": "sources/pcc-liars-dice-v0.4.0/validation/construct-recovery.json",
+      "bytes": 79453,
+      "sha256": "132ebe669329c8edc0870e2bb75923373a942a0857c597453ca9a07752206ec5"
+    },
+    {
+      "path": "sources/pcc-liars-dice-v0.4.0/validation/control-chaos-mechanism.json",
       "bytes": 24841,
       "sha256": "b4ae5f88f8a2035b69ed623823c382621d82a032f28d5b37d8ceb73a0bc06ad8"
     },

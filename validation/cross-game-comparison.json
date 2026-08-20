@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "purpose": "Cross-game comparison of frozen synthetic evidence without assuming identical PCC topology or measurement validity across games.",
   "games": [
     {
@@ -198,8 +198,8 @@
     },
     {
       "game": "liars-dice",
-      "source_version": "0.3.0 control-chaos mechanism",
-      "source_root": "sources/pcc-liars-dice-v0.3.0",
+      "source_version": "0.4.0 construct recovery",
+      "source_root": "sources/pcc-liars-dice-v0.4.0",
       "balance": {
         "status": "failed",
         "criterion": "all pairwise matchups competitive in two independent policy families",
@@ -208,19 +208,144 @@
       },
       "axis_evidence": {
         "pressure": {
-          "status": "unresolved",
-          "selected_components": [],
-          "basis": "construct-recovery has not yet been run; v0.3 is mechanism/balance evidence only"
+          "status": "partial",
+          "selected_components": [
+            "public commitment/escalation score"
+          ],
+          "basis": "passed the preregistered recovery checks in one of two independent families",
+          "family_pass": {
+            "family-a": true,
+            "family-b": false
+          },
+          "effects": {
+            "family-a": {
+              "standardized_effect_by_assigned_axis": {
+                "pressure": 1.6716474633191993,
+                "control": -0.05385134882073864,
+                "chaos": 1.0241480249914225
+              },
+              "matching_effect": 1.6716474633191993,
+              "largest_absolute_cross_effect": 1.0241480249914225,
+              "discriminant_margin": 0.6474994383277768,
+              "shuffled_matching_effect_95th_percentile": 0.46582844320579714
+            },
+            "family-b": {
+              "standardized_effect_by_assigned_axis": {
+                "pressure": 0.5968985700284882,
+                "control": 1.3478576248588818,
+                "chaos": 1.2751552262230321
+              },
+              "matching_effect": 0.5968985700284882,
+              "largest_absolute_cross_effect": 1.3478576248588818,
+              "discriminant_margin": -0.7509590548303936,
+              "shuffled_matching_effect_95th_percentile": 0.37313806143238076
+            }
+          }
         },
         "control": {
-          "status": "unresolved",
-          "selected_components": [],
-          "basis": "construct-recovery has not yet been run; v0.3 is mechanism/balance evidence only"
+          "status": "failed",
+          "selected_components": [
+            "conditional mutual information between public opponent-profile regime and action, controlling for current-bid truth-probability bin"
+          ],
+          "basis": "failed the preregistered recovery checks in both independent families",
+          "family_pass": {
+            "family-a": false,
+            "family-b": false
+          },
+          "effects": {
+            "family-a": {
+              "standardized_effect_by_assigned_axis": {
+                "pressure": -0.6398987431858659,
+                "control": -0.21495728422929516,
+                "chaos": 0.6612783000287232
+              },
+              "matching_effect": -0.21495728422929516,
+              "largest_absolute_cross_effect": 0.6612783000287232,
+              "discriminant_margin": -0.8762355842580184,
+              "shuffled_matching_effect_95th_percentile": 0.3549643374027341
+            },
+            "family-b": {
+              "standardized_effect_by_assigned_axis": {
+                "pressure": 0.01514743084754812,
+                "control": 0.4495010578579317,
+                "chaos": 0.13619241468575036
+              },
+              "matching_effect": 0.4495010578579317,
+              "largest_absolute_cross_effect": 0.13619241468575036,
+              "discriminant_margin": 0.3133086431721813,
+              "shuffled_matching_effect_95th_percentile": 0.35476845871006646
+            }
+          }
         },
         "chaos": {
-          "status": "unresolved",
-          "selected_components": [],
-          "basis": "construct-recovery has not yet been run; v0.3 is mechanism/balance evidence only"
+          "status": "confirmed",
+          "selected_components": [
+            "public-state-conditioned action entropy multiplied by an independent aggregate performance-adequacy floor"
+          ],
+          "basis": "passed the preregistered recovery checks in both independent families",
+          "family_pass": {
+            "family-a": true,
+            "family-b": true
+          },
+          "effects": {
+            "family-a": {
+              "standardized_effect_by_assigned_axis": {
+                "pressure": 0.19228888421967627,
+                "control": 0.21014497526589399,
+                "chaos": 0.689652577033371
+              },
+              "matching_effect": 0.689652577033371,
+              "largest_absolute_cross_effect": 0.21014497526589399,
+              "discriminant_margin": 0.47950760176747703,
+              "shuffled_matching_effect_95th_percentile": 0.3849424585243173
+            },
+            "family-b": {
+              "standardized_effect_by_assigned_axis": {
+                "pressure": 1.0985086159172652,
+                "control": 0.6716818015063217,
+                "chaos": 1.3396726000734926
+              },
+              "matching_effect": 1.3396726000734926,
+              "largest_absolute_cross_effect": 1.0985086159172652,
+              "discriminant_margin": 0.24116398415622742,
+              "shuffled_matching_effect_95th_percentile": 0.4577997840777767
+            }
+          }
+        }
+      },
+      "construct_recovery": {
+        "all_axes_confirmed": false,
+        "cross_family_axis_status": {
+          "pressure": false,
+          "control": false,
+          "chaos": true
+        },
+        "thresholds": {
+          "minimum_matching_standardized_effect": 0.5,
+          "minimum_discriminant_margin": 0.2,
+          "matching_effect_must_exceed_shuffled_95th_percentile": true
+        },
+        "design": {
+          "experiment": "liars-dice-factorial-construct-recovery",
+          "families": [
+            "family-a",
+            "family-b"
+          ],
+          "replicates": 8,
+          "rounds_per_order": 250,
+          "base_seed": 44001,
+          "seed_stride": 10000,
+          "fresh_relative_to_balance_and_mechanism_seeds": true,
+          "factorial_weights": {
+            "low": 0.1,
+            "high": 0.3
+          },
+          "neutral_baseline_gets_remainder": true,
+          "opener_alternates": true,
+          "seat_order_balanced": true,
+          "policies_modified": false,
+          "hidden_weights_used_for_scoring": false,
+          "shuffle_repetitions": 100
         }
       },
       "mechanisms": [
@@ -276,8 +401,8 @@
         }
       },
       "negative_controls": {
-        "status": "planned",
-        "note": "No construct-recovery negative-control panel has been frozen yet."
+        "status": "present",
+        "note": "The frozen construct-recovery experiment includes shuffled-label 95th-percentile falsification checks."
       }
     }
   ],
@@ -293,20 +418,31 @@
       "basis": "Poker contextual Control strength is not family-invariant; Liar's Dice history dependence appears in one policy family but not the other."
     },
     {
-      "finding": "Pressure has cross-family observational support only in poker so far",
+      "finding": "construct recoverability is game-dependent",
       "status": "supported",
-      "basis": "Poker selected two invariant Pressure components; Liar's Dice has not yet run construct recovery."
+      "basis": "Poker's conservative invariant panel supports Pressure but not Control/Chaos, while Liar's Dice cross-family recovery confirms Chaos, only partially recovers Pressure, and fails Control."
     },
     {
-      "finding": "Chaos measurement is not yet cross-game validated",
+      "finding": "Pressure evidence is currently stronger in poker",
       "status": "supported",
-      "basis": "Poker effective-Chaos construct gate failed and Liar's Dice has only mechanism diagnostics, not construct recovery."
+      "basis": "Poker has two cross-family invariant Pressure components; Liar's Dice Pressure passes recovery in only one of two independent families."
+    },
+    {
+      "finding": "Chaos evidence is currently stronger in Liar's Dice",
+      "status": "supported",
+      "basis": "Liar's Dice Chaos passes all preregistered recovery checks in both families, while Poker's frozen effective-Chaos construct gate failed."
+    },
+    {
+      "finding": "Control remains the hardest invariant observational axis",
+      "status": "supported",
+      "basis": "Poker has mechanism evidence but no family-invariant Control observable; Liar's Dice Control fails preregistered recovery in both families."
     }
   ],
   "guardrails": [
     "Do not infer human psychological states from synthetic-agent labels.",
     "Do not require a rock-paper-scissors cycle outside the game-specific protocol that defined it.",
     "Mechanism confirmation and observational construct recovery are distinct evidence classes.",
-    "Missing evidence is reported as unresolved, not imputed from another game."
+    "A cross-family confirmation in one game does not automatically transfer to another game.",
+    "Missing or failed evidence is reported directly, not imputed or repaired from another game."
   ]
 }

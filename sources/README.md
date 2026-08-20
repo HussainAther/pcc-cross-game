@@ -1,10 +1,8 @@
-# Bundled frozen evidence summaries
+# Bundled frozen source summaries
 
-This directory contains only the frozen **synthetic validation JSON summaries** needed to reproduce the default cross-game comparison.
+This directory contains only the small synthetic validation JSON artifacts required to reproduce the cross-game comparison.
 
-- `pcc-poker-v0.8.0/`: copied from the tagged/frozen poker evidence snapshot.
-- `pcc-liars-dice-v0.3.0/`: copied from the v0.3 Liar's Dice mechanism snapshot.
+- `pcc-poker-v0.8.0/` is the frozen pre-human PCC Poker evidence boundary.
+- `pcc-liars-dice-v0.4.0/` contains the frozen balance, Control-Chaos mechanism, and factorial construct-recovery results.
 
-No poker hand histories, human records, raw gameplay datasets, or personally identifying data are included.
-
-`PROVENANCE.json` records SHA-256 values for every bundled source summary. These snapshots are inputs; the comparison code must not modify them.
+`PROVENANCE.json` records byte counts and SHA-256 hashes for every bundled source artifact. No HandHQ records, player data, or other human poker data are included.

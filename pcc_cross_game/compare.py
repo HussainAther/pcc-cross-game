@@ -3,7 +3,6 @@ from __future__ import annotations
 import csv
 import io
 import json
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -56,8 +55,6 @@ def poker_summary(root: str | Path) -> dict[str, Any]:
             "research_status_claims": _status_claims(status, axis),
         }
 
-    # Preserve the important nuance: mechanism evidence does not promote the
-    # observational Control axis to confirmed.
     axis_evidence["control"]["mechanism_evidence"] = {
         "control_pressure_mechanism_confirmed": bool(mechanism.get("control_pressure_mechanism_confirmed")),
         "contextual_control_observable_confirmed": bool(contextual.get("contextual_control_observable_confirmed", False)),
@@ -102,10 +99,23 @@ def poker_summary(root: str | Path) -> dict[str, Any]:
     }
 
 
+def _axis_recovery_status(construct: dict[str, Any], axis: str) -> tuple[str, dict[str, bool]]:
+    family_pass = {}
+    for family, data in construct.get("families", {}).items():
+        checks = data.get("axis_checks", {}).get(axis, {})
+        family_pass[family] = bool(checks) and all(bool(v) for v in checks.values())
+    if family_pass and all(family_pass.values()):
+        return "confirmed", family_pass
+    if any(family_pass.values()):
+        return "partial", family_pass
+    return "failed", family_pass
+
+
 def liars_dice_summary(root: str | Path) -> dict[str, Any]:
     root = Path(root)
     balance = _require(root, "validation/balance.json")
     mechanism = _require(root, "validation/control-chaos-mechanism.json")
+    construct = _require(root, "validation/construct-recovery.json")
 
     pathways: dict[str, list[bool]] = {}
     family_summaries: dict[str, Any] = {}
@@ -117,9 +127,30 @@ def liars_dice_summary(root: str | Path) -> dict[str, Any]:
     replicated = sorted(name for name, vals in pathways.items() if vals and all(vals))
     family_specific = sorted(name for name, vals in pathways.items() if vals and any(vals) and not all(vals))
 
+    axis_evidence: dict[str, Any] = {}
+    for axis in AXES:
+        state, family_pass = _axis_recovery_status(construct, axis)
+        effects = {
+            family: data.get("effects", {}).get(axis, {})
+            for family, data in construct.get("families", {}).items()
+        }
+        axis_evidence[axis] = {
+            "status": state,
+            "selected_components": [construct.get("candidate_observables", {}).get(axis, axis)],
+            "basis": (
+                "passed the preregistered recovery checks in both independent families"
+                if state == "confirmed"
+                else "passed the preregistered recovery checks in one of two independent families"
+                if state == "partial"
+                else "failed the preregistered recovery checks in both independent families"
+            ),
+            "family_pass": family_pass,
+            "effects": effects,
+        }
+
     return {
         "game": "liars-dice",
-        "source_version": "0.3.0 control-chaos mechanism",
+        "source_version": "0.4.0 construct recovery",
         "source_root": str(root),
         "balance": {
             "status": "confirmed" if balance.get("balance_confirmed") else "failed",
@@ -127,13 +158,12 @@ def liars_dice_summary(root: str | Path) -> dict[str, Any]:
             "cycle_required": False,
             "failure_pattern": "Control over Chaos exceeded the frozen competitiveness bound in both families" if not balance.get("balance_confirmed") else None,
         },
-        "axis_evidence": {
-            axis: {
-                "status": "unresolved",
-                "selected_components": [],
-                "basis": "construct-recovery has not yet been run; v0.3 is mechanism/balance evidence only",
-            }
-            for axis in AXES
+        "axis_evidence": axis_evidence,
+        "construct_recovery": {
+            "all_axes_confirmed": bool(construct.get("liars_dice_construct_recovery_confirmed")),
+            "cross_family_axis_status": construct.get("cross_family_axis_status", {}),
+            "thresholds": construct.get("prespecified_thresholds", {}),
+            "design": construct.get("design", {}),
         },
         "mechanisms": [
             {
@@ -158,8 +188,8 @@ def liars_dice_summary(root: str | Path) -> dict[str, Any]:
             "family_summaries": family_summaries,
         },
         "negative_controls": {
-            "status": "planned",
-            "note": "No construct-recovery negative-control panel has been frozen yet.",
+            "status": "present",
+            "note": "The frozen construct-recovery experiment includes shuffled-label 95th-percentile falsification checks.",
         },
     }
 
@@ -168,7 +198,7 @@ def build_comparison(poker_root: str | Path, liars_root: str | Path) -> dict[str
     poker = poker_summary(poker_root)
     liars = liars_dice_summary(liars_root)
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "purpose": "Cross-game comparison of frozen synthetic evidence without assuming identical PCC topology or measurement validity across games.",
         "games": [poker, liars],
         "cross_game_findings": [
@@ -183,21 +213,32 @@ def build_comparison(poker_root: str | Path, liars_root: str | Path) -> dict[str
                 "basis": "Poker contextual Control strength is not family-invariant; Liar's Dice history dependence appears in one policy family but not the other.",
             },
             {
-                "finding": "Pressure has cross-family observational support only in poker so far",
+                "finding": "construct recoverability is game-dependent",
                 "status": "supported",
-                "basis": "Poker selected two invariant Pressure components; Liar's Dice has not yet run construct recovery.",
+                "basis": "Poker's conservative invariant panel supports Pressure but not Control/Chaos, while Liar's Dice cross-family recovery confirms Chaos, only partially recovers Pressure, and fails Control.",
             },
             {
-                "finding": "Chaos measurement is not yet cross-game validated",
+                "finding": "Pressure evidence is currently stronger in poker",
                 "status": "supported",
-                "basis": "Poker effective-Chaos construct gate failed and Liar's Dice has only mechanism diagnostics, not construct recovery.",
+                "basis": "Poker has two cross-family invariant Pressure components; Liar's Dice Pressure passes recovery in only one of two independent families.",
+            },
+            {
+                "finding": "Chaos evidence is currently stronger in Liar's Dice",
+                "status": "supported",
+                "basis": "Liar's Dice Chaos passes all preregistered recovery checks in both families, while Poker's frozen effective-Chaos construct gate failed.",
+            },
+            {
+                "finding": "Control remains the hardest invariant observational axis",
+                "status": "supported",
+                "basis": "Poker has mechanism evidence but no family-invariant Control observable; Liar's Dice Control fails preregistered recovery in both families.",
             },
         ],
         "guardrails": [
             "Do not infer human psychological states from synthetic-agent labels.",
             "Do not require a rock-paper-scissors cycle outside the game-specific protocol that defined it.",
             "Mechanism confirmation and observational construct recovery are distinct evidence classes.",
-            "Missing evidence is reported as unresolved, not imputed from another game.",
+            "A cross-family confirmation in one game does not automatically transfer to another game.",
+            "Missing or failed evidence is reported directly, not imputed or repaired from another game.",
         ],
     }
 
