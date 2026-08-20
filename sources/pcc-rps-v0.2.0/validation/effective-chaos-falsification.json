@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "status": "frozen_effective_chaos_falsification",
+  "design": {
+    "rounds": 2400,
+    "replicates": 32,
+    "seed": 121001,
+    "seed_stride": 137,
+    "minimum_construct_advantage": 0.02,
+    "definition_frozen_before_evaluation": true,
+    "metric": "first-order conditional entropy multiplied by one minus positive exploitability under fixed-marginal and online first-order best-response probes"
+  },
+  "families": {
+    "A": {
+      "neutral": {
+        "marginal_entropy": 0.9996347781130407,
+        "conditional_entropy": 0.9990429085069635,
+        "marginal_exploitability": 0.017096354166666668,
+        "sequential_exploitability": -0.005640180067001675,
+        "performance_adequacy": 0.982771343697655,
+        "effective_unpredictability": 0.9818352627244485
+      },
+      "chaos": {
+        "marginal_entropy": 0.9998401588011161,
+        "conditional_entropy": 0.9181918310296131,
+        "marginal_exploitability": 0.0117578125,
+        "sequential_exploitability": 0.134723094639866,
+        "performance_adequacy": 0.865276905360134,
+        "effective_unpredictability": 0.7946270587263388
+      },
+      "raw_entropy_difference_chaos_minus_neutral": 0.00020538068807540721,
+      "effective_difference_chaos_minus_neutral": -0.18720820399810978,
+      "checks": {
+        "neutral_is_nearly_uniform": true,
+        "neutral_is_low_exploitability": true,
+        "effective_score_penalizes_exploitable_structure": true
+      },
+      "falsification_checks_passed": true,
+      "engineered_chaos_exceeds_neutral": false
+    },
+    "B": {
+      "neutral": {
+        "marginal_entropy": 0.9996347781130407,
+        "conditional_entropy": 0.9990429085069635,
+        "marginal_exploitability": 0.017096354166666668,
+        "sequential_exploitability": -0.005640180067001675,
+        "performance_adequacy": 0.982771343697655,
+        "effective_unpredictability": 0.9818352627244485
+      },
+      "chaos": {
+        "marginal_entropy": 0.9999617834546964,
+        "conditional_entropy": 0.41000252247072033,
+        "marginal_exploitability": 0.004921875,
+        "sequential_exploitability": 0.8196451005025126,
+        "performance_adequacy": 0.18035489949748745,
+        "effective_unpredictability": 0.07411281776154206
+      },
+      "raw_entropy_difference_chaos_minus_neutral": 0.00032700534165575057,
+      "effective_difference_chaos_minus_neutral": -0.9077224449629064,
+      "checks": {
+        "neutral_is_nearly_uniform": true,
+        "neutral_is_low_exploitability": true,
+        "effective_score_penalizes_exploitable_structure": true
+      },
+      "falsification_checks_passed": true,
+      "engineered_chaos_exceeds_neutral": false
+    }
+  },
+  "entropy_only_measure_rejected": true,
+  "effective_unpredictability_falsification_passed": true,
+  "engineered_chaos_construct_recovered": false,
+  "identifiability_result": "Action-only RPS data cannot certify latent strategic intent when iid-uniform play is already maximally mixed, value-preserving, and minimally exploitable. Effective unpredictability is therefore treated as a behavioral property, not a direct latent-Chaos label."
+}

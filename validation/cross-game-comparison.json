@@ -407,8 +407,8 @@
     },
     {
       "game": "rps",
-      "source_version": "0.1.0 negative control",
-      "source_root": "sources/pcc-rps-v0.1.0",
+      "source_version": "0.2.0 negative control + effective-Chaos falsification",
+      "source_root": "sources/pcc-rps-v0.2.0",
       "balance": {
         "status": "not-applicable",
         "criterion": "Repeated RPS is used as a two-axis Control/Chaos negative-control laboratory; no Pressure topology is defined.",

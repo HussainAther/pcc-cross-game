@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "benchmark": "cross-game-chaos-measurement",
+  "purpose": "Test which Chaos-measurement requirements survive across frozen games without retuning a game-specific scalar score.",
+  "games": {
+    "poker": {
+      "raw_unpredictability_signal": {
+        "status": "partial",
+        "basis": "effective surprisal is positively Chaos-related in both families but fails the frozen off-axis discriminant criterion"
+      },
+      "value_or_performance_guardrail": {
+        "status": "confirmed",
+        "basis": "independent value floor is noninferior in both families and improves the discriminant margin in at least one family"
+      },
+      "exploitability_or_plausibility_guardrail": {
+        "status": "unresolved",
+        "basis": "the frozen poker study uses an independent value floor, not an explicit exploitability probe"
+      },
+      "cross_family_construct_recovery": {
+        "status": "failed",
+        "basis": "frozen effective-Chaos construct criterion is not confirmed across both poker policy families"
+      },
+      "latent_intent_identifiability": {
+        "status": "unresolved",
+        "basis": "the poker protocol validates behavioral constructs and does not claim latent strategic intent is identifiable from actions alone"
+      }
+    },
+    "liars-dice": {
+      "raw_unpredictability_signal": {
+        "status": "confirmed",
+        "basis": "public-state-conditioned Chaos candidate passes all preregistered recovery checks in both independent families"
+      },
+      "value_or_performance_guardrail": {
+        "status": "confirmed",
+        "basis": "Chaos candidate includes an independent aggregate performance-adequacy floor and recovers cross-family"
+      },
+      "exploitability_or_plausibility_guardrail": {
+        "status": "warning-confirmed",
+        "basis": "engineered Chaos has lower bid truth-plausibility in both families, showing a replicated value/plausibility cost that the measurement must guard against"
+      },
+      "cross_family_construct_recovery": {
+        "status": "confirmed",
+        "basis": "frozen factorial construct-recovery experiment confirms the Chaos axis in both families"
+      },
+      "latent_intent_identifiability": {
+        "status": "unresolved",
+        "basis": "behavioral recovery does not establish that the same observed pattern uniquely identifies latent strategic intent"
+      }
+    },
+    "rps": {
+      "raw_unpredictability_signal": {
+        "status": "failed",
+        "basis": "marginal entropy is approximately maximal for both iid-neutral and engineered Chaos and is therefore non-discriminating"
+      },
+      "value_or_performance_guardrail": {
+        "status": "confirmed",
+        "basis": "conditional entropy weighted by resistance to exploitation passes all frozen falsification checks in both families"
+      },
+      "exploitability_or_plausibility_guardrail": {
+        "status": "confirmed",
+        "basis": "fixed-marginal and online first-order exploiters penalize temporally predictable Chaos policies while leaving iid-neutral nearly unexploitable"
+      },
+      "cross_family_construct_recovery": {
+        "status": "failed",
+        "basis": "engineered Chaos does not exceed iid-neutral effective unpredictability in either family"
+      },
+      "latent_intent_identifiability": {
+        "status": "not-identifiable",
+        "basis": "iid-uniform RPS is already maximally mixed, value-preserving, and minimally exploitable, so action-only data cannot distinguish strategic mixing intent from equivalent randomness"
+      }
+    }
+  },
+  "portable_requirements": {
+    "high_randomness_alone_is_sufficient": false,
+    "effective_unpredictability_times_adequacy_template_supported": true,
+    "value_or_performance_guardrail_required": true,
+    "single_scalar_chaos_measure_confirmed_across_all_games": false,
+    "latent_strategic_intent_identifiable_from_actions_alone": false
+  },
+  "conclusion": {
+    "status": "partial-generalization",
+    "basis": "Across poker, Liar's Dice, and RPS, the portable structure is effective unpredictability = game-appropriate unpredictability \u00d7 independent adequacy. The exact scalar ingredients are not portable, and RPS exposes a fundamental action-only identifiability limit."
+  },
+  "guardrails": [
+    "No source experiment is rerun or retuned by this benchmark.",
+    "A confirmed guardrail is not the same as confirmed latent Chaos construct recovery.",
+    "RPS iid-neutral is treated as a legitimate behavioral counterexample, not relabeled after seeing the result.",
+    "The frozen PCC Poker v0.8.0 human-facing measurement contract is unchanged."
+  ]
+}

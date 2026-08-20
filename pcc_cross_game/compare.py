@@ -217,7 +217,7 @@ def rps_summary(root: str | Path) -> dict[str, Any]:
     }
     return {
         "game": "rps",
-        "source_version": "0.1.0 negative control",
+        "source_version": "0.2.0 negative control + effective-Chaos falsification",
         "source_root": str(root),
         "balance": {
             "status": "not-applicable",

@@ -51,3 +51,13 @@ No human poker data are bundled or accessed.
 ## Cross-game Control mechanism benchmark
 
 Version 0.4 adds a descriptive benchmark over frozen source results. It separates history/context use, predictive gain, counterfactual value, and timing/intervention sensitivity rather than creating another scalar Control score. See `docs/CONTROL_MECHANISM_BENCHMARK_PROTOCOL.md` and `validation/CONTROL_MECHANISM_BENCHMARK.md`.
+
+## Chaos measurement benchmark (v0.5.0)
+
+The cross-game Chaos benchmark uses repeated RPS as a strict falsification laboratory. RPS v0.2 shows that iid-neutral play can be maximally mixed, value-preserving, and minimally exploitable, while structured engineered Chaos can be more exploitable despite equally high marginal entropy.
+
+```bash
+make chaos-benchmark
+```
+
+The cross-game conclusion is deliberately narrower than a universal Chaos score: **unpredictability needs an independent value/performance or exploitability guardrail**, but the exact scalar is not yet portable across Poker, Liar's Dice, and RPS. See `docs/CHAOS_MEASUREMENT_BENCHMARK_PROTOCOL.md`.

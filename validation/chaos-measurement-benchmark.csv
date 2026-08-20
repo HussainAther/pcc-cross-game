@@ -1,0 +1,16 @@
+game,measurement_requirement,status,basis
+poker,raw_unpredictability_signal,partial,effective surprisal is positively Chaos-related in both families but fails the frozen off-axis discriminant criterion
+poker,value_or_performance_guardrail,confirmed,independent value floor is noninferior in both families and improves the discriminant margin in at least one family
+poker,exploitability_or_plausibility_guardrail,unresolved,"the frozen poker study uses an independent value floor, not an explicit exploitability probe"
+poker,cross_family_construct_recovery,failed,frozen effective-Chaos construct criterion is not confirmed across both poker policy families
+poker,latent_intent_identifiability,unresolved,the poker protocol validates behavioral constructs and does not claim latent strategic intent is identifiable from actions alone
+liars-dice,raw_unpredictability_signal,confirmed,public-state-conditioned Chaos candidate passes all preregistered recovery checks in both independent families
+liars-dice,value_or_performance_guardrail,confirmed,Chaos candidate includes an independent aggregate performance-adequacy floor and recovers cross-family
+liars-dice,exploitability_or_plausibility_guardrail,warning-confirmed,"engineered Chaos has lower bid truth-plausibility in both families, showing a replicated value/plausibility cost that the measurement must guard against"
+liars-dice,cross_family_construct_recovery,confirmed,frozen factorial construct-recovery experiment confirms the Chaos axis in both families
+liars-dice,latent_intent_identifiability,unresolved,behavioral recovery does not establish that the same observed pattern uniquely identifies latent strategic intent
+rps,raw_unpredictability_signal,failed,marginal entropy is approximately maximal for both iid-neutral and engineered Chaos and is therefore non-discriminating
+rps,value_or_performance_guardrail,confirmed,conditional entropy weighted by resistance to exploitation passes all frozen falsification checks in both families
+rps,exploitability_or_plausibility_guardrail,confirmed,fixed-marginal and online first-order exploiters penalize temporally predictable Chaos policies while leaving iid-neutral nearly unexploitable
+rps,cross_family_construct_recovery,failed,engineered Chaos does not exceed iid-neutral effective unpredictability in either family
+rps,latent_intent_identifiability,not-identifiable,"iid-uniform RPS is already maximally mixed, value-preserving, and minimally exploitable, so action-only data cannot distinguish strategic mixing intent from equivalent randomness"

@@ -1,6 +1,6 @@
 {
-  "schema_version": 3,
-  "note": "Exact frozen validation summaries copied from the named source release snapshots solely to reproduce the cross-game matrix. No human data are included.",
+  "schema_version": 4,
+  "note": "Exact frozen validation summaries copied from named source release snapshots solely to reproduce cross-game comparisons. No human data are included.",
   "files": [
     {
       "path": "sources/pcc-liars-dice-v0.4.0/validation/balance.json",
@@ -53,7 +53,12 @@
       "sha256": "1d428079f5dee394f61416f564b87295d39d255f5f13216324e3afe8bd25d1df"
     },
     {
-      "path": "sources/pcc-rps-v0.1.0/validation/negative-control.json",
+      "path": "sources/pcc-rps-v0.2.0/validation/effective-chaos-falsification.json",
+      "bytes": 3155,
+      "sha256": "ced2cc669349b50d123df879459aadf6ed7693a82dc8c117b9ae477a031433cb"
+    },
+    {
+      "path": "sources/pcc-rps-v0.2.0/validation/negative-control.json",
       "bytes": 1926,
       "sha256": "1fd346bd30255d9595aa93bb11a8cbb05f9425b96b46e592e6d89c383015b4e4"
     }

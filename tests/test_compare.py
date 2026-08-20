@@ -4,7 +4,7 @@ from pcc_cross_game.compare import build_comparison, render_markdown, render_csv
 ROOT = Path(__file__).resolve().parents[1]
 POKER = ROOT / "sources" / "pcc-poker-v0.8.0"
 LIARS = ROOT / "sources" / "pcc-liars-dice-v0.4.0"
-RPS = ROOT / "sources" / "pcc-rps-v0.1.0"
+RPS = ROOT / "sources" / "pcc-rps-v0.2.0"
 
 
 def current_report():
@@ -75,7 +75,7 @@ def test_renderers_include_all_three_games_and_absent_axis():
 def test_bundled_source_provenance_hashes_match():
     import hashlib, json
     provenance = json.loads((ROOT / "sources" / "PROVENANCE.json").read_text())
-    assert provenance["schema_version"] == 3
+    assert provenance["schema_version"] == 4
     for entry in provenance["files"]:
         path = ROOT / entry["path"]
         assert path.is_file()

@@ -30,3 +30,10 @@
 - Add common balance, construct, mechanism, and negative-control schema.
 - Preserve game-specific balance criteria instead of requiring a universal cycle.
 - Generate JSON, CSV, and Markdown cross-game evidence matrices.
+
+## 0.5.0
+
+- Added RPS v0.2 effective-Chaos falsification evidence.
+- Added a cross-game Chaos measurement benchmark.
+- Separated raw unpredictability, value/performance guards, exploitability/plausibility guards, construct recovery, and latent-intent identifiability.
+- Formalized the cross-game result that randomness alone is insufficient and that no single scalar Chaos measure is yet confirmed across all games.
