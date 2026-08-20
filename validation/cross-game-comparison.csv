@@ -13,3 +13,10 @@ liars-dice,chaos,confirmed,passed the preregistered recovery checks in both inde
 liars-dice,mechanism:Control-vs-Chaos challenge timing,confirmed,replicated across both independent Liar's Dice policy families
 liars-dice,mechanism:Chaos bid-plausibility cost,confirmed,replicated across both independent Liar's Dice policy families
 liars-dice,mechanism:history dependence,partial,family-specific rather than universal
+rps,balance,not-applicable,Repeated RPS is used as a two-axis Control/Chaos negative-control laboratory; no Pressure topology is defined.
+rps,pressure,absent-by-design,"Pressure is excluded by the environment design and remains exactly zero across neutral, Control-like, and Chaos-like policies in both families."
+rps,control,failed,The provisional Control observable exceeds neutral in only one of two independently coded families.
+rps,chaos,failed,The provisional entropy-style Chaos observable fails because iid-uniform neutral RPS is already maximally unpredictable.
+rps,mechanism:Pressure absence negative control,confirmed,Pressure candidate remains exactly zero in both independently coded families.
+rps,mechanism:Control observable recovery,partial,two-family repeated-RPS recovery test
+rps,mechanism:entropy-style Chaos recovery,failed,negative result: entropy alone does not distinguish strategic unpredictability from iid-uniform randomness

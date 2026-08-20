@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "design": {
+    "rounds": 1200,
+    "replicates": 24,
+    "seed": 91001,
+    "pressure_present_by_design": false
+  },
+  "families": {
+    "A": {
+      "neutral": {
+        "pressure_candidate": 0.0,
+        "control_candidate": -0.018904642757853765,
+        "chaos_candidate": 0.9732768330357556
+      },
+      "control": {
+        "pressure_candidate": 0.0,
+        "control_candidate": -0.056748679455101474,
+        "chaos_candidate": 0.9332419926417052
+      },
+      "chaos": {
+        "pressure_candidate": 0.0,
+        "control_candidate": -0.010807617458993606,
+        "chaos_candidate": 0.8825772120234168
+      },
+      "checks": {
+        "pressure_absent_neutral": true,
+        "pressure_absent_control": true,
+        "pressure_absent_chaos": true,
+        "control_signal_exceeds_neutral": false,
+        "chaos_signal_exceeds_neutral": false
+      },
+      "passed": false
+    },
+    "B": {
+      "neutral": {
+        "pressure_candidate": 0.0,
+        "control_candidate": -0.018904642757853765,
+        "chaos_candidate": 0.9732768330357556
+      },
+      "control": {
+        "pressure_candidate": 0.0,
+        "control_candidate": 0.15728384765082012,
+        "chaos_candidate": 0.9976503550831612
+      },
+      "chaos": {
+        "pressure_candidate": 0.0,
+        "control_candidate": -0.008687795385043091,
+        "chaos_candidate": 0.7987316293220404
+      },
+      "checks": {
+        "pressure_absent_neutral": true,
+        "pressure_absent_control": true,
+        "pressure_absent_chaos": true,
+        "control_signal_exceeds_neutral": true,
+        "chaos_signal_exceeds_neutral": false
+      },
+      "passed": false
+    }
+  },
+  "negative_control_confirmed": false,
+  "interpretation": "Repeated RPS is used as a two-axis Control/Chaos laboratory and a negative control for Pressure. It is not evidence that PCC is universally three-dimensional in every game."
+}

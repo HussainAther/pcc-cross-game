@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "note": "Exact frozen validation summaries copied from the named source release snapshots solely to reproduce the cross-game matrix. No human data are included.",
   "files": [
     {
@@ -46,6 +46,11 @@
       "path": "sources/pcc-poker-v0.8.0/validation/research-status.json",
       "bytes": 7028,
       "sha256": "1d428079f5dee394f61416f564b87295d39d255f5f13216324e3afe8bd25d1df"
+    },
+    {
+      "path": "sources/pcc-rps-v0.1.0/validation/negative-control.json",
+      "bytes": 1926,
+      "sha256": "1fd346bd30255d9595aa93bb11a8cbb05f9425b96b46e592e6d89c383015b4e4"
     }
   ]
 }

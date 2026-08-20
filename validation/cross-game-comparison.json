@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "purpose": "Cross-game comparison of frozen synthetic evidence without assuming identical PCC topology or measurement validity across games.",
   "games": [
     {
@@ -404,6 +404,76 @@
         "status": "present",
         "note": "The frozen construct-recovery experiment includes shuffled-label 95th-percentile falsification checks."
       }
+    },
+    {
+      "game": "rps",
+      "source_version": "0.1.0 negative control",
+      "source_root": "sources/pcc-rps-v0.1.0",
+      "balance": {
+        "status": "not-applicable",
+        "criterion": "Repeated RPS is used as a two-axis Control/Chaos negative-control laboratory; no Pressure topology is defined.",
+        "cycle_required": false
+      },
+      "axis_evidence": {
+        "pressure": {
+          "status": "absent-by-design",
+          "selected_components": [
+            "pressure_candidate == 0"
+          ],
+          "basis": "Pressure is excluded by the environment design and remains exactly zero across neutral, Control-like, and Chaos-like policies in both families.",
+          "family_pass": {
+            "A": true,
+            "B": true
+          }
+        },
+        "control": {
+          "status": "failed",
+          "selected_components": [
+            "control_candidate"
+          ],
+          "basis": "The provisional Control observable exceeds neutral in only one of two independently coded families.",
+          "family_pass": {
+            "A": false,
+            "B": true
+          }
+        },
+        "chaos": {
+          "status": "failed",
+          "selected_components": [
+            "chaos_candidate"
+          ],
+          "basis": "The provisional entropy-style Chaos observable fails because iid-uniform neutral RPS is already maximally unpredictable.",
+          "family_pass": {
+            "A": false,
+            "B": false
+          }
+        }
+      },
+      "mechanisms": [
+        {
+          "name": "Pressure absence negative control",
+          "status": "confirmed",
+          "scope": "Pressure candidate remains exactly zero in both independently coded families."
+        },
+        {
+          "name": "Control observable recovery",
+          "status": "partial",
+          "scope": "two-family repeated-RPS recovery test"
+        },
+        {
+          "name": "entropy-style Chaos recovery",
+          "status": "failed",
+          "scope": "negative result: entropy alone does not distinguish strategic unpredictability from iid-uniform randomness"
+        }
+      ],
+      "negative_controls": {
+        "status": "confirmed",
+        "note": "The environment deliberately omits strategic Pressure; the measurement layer must not hallucinate it."
+      },
+      "frozen_result": {
+        "negative_control_confirmed": false,
+        "note": "The aggregate negative_control_confirmed flag is false because C/Chaos recovery also failed; Pressure absence itself passed in both families."
+      }
     }
   ],
   "cross_game_findings": [
@@ -436,6 +506,21 @@
       "finding": "Control remains the hardest invariant observational axis",
       "status": "supported",
       "basis": "Poker has mechanism evidence but no family-invariant Control observable; Liar's Dice Control fails preregistered recovery in both families."
+    },
+    {
+      "finding": "Pressure absence is recoverable as a negative control",
+      "status": "supported",
+      "basis": "Repeated RPS excludes strategic Pressure by design and the Pressure candidate remains exactly zero for neutral, Control-like, and Chaos-like policies in both independent families."
+    },
+    {
+      "finding": "naive entropy is not a portable Chaos observable",
+      "status": "supported",
+      "basis": "Liar's Dice recovers Chaos under its frozen construct protocol, whereas repeated RPS shows that iid-uniform neutral play can be more entropic than the Chaos-like policies."
+    },
+    {
+      "finding": "the cross-game framework can represent an absent axis",
+      "status": "supported",
+      "basis": "RPS Pressure is recorded as absent-by-design rather than failed, unresolved, or confirmed, separating environmental absence from construct evidence."
     }
   ],
   "guardrails": [

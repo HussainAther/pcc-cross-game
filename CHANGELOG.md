@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0
+
+- Add PCC Repeated RPS v0.1.0 as a third frozen comparison environment.
+- Add `absent-by-design` as an explicit axis status, distinct from confirmed, failed, partial, and unresolved.
+- Record the repeated-RPS Pressure negative control as confirmed without promoting Pressure itself into a construct claim.
+- Preserve the repeated-RPS failures of provisional Control recovery and entropy-style Chaos recovery.
+- Add cross-game findings that Pressure absence can be measured without hallucination and that naive entropy is not a portable Chaos observable.
+- Extend JSON/CSV/Markdown outputs and bundled source provenance to all three games.
+
 ## 0.2.0
 
 - Update the frozen Liar's Dice source boundary from v0.3.0 to v0.4.0.
@@ -15,4 +24,3 @@
 - Add common balance, construct, mechanism, and negative-control schema.
 - Preserve game-specific balance criteria instead of requiring a universal cycle.
 - Generate JSON, CSV, and Markdown cross-game evidence matrices.
-- Mark missing Liar's Dice construct recovery as unresolved rather than inferred.

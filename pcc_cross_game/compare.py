@@ -194,14 +194,92 @@ def liars_dice_summary(root: str | Path) -> dict[str, Any]:
     }
 
 
-def build_comparison(poker_root: str | Path, liars_root: str | Path) -> dict[str, Any]:
+def rps_summary(root: str | Path) -> dict[str, Any]:
+    root = Path(root)
+    result = _require(root, "validation/negative-control.json")
+    families = result.get("families", {})
+    pressure_checks = {
+        family: all(bool(checks.get(name)) for name in (
+            "pressure_absent_neutral",
+            "pressure_absent_control",
+            "pressure_absent_chaos",
+        ))
+        for family, data in families.items()
+        for checks in [data.get("checks", {})]
+    }
+    control_pass = {
+        family: bool(data.get("checks", {}).get("control_signal_exceeds_neutral"))
+        for family, data in families.items()
+    }
+    chaos_pass = {
+        family: bool(data.get("checks", {}).get("chaos_signal_exceeds_neutral"))
+        for family, data in families.items()
+    }
+    return {
+        "game": "rps",
+        "source_version": "0.1.0 negative control",
+        "source_root": str(root),
+        "balance": {
+            "status": "not-applicable",
+            "criterion": "Repeated RPS is used as a two-axis Control/Chaos negative-control laboratory; no Pressure topology is defined.",
+            "cycle_required": False,
+        },
+        "axis_evidence": {
+            "pressure": {
+                "status": "absent-by-design",
+                "selected_components": ["pressure_candidate == 0"],
+                "basis": "Pressure is excluded by the environment design and remains exactly zero across neutral, Control-like, and Chaos-like policies in both families.",
+                "family_pass": pressure_checks,
+            },
+            "control": {
+                "status": "failed",
+                "selected_components": ["control_candidate"],
+                "basis": "The provisional Control observable exceeds neutral in only one of two independently coded families.",
+                "family_pass": control_pass,
+            },
+            "chaos": {
+                "status": "failed",
+                "selected_components": ["chaos_candidate"],
+                "basis": "The provisional entropy-style Chaos observable fails because iid-uniform neutral RPS is already maximally unpredictable.",
+                "family_pass": chaos_pass,
+            },
+        },
+        "mechanisms": [
+            {
+                "name": "Pressure absence negative control",
+                "status": "confirmed" if pressure_checks and all(pressure_checks.values()) else "failed",
+                "scope": "Pressure candidate remains exactly zero in both independently coded families.",
+            },
+            {
+                "name": "Control observable recovery",
+                "status": "partial" if any(control_pass.values()) and not all(control_pass.values()) else ("confirmed" if control_pass and all(control_pass.values()) else "failed"),
+                "scope": "two-family repeated-RPS recovery test",
+            },
+            {
+                "name": "entropy-style Chaos recovery",
+                "status": "failed" if not (chaos_pass and all(chaos_pass.values())) else "confirmed",
+                "scope": "negative result: entropy alone does not distinguish strategic unpredictability from iid-uniform randomness",
+            },
+        ],
+        "negative_controls": {
+            "status": "confirmed" if pressure_checks and all(pressure_checks.values()) else "failed",
+            "note": "The environment deliberately omits strategic Pressure; the measurement layer must not hallucinate it.",
+        },
+        "frozen_result": {
+            "negative_control_confirmed": bool(result.get("negative_control_confirmed")),
+            "note": "The aggregate negative_control_confirmed flag is false because C/Chaos recovery also failed; Pressure absence itself passed in both families.",
+        },
+    }
+
+
+def build_comparison(poker_root: str | Path, liars_root: str | Path, rps_root: str | Path | None = None) -> dict[str, Any]:
     poker = poker_summary(poker_root)
     liars = liars_dice_summary(liars_root)
-    return {
-        "schema_version": 2,
-        "purpose": "Cross-game comparison of frozen synthetic evidence without assuming identical PCC topology or measurement validity across games.",
-        "games": [poker, liars],
-        "cross_game_findings": [
+    games = [poker, liars]
+    rps = rps_summary(rps_root) if rps_root is not None else None
+    if rps is not None:
+        games.append(rps)
+    findings = [
             {
                 "finding": "game topology is not invariant",
                 "status": "supported",
@@ -232,7 +310,30 @@ def build_comparison(poker_root: str | Path, liars_root: str | Path) -> dict[str
                 "status": "supported",
                 "basis": "Poker has mechanism evidence but no family-invariant Control observable; Liar's Dice Control fails preregistered recovery in both families.",
             },
-        ],
+    ]
+    if rps is not None:
+        findings.extend([
+            {
+                "finding": "Pressure absence is recoverable as a negative control",
+                "status": "supported",
+                "basis": "Repeated RPS excludes strategic Pressure by design and the Pressure candidate remains exactly zero for neutral, Control-like, and Chaos-like policies in both independent families.",
+            },
+            {
+                "finding": "naive entropy is not a portable Chaos observable",
+                "status": "supported",
+                "basis": "Liar's Dice recovers Chaos under its frozen construct protocol, whereas repeated RPS shows that iid-uniform neutral play can be more entropic than the Chaos-like policies.",
+            },
+            {
+                "finding": "the cross-game framework can represent an absent axis",
+                "status": "supported",
+                "basis": "RPS Pressure is recorded as absent-by-design rather than failed, unresolved, or confirmed, separating environmental absence from construct evidence.",
+            },
+        ])
+    return {
+        "schema_version": 3,
+        "purpose": "Cross-game comparison of frozen synthetic evidence without assuming identical PCC topology or measurement validity across games.",
+        "games": games,
+        "cross_game_findings": findings,
         "guardrails": [
             "Do not infer human psychological states from synthetic-agent labels.",
             "Do not require a rock-paper-scissors cycle outside the game-specific protocol that defined it.",
@@ -244,26 +345,29 @@ def build_comparison(poker_root: str | Path, liars_root: str | Path) -> dict[str
 
 
 def render_markdown(report: dict[str, Any]) -> str:
+    games = {g["game"]: g for g in report["games"]}
+    ordered = [name for name in ("poker", "liars-dice", "rps") if name in games]
+    display = {"poker": "Poker", "liars-dice": "Liar's Dice", "rps": "Repeated RPS"}
     lines = [
         "# PCC Cross-Game Evidence Matrix",
         "",
-        "This report compares frozen synthetic evidence without assuming that poker-specific topology or measurements transfer to Liar's Dice.",
+        "This report compares frozen synthetic evidence without assuming that topology or measurements transfer unchanged across games.",
         "",
-        "| Dimension | Poker | Liar's Dice |",
-        "|---|---|---|",
+        "| Dimension | " + " | ".join(display[name] for name in ordered) + " |",
+        "|---|" + "---|" * len(ordered),
     ]
-    games = {g["game"]: g for g in report["games"]}
-    p, l = games["poker"], games["liars-dice"]
-    lines.append(f"| Balance | {p['balance']['status']}: {p['balance']['criterion']} | {l['balance']['status']}: {l['balance']['criterion']} |")
+    lines.append("| Balance/topology | " + " | ".join(f"{games[name]['balance']['status']}: {games[name]['balance']['criterion']}" for name in ordered) + " |")
     for axis in AXES:
-        pa = p["axis_evidence"][axis]
-        la = l["axis_evidence"][axis]
-        pcomp = ", ".join(pa.get("selected_components", [])) or "none"
-        lcomp = ", ".join(la.get("selected_components", [])) or "none"
-        lines.append(f"| {axis.title()} observational construct | {pa['status']} ({pcomp}) | {la['status']} ({lcomp}) |")
+        cells=[]
+        for name in ordered:
+            ev=games[name]["axis_evidence"][axis]
+            comp=", ".join(ev.get("selected_components", [])) or "none"
+            cells.append(f"{ev['status']} ({comp})")
+        lines.append(f"| {axis.title()} observational construct | " + " | ".join(cells) + " |")
     lines += ["", "## Mechanism evidence", ""]
-    for game in (p, l):
-        lines.append(f"### {game['game']}")
+    for name in ordered:
+        game=games[name]
+        lines.append(f"### {display[name]}")
         for item in game["mechanisms"]:
             lines.append(f"- **{item['name']}** — {item['status']}. {item['scope']}")
         lines.append("")
@@ -273,7 +377,6 @@ def render_markdown(report: dict[str, Any]) -> str:
     lines += ["", "## Guardrails", ""]
     lines.extend(f"- {x}" for x in report["guardrails"])
     return "\n".join(lines) + "\n"
-
 
 def render_csv(report: dict[str, Any]) -> str:
     out = io.StringIO()
