@@ -37,3 +37,9 @@
 - Added a cross-game Chaos measurement benchmark.
 - Separated raw unpredictability, value/performance guards, exploitability/plausibility guards, construct recovery, and latent-intent identifiability.
 - Formalized the cross-game result that randomness alone is insufficient and that no single scalar Chaos measure is yet confirmed across all games.
+
+## Control structural template (v0.6.0)
+
+- Added a three-stage Control benchmark: information uptake -> context alignment -> value-sensitive intervention.
+- No universal scalar Control score is defined.
+- Poker supports all three stages on frozen synthetic evidence; Liar's Dice is partial on information/context but confirmed on value-sensitive intervention; RPS remains unresolved/not-applicable for the later stages.

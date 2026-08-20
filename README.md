@@ -61,3 +61,17 @@ make chaos-benchmark
 ```
 
 The cross-game conclusion is deliberately narrower than a universal Chaos score: **unpredictability needs an independent value/performance or exploitability guardrail**, but the exact scalar is not yet portable across Poker, Liar's Dice, and RPS. See `docs/CHAOS_MEASUREMENT_BENCHMARK_PROTOCOL.md`.
+
+## Control structural template
+
+The v0.6.0 benchmark tests a portable Control structure rather than a universal scalar:
+
+`information uptake -> context alignment -> value-sensitive intervention`
+
+Run:
+
+```bash
+make control-template
+```
+
+See `docs/CONTROL_STRUCTURAL_TEMPLATE_PROTOCOL.md` and `validation/CONTROL_STRUCTURAL_TEMPLATE.md`.
