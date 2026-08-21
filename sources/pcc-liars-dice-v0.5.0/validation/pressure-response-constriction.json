@@ -1,0 +1,271 @@
+{
+  "pressure_response_constriction_confirmed": false,
+  "prespecified_checks": {
+    "truth_probability_matched": true,
+    "commitment_gap_preserved": true,
+    "family_a_response_constriction": false,
+    "family_b_response_constriction": true
+  },
+  "design": {
+    "protocol_version": "0.5.0",
+    "states": 400,
+    "draws_per_policy": 32,
+    "seed": 55001,
+    "responders": {
+      "family-a": [
+        "family-a:control",
+        "family-a:chaos"
+      ],
+      "family-b": [
+        "family-b:control",
+        "family-b:chaos"
+      ]
+    },
+    "truth_probability_pair_tolerance": 0.05,
+    "minimum_commitment_rank_gap": 0.25,
+    "minimum_entropy_reduction": 0.03,
+    "minimum_effective_set_reduction": 0.05,
+    "matching_boundary": "Same responder dice, prior public bid/history, opponent profile, and dice counts. Only the replayed opponent bid changes.",
+    "weight_boundary": "No PCC weights are used to select matched pairs or compute response-constriction outcomes."
+  },
+  "matching": {
+    "matched_states": 400,
+    "attempts": 1562,
+    "mean_absolute_truth_probability_difference": 0.0,
+    "maximum_absolute_truth_probability_difference": 0.0,
+    "mean_commitment_rank_gap": 0.31252698798142525
+  },
+  "families": {
+    "family-a": {
+      "policies": [
+        "family-a:control",
+        "family-a:chaos"
+      ],
+      "low_commitment": {
+        "responses": 25600,
+        "category_counts": {
+          "challenge": 17211,
+          "large_raise": 2104,
+          "small_raise": 6285
+        },
+        "category_probabilities": {
+          "challenge": 0.6723046875,
+          "large_raise": 0.0821875,
+          "small_raise": 0.2455078125
+        },
+        "entropy_nats": 0.8170981632331203,
+        "effective_response_set": 2.263920767934359,
+        "challenge_probability": 0.6723046875
+      },
+      "high_commitment": {
+        "responses": 25600,
+        "category_counts": {
+          "challenge": 17347,
+          "large_raise": 5507,
+          "small_raise": 2746
+        },
+        "category_probabilities": {
+          "challenge": 0.6776171875,
+          "large_raise": 0.2151171875,
+          "small_raise": 0.107265625
+        },
+        "entropy_nats": 0.8337181062369466,
+        "effective_response_set": 2.301861414419312,
+        "challenge_probability": 0.6776171875
+      },
+      "entropy_reduction": -0.0166199430038263,
+      "effective_set_reduction": -0.03794064648495299,
+      "challenge_probability_shift": 0.005312499999999942,
+      "per_policy": {
+        "family-a:control": {
+          "low_commitment": {
+            "responses": 12800,
+            "category_counts": {
+              "challenge": 12192,
+              "large_raise": 64,
+              "small_raise": 544
+            },
+            "category_probabilities": {
+              "challenge": 0.9525,
+              "large_raise": 0.005,
+              "small_raise": 0.0425
+            },
+            "entropy_nats": 0.20707083927461042,
+            "effective_response_set": 1.230069705940145,
+            "challenge_probability": 0.9525
+          },
+          "high_commitment": {
+            "responses": 12800,
+            "category_counts": {
+              "challenge": 12192,
+              "small_raise": 608
+            },
+            "category_probabilities": {
+              "challenge": 0.9525,
+              "small_raise": 0.0475
+            },
+            "entropy_nats": 0.19108729078939338,
+            "effective_response_set": 1.2105651186541926,
+            "challenge_probability": 0.9525
+          },
+          "entropy_reduction": 0.015983548485217047,
+          "effective_set_reduction": 0.0195045872859525
+        },
+        "family-a:chaos": {
+          "low_commitment": {
+            "responses": 12800,
+            "category_counts": {
+              "challenge": 5019,
+              "large_raise": 2040,
+              "small_raise": 5741
+            },
+            "category_probabilities": {
+              "challenge": 0.392109375,
+              "large_raise": 0.159375,
+              "small_raise": 0.448515625
+            },
+            "entropy_nats": 1.019415017917039,
+            "effective_response_set": 2.7715729691215287,
+            "challenge_probability": 0.392109375
+          },
+          "high_commitment": {
+            "responses": 12800,
+            "category_counts": {
+              "challenge": 5155,
+              "large_raise": 5507,
+              "small_raise": 2138
+            },
+            "category_probabilities": {
+              "challenge": 0.402734375,
+              "large_raise": 0.430234375,
+              "small_raise": 0.16703125
+            },
+            "entropy_nats": 1.028063414323145,
+            "effective_response_set": 2.7956465798430212,
+            "challenge_probability": 0.402734375
+          },
+          "entropy_reduction": -0.008648396406106151,
+          "effective_set_reduction": -0.0240736107214925
+        }
+      },
+      "checks": {
+        "entropy_reduced_by_threshold": false,
+        "effective_response_set_reduced_by_threshold": false
+      }
+    },
+    "family-b": {
+      "policies": [
+        "family-b:control",
+        "family-b:chaos"
+      ],
+      "low_commitment": {
+        "responses": 25600,
+        "category_counts": {
+          "challenge": 21037,
+          "large_raise": 996,
+          "small_raise": 3567
+        },
+        "category_probabilities": {
+          "challenge": 0.8217578125,
+          "large_raise": 0.03890625,
+          "small_raise": 0.1393359375
+        },
+        "entropy_nats": 0.5622446229607788,
+        "effective_response_set": 1.7546065135235402,
+        "challenge_probability": 0.8217578125
+      },
+      "high_commitment": {
+        "responses": 25600,
+        "category_counts": {
+          "challenge": 21142,
+          "small_raise": 4458
+        },
+        "category_probabilities": {
+          "challenge": 0.825859375,
+          "small_raise": 0.174140625
+        },
+        "entropy_nats": 0.462391334197268,
+        "effective_response_set": 1.587866568145377,
+        "challenge_probability": 0.825859375
+      },
+      "entropy_reduction": 0.0998532887635108,
+      "effective_set_reduction": 0.16673994537816328,
+      "challenge_probability_shift": 0.004101562499999933,
+      "per_policy": {
+        "family-b:control": {
+          "low_commitment": {
+            "responses": 12800,
+            "category_counts": {
+              "challenge": 12192,
+              "large_raise": 352,
+              "small_raise": 256
+            },
+            "category_probabilities": {
+              "challenge": 0.9525,
+              "large_raise": 0.0275,
+              "small_raise": 0.02
+            },
+            "entropy_nats": 0.22341719146424738,
+            "effective_response_set": 1.2503420969911483,
+            "challenge_probability": 0.9525
+          },
+          "high_commitment": {
+            "responses": 12800,
+            "category_counts": {
+              "challenge": 12192,
+              "small_raise": 608
+            },
+            "category_probabilities": {
+              "challenge": 0.9525,
+              "small_raise": 0.0475
+            },
+            "entropy_nats": 0.19108729078939338,
+            "effective_response_set": 1.2105651186541926,
+            "challenge_probability": 0.9525
+          },
+          "entropy_reduction": 0.032329900674854,
+          "effective_set_reduction": 0.039776978336955704
+        },
+        "family-b:chaos": {
+          "low_commitment": {
+            "responses": 12800,
+            "category_counts": {
+              "challenge": 8845,
+              "large_raise": 644,
+              "small_raise": 3311
+            },
+            "category_probabilities": {
+              "challenge": 0.691015625,
+              "large_raise": 0.0503125,
+              "small_raise": 0.258671875
+            },
+            "entropy_nats": 0.7555785284426261,
+            "effective_response_set": 2.1288427632557285,
+            "challenge_probability": 0.691015625
+          },
+          "high_commitment": {
+            "responses": 12800,
+            "category_counts": {
+              "challenge": 8950,
+              "small_raise": 3850
+            },
+            "category_probabilities": {
+              "challenge": 0.69921875,
+              "small_raise": 0.30078125
+            },
+            "entropy_nats": 0.6115248010099188,
+            "effective_response_set": 1.8432398310432223,
+            "challenge_probability": 0.69921875
+          },
+          "entropy_reduction": 0.14405372743270728,
+          "effective_set_reduction": 0.2856029322125062
+        }
+      },
+      "checks": {
+        "entropy_reduced_by_threshold": true,
+        "effective_response_set_reduced_by_threshold": true
+      }
+    }
+  },
+  "interpretation": "Confirmation requires higher commitment, at closely matched information-set truth probability, to reduce both response entropy and effective response-set width in both independently structured families."
+}

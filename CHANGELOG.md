@@ -1,10 +1,14 @@
-## 0.4.0
-
-- Add cross-game Control mechanism benchmark over frozen Poker, Liar's Dice, and RPS evidence.
-- Keep missing and structurally unavailable evidence explicit as unresolved/not-applicable.
-- Add frozen Poker counterfactual-Control source artifact to bundled provenance.
-
 # Changelog
+
+## 0.9.0
+
+- Add `pcc-micro-fighter` v0.8.0 as the fourth frozen comparison environment.
+- Keep Micro-Fighter Pressure/Control findings at the **mechanism** level; no observational construct-recovery status is imputed.
+- Extend the Pressure structural template with spatial commitment, response constriction, and non-universal damage conversion.
+- Extend the Control structural template with the v0.5 positive counter-window intervention and v0.7/v0.8 retreat falsification.
+- Record Micro-Fighter Chaos as unresolved pending a dedicated frozen benchmark.
+- Update provenance, reports, CLI, Makefile, and regression tests.
+
 
 ## 0.3.0
 
@@ -51,3 +55,9 @@
 - Preserved Liar's Dice Pressure as partial overall rather than promoting it from one successful component.
 - Represented RPS Pressure as absent-by-design/not-applicable instead of failed.
 - Added JSON/CSV/Markdown Pressure structural-template outputs and regression tests.
+
+## 0.8.0
+
+- Updated the Pressure structural template with the frozen Liar's Dice v0.5 matched-state response-constriction intervention.
+- Reclassified the Liar's Dice response-constriction stage from unresolved to partial: Family B passes, Family A does not.
+- Preserved the overall Pressure template as partial structural support rather than promoting a family-specific result.

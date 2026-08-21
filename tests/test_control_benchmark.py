@@ -3,7 +3,7 @@ from pcc_cross_game.control_benchmark import build_control_benchmark, render_mar
 
 ROOT = Path(__file__).resolve().parents[1]
 P = ROOT/'sources/pcc-poker-v0.8.0'
-L = ROOT/'sources/pcc-liars-dice-v0.4.0'
+L = ROOT/'sources/pcc-liars-dice-v0.5.0'
 R = ROOT/'sources/pcc-rps-v0.2.0'
 
 def report(): return build_control_benchmark(P,L,R)

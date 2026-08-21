@@ -1,21 +1,61 @@
 {
-  "schema_version": 4,
-  "note": "Exact frozen validation summaries copied from named source release snapshots solely to reproduce cross-game comparisons. No human data are included.",
+  "schema_version": 6,
+  "note": "Exact frozen validation summaries copied from named source release snapshots solely to reproduce cross-game comparisons. No human data are included. Micro-Fighter v0.8.0 is admitted at the mechanism-evidence level only because its competitiveness gate remains failed.",
   "files": [
     {
-      "path": "sources/pcc-liars-dice-v0.4.0/validation/balance.json",
+      "path": "sources/pcc-liars-dice-v0.5.0/validation/balance.json",
       "bytes": 3272,
       "sha256": "ec430fdd5bd356626d54a6e93b047d22acbedd63364d587aae6b9a3318d432a3"
     },
     {
-      "path": "sources/pcc-liars-dice-v0.4.0/validation/construct-recovery.json",
+      "path": "sources/pcc-liars-dice-v0.5.0/validation/construct-recovery.json",
       "bytes": 79453,
       "sha256": "132ebe669329c8edc0870e2bb75923373a942a0857c597453ca9a07752206ec5"
     },
     {
-      "path": "sources/pcc-liars-dice-v0.4.0/validation/control-chaos-mechanism.json",
+      "path": "sources/pcc-liars-dice-v0.5.0/validation/control-chaos-mechanism.json",
       "bytes": 24841,
       "sha256": "b4ae5f88f8a2035b69ed623823c382621d82a032f28d5b37d8ceb73a0bc06ad8"
+    },
+    {
+      "path": "sources/pcc-liars-dice-v0.5.0/validation/pressure-response-constriction.json",
+      "bytes": 9003,
+      "sha256": "ed2f3a4fbfbbe4eaa20c1128503e80b5e08396a7825eca6e08d7155af91d9ed5"
+    },
+    {
+      "path": "sources/pcc-micro-fighter-v0.8.0/validation/competitiveness.json",
+      "bytes": 2850,
+      "sha256": "d65ebf9b946237ca37be0100316fd472c72f5bea1697575da880906050c266de"
+    },
+    {
+      "path": "sources/pcc-micro-fighter-v0.8.0/validation/control-counter-intervention-v0.5.0.json",
+      "bytes": 8122,
+      "sha256": "25b54c768314f1c4fe6d75c8076c92f64dbefa1884f7e9f669c43f38fef55d5c"
+    },
+    {
+      "path": "sources/pcc-micro-fighter-v0.8.0/validation/control-recovery-intervention-v0.7.0.json",
+      "bytes": 5240,
+      "sha256": "b02cee6501ac2e3092629d302883afef41aecb309789adcc5b812c07b45d0eca"
+    },
+    {
+      "path": "sources/pcc-micro-fighter-v0.8.0/validation/pressure-dominance-decomposition.json",
+      "bytes": 18778,
+      "sha256": "14fd0dc0108f6db51d0ceb2920a7e4b40b58892c349eb64c07729fa37a7c84b7"
+    },
+    {
+      "path": "sources/pcc-micro-fighter-v0.8.0/validation/residual-pressure-decomposition.json",
+      "bytes": 2946,
+      "sha256": "a96edbc85e16c9f3c6d95096d64ada0c6c10fadbee02271d4a3d61888298a74b"
+    },
+    {
+      "path": "sources/pcc-micro-fighter-v0.8.0/validation/retreat-backfire-decomposition.json",
+      "bytes": 2164,
+      "sha256": "06b2f8761b3d2f4a39b974b51f095c51467e70c7cdd80a992e7cc1ec83ed0d79"
+    },
+    {
+      "path": "sources/pcc-micro-fighter-v0.8.0/validation/threat-conversion-decomposition.json",
+      "bytes": 9537,
+      "sha256": "d36fb477b0c1f78e8cbaae4dea205fe33b00d80d0943f578aa230c52118faa24"
     },
     {
       "path": "sources/pcc-poker-v0.8.0/validation/balanced-cycle.json",
@@ -46,6 +86,11 @@
       "path": "sources/pcc-poker-v0.8.0/validation/family-invariant-panel.json",
       "bytes": 7112,
       "sha256": "2e0c429dea18e05cb7d1acaa8cf9f1ebcdb6e5d0f4b96702423f9439295a6850"
+    },
+    {
+      "path": "sources/pcc-poker-v0.8.0/validation/pressure-surprise-decomposition.json",
+      "bytes": 3081,
+      "sha256": "8871be199db02a830ec8b3158e5112b898eba5da2b5ccefbcc67642eaa2ca726"
     },
     {
       "path": "sources/pcc-poker-v0.8.0/validation/research-status.json",

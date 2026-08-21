@@ -68,6 +68,28 @@
         "status": "not-identifiable",
         "basis": "iid-uniform RPS is already maximally mixed, value-preserving, and minimally exploitable, so action-only data cannot distinguish strategic mixing intent from equivalent randomness"
       }
+    },
+    "micro-fighter": {
+      "raw_unpredictability_signal": {
+        "status": "unresolved",
+        "basis": "Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only."
+      },
+      "value_or_performance_guardrail": {
+        "status": "unresolved",
+        "basis": "Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only."
+      },
+      "exploitability_or_plausibility_guardrail": {
+        "status": "unresolved",
+        "basis": "Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only."
+      },
+      "cross_family_construct_recovery": {
+        "status": "unresolved",
+        "basis": "Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only."
+      },
+      "latent_intent_identifiability": {
+        "status": "unresolved",
+        "basis": "Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only."
+      }
     }
   },
   "portable_requirements": {
@@ -79,7 +101,7 @@
   },
   "conclusion": {
     "status": "partial-generalization",
-    "basis": "Across poker, Liar's Dice, and RPS, the portable structure is effective unpredictability = game-appropriate unpredictability \u00d7 independent adequacy. The exact scalar ingredients are not portable, and RPS exposes a fundamental action-only identifiability limit."
+    "basis": "Across poker, Liar's Dice, and RPS, the portable structure is effective unpredictability = game-appropriate unpredictability \u00d7 independent adequacy. Micro-Fighter remains intentionally unresolved for Chaos until its competitiveness and construct-recovery prerequisites mature."
   },
   "guardrails": [
     "No source experiment is rerun or retuned by this benchmark.",

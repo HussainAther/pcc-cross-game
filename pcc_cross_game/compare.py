@@ -272,13 +272,78 @@ def rps_summary(root: str | Path) -> dict[str, Any]:
     }
 
 
-def build_comparison(poker_root: str | Path, liars_root: str | Path, rps_root: str | Path | None = None) -> dict[str, Any]:
+
+def micro_fighter_summary(root: str | Path) -> dict[str, Any]:
+    root = Path(root)
+    balance = _require(root, "validation/competitiveness.json")
+    pressure = _require(root, "validation/pressure-dominance-decomposition.json")
+    threat = _require(root, "validation/threat-conversion-decomposition.json")
+    counter = _require(root, "validation/control-counter-intervention-v0.5.0.json")
+    recovery = _require(root, "validation/control-recovery-intervention-v0.7.0.json")
+    retreat = _require(root, "validation/retreat-backfire-decomposition.json")
+
+    pressure_rep = pressure.get("replicated_diagnostics", {})
+    retreat_checks = retreat.get("prespecified_checks", {})
+    return {
+        "game": "micro-fighter",
+        "source_version": "0.8.0 spatial mechanism diagnostics",
+        "source_root": str(root),
+        "balance": {
+            "status": "failed" if not balance.get("competitiveness_confirmed") else "confirmed",
+            "criterion": "all pairwise synthetic mechanism matchups must lie inside the frozen 30%-70% decisive-win-rate window in both independent families",
+            "cycle_required": False,
+            "failure_pattern": "multiple trivial-dominance matchups remain; construct recovery is intentionally blocked" if not balance.get("competitiveness_confirmed") else None,
+        },
+        "axis_evidence": {
+            axis: {
+                "status": "unresolved",
+                "selected_components": [],
+                "basis": "Micro-Fighter has mechanistic diagnostics but no frozen cross-family observational construct-recovery experiment yet.",
+            } for axis in AXES
+        },
+        "mechanisms": [
+            {
+                "name": "spatial Pressure threat generation",
+                "status": "confirmed" if all(pressure_rep.get(k, {}).get("replicated_expected_direction", False) for k in ("space_capture", "attack_opportunity_generation", "defensive_response_forcing")) else "partial",
+                "scope": "space compression, attack-opportunity generation, and defensive-response forcing replicate across frozen Pressure matchups",
+            },
+            {
+                "name": "Control defense-to-counter conversion",
+                "status": "partial" if counter.get("target_matchup", {}).get("moved_toward_competitiveness", False) else "failed",
+                "scope": "the prospectively justified public counter-window rule improved Family B Pressure-vs-Control but did not clear the frozen competitiveness gate",
+            },
+            {
+                "name": "deterministic spatial retreat as Control",
+                "status": "failed" if recovery.get("target_matchup", {}).get("moved_toward_competitiveness") is False else "partial",
+                "scope": "the prospective sustained-threat retreat rule worsened Pressure-vs-Control and is retained as a negative intervention result",
+            },
+            {
+                "name": "retreat-backfire decomposition",
+                "status": "confirmed" if retreat_checks and all(retreat_checks.values()) else "partial",
+                "scope": "retreat commonly forfeits initiative, often fails to create distance, invites immediate re-entry, and rarely preserves separation",
+            },
+            {
+                "name": "damage conversion sufficiency",
+                "status": "failed" if not pressure_rep.get("damage_conversion", {}).get("replicated_expected_direction", False) else "confirmed",
+                "scope": "Pressure-generated threat volume does not universally convert into damage or victory; Family A Control is the counterexample",
+            },
+        ],
+        "negative_controls": {
+            "status": "present",
+            "note": "Prospective v0.5 and v0.7 Control interventions include one partial improvement and one retained negative result; no post-result tuning is used to relabel them.",
+        },
+    }
+
+def build_comparison(poker_root: str | Path, liars_root: str | Path, rps_root: str | Path | None = None, micro_root: str | Path | None = None) -> dict[str, Any]:
     poker = poker_summary(poker_root)
     liars = liars_dice_summary(liars_root)
     games = [poker, liars]
     rps = rps_summary(rps_root) if rps_root is not None else None
     if rps is not None:
         games.append(rps)
+    micro = micro_fighter_summary(micro_root) if micro_root is not None else None
+    if micro is not None:
+        games.append(micro)
     findings = [
             {
                 "finding": "game topology is not invariant",
@@ -329,8 +394,26 @@ def build_comparison(poker_root: str | Path, liars_root: str | Path, rps_root: s
                 "basis": "RPS Pressure is recorded as absent-by-design rather than failed, unresolved, or confirmed, separating environmental absence from construct evidence.",
             },
         ])
+    if micro is not None:
+        findings.extend([
+            {
+                "finding": "PCC mechanisms can be probed in a spatial non-card environment",
+                "status": "supported",
+                "basis": "Micro-Fighter reproduces spatial Pressure threat-generation diagnostics and value-sensitive Control intervention effects without cards, dice, hidden information, or wagering.",
+            },
+            {
+                "finding": "spatial Control is not equivalent to maximizing distance",
+                "status": "supported",
+                "basis": "The frozen retreat intervention worsens Control while the v0.8 decomposition shows frequent initiative forfeiture, ineffective displacement, rapid Pressure re-entry, and almost no persistent separation.",
+            },
+            {
+                "finding": "mechanistic support can precede construct recovery",
+                "status": "supported",
+                "basis": "Micro-Fighter contributes Pressure and Control mechanism evidence while all three observational axes remain unresolved because the competitiveness prerequisite has not passed.",
+            },
+        ])
     return {
-        "schema_version": 3,
+        "schema_version": 4,
         "purpose": "Cross-game comparison of frozen synthetic evidence without assuming identical PCC topology or measurement validity across games.",
         "games": games,
         "cross_game_findings": findings,
@@ -346,8 +429,8 @@ def build_comparison(poker_root: str | Path, liars_root: str | Path, rps_root: s
 
 def render_markdown(report: dict[str, Any]) -> str:
     games = {g["game"]: g for g in report["games"]}
-    ordered = [name for name in ("poker", "liars-dice", "rps") if name in games]
-    display = {"poker": "Poker", "liars-dice": "Liar's Dice", "rps": "Repeated RPS"}
+    ordered = [name for name in ("poker", "liars-dice", "rps", "micro-fighter") if name in games]
+    display = {"poker": "Poker", "liars-dice": "Liar's Dice", "rps": "Repeated RPS", "micro-fighter": "Micro-Fighter"}
     lines = [
         "# PCC Cross-Game Evidence Matrix",
         "",

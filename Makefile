@@ -9,39 +9,44 @@ test:
 compare:
 	python -m pcc_cross_game.cli \
 		--poker-root sources/pcc-poker-v0.8.0 \
-		--liars-root sources/pcc-liars-dice-v0.4.0 \
+		--liars-root sources/pcc-liars-dice-v0.5.0 \
 		--rps-root sources/pcc-rps-v0.2.0 \
+		--micro-root sources/pcc-micro-fighter-v0.8.0 \
 		--output-dir validation
 
 control-benchmark:
 	python -m pcc_cross_game.cli \
 		--poker-root sources/pcc-poker-v0.8.0 \
-		--liars-root sources/pcc-liars-dice-v0.4.0 \
+		--liars-root sources/pcc-liars-dice-v0.5.0 \
 		--rps-root sources/pcc-rps-v0.2.0 \
+		--micro-root sources/pcc-micro-fighter-v0.8.0 \
 		--output-dir validation \
 		--control-benchmark
 
 chaos-benchmark:
 	python -m pcc_cross_game.cli \
 		--poker-root sources/pcc-poker-v0.8.0 \
-		--liars-root sources/pcc-liars-dice-v0.4.0 \
+		--liars-root sources/pcc-liars-dice-v0.5.0 \
 		--rps-root sources/pcc-rps-v0.2.0 \
+		--micro-root sources/pcc-micro-fighter-v0.8.0 \
 		--output-dir validation \
 		--chaos-benchmark
 
 control-template:
 	python -m pcc_cross_game.cli \
 		--poker-root sources/pcc-poker-v0.8.0 \
-		--liars-root sources/pcc-liars-dice-v0.4.0 \
+		--liars-root sources/pcc-liars-dice-v0.5.0 \
 		--rps-root sources/pcc-rps-v0.2.0 \
+		--micro-root sources/pcc-micro-fighter-v0.8.0 \
 		--output-dir validation \
 		--control-template
 
 pressure-template:
 	python -m pcc_cross_game.cli \
 		--poker-root sources/pcc-poker-v0.8.0 \
-		--liars-root sources/pcc-liars-dice-v0.4.0 \
+		--liars-root sources/pcc-liars-dice-v0.5.0 \
 		--rps-root sources/pcc-rps-v0.2.0 \
+		--micro-root sources/pcc-micro-fighter-v0.8.0 \
 		--output-dir validation \
 		--pressure-template
 

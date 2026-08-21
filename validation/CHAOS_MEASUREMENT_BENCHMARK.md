@@ -2,17 +2,17 @@
 
 This benchmark compares frozen Chaos-measurement evidence without defining a universal scalar Chaos score.
 
-| Measurement requirement | Poker | Liar's Dice | Repeated RPS |
-|---|---|---|---|
-| Raw Unpredictability Signal | partial | confirmed | failed |
-| Value Or Performance Guardrail | confirmed | confirmed | confirmed |
-| Exploitability Or Plausibility Guardrail | unresolved | warning-confirmed | confirmed |
-| Cross Family Construct Recovery | failed | confirmed | failed |
-| Latent Intent Identifiability | unresolved | unresolved | not-identifiable |
+| Measurement requirement | Poker | Liar's Dice | Repeated RPS | Micro-Fighter |
+|---|---|---|---|---|
+| Raw Unpredictability Signal | partial | confirmed | failed | unresolved |
+| Value Or Performance Guardrail | confirmed | confirmed | confirmed | unresolved |
+| Exploitability Or Plausibility Guardrail | unresolved | warning-confirmed | confirmed | unresolved |
+| Cross Family Construct Recovery | failed | confirmed | failed | unresolved |
+| Latent Intent Identifiability | unresolved | unresolved | not-identifiable | unresolved |
 
 ## Cross-game conclusion
 
-- Across poker, Liar's Dice, and RPS, the portable structure is effective unpredictability = game-appropriate unpredictability × independent adequacy. The exact scalar ingredients are not portable, and RPS exposes a fundamental action-only identifiability limit.
+- Across poker, Liar's Dice, and RPS, the portable structure is effective unpredictability = game-appropriate unpredictability × independent adequacy. Micro-Fighter remains intentionally unresolved for Chaos until its competitiveness and construct-recovery prerequisites mature.
 
 ### Poker
 
@@ -37,6 +37,14 @@ This benchmark compares frozen Chaos-measurement evidence without defining a uni
 - **exploitability or plausibility guardrail** — confirmed: fixed-marginal and online first-order exploiters penalize temporally predictable Chaos policies while leaving iid-neutral nearly unexploitable
 - **cross family construct recovery** — failed: engineered Chaos does not exceed iid-neutral effective unpredictability in either family
 - **latent intent identifiability** — not-identifiable: iid-uniform RPS is already maximally mixed, value-preserving, and minimally exploitable, so action-only data cannot distinguish strategic mixing intent from equivalent randomness
+
+### Micro-Fighter
+
+- **raw unpredictability signal** — unresolved: Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.
+- **value or performance guardrail** — unresolved: Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.
+- **exploitability or plausibility guardrail** — unresolved: Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.
+- **cross family construct recovery** — unresolved: Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.
+- **latent intent identifiability** — unresolved: Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.
 
 ## Guardrails
 

@@ -69,6 +69,20 @@
         "status": "not-applicable",
         "basis": "simultaneous one-step RPS lacks the sequential challenge/intervention timing structure used in Poker and Liar's Dice"
       }
+    },
+    "micro-fighter": {
+      "information_uptake": {
+        "status": "partial",
+        "basis": "Family B Control uses public action history to recognize a specific successful-defense/cooldown punish window; no independent cross-family information-ablation test exists yet."
+      },
+      "context_alignment": {
+        "status": "partial",
+        "basis": "The v0.5 counter-window rule is context-specific and improves the targeted matchup, while the broader v0.7 sustained-threat rule backfires; context quality therefore matters but is not cross-family validated."
+      },
+      "value_sensitive_intervention": {
+        "status": "confirmed",
+        "basis": "A prospectively justified counter-window intervention moves Pressure-vs-Control toward parity, whereas a prospectively justified retreat intervention moves it sharply away; the frozen comparison demonstrates that intervention value depends on what is done with the information."
+      }
     }
   },
   "portable_confirmed_stages": [
@@ -77,13 +91,14 @@
   "full_template_confirmed_by_game": {
     "poker": true,
     "liars-dice": false,
-    "rps": false
+    "rps": false,
+    "micro-fighter": false
   },
   "conclusion": {
     "single_scalar_control_supported": false,
     "full_three_stage_template_confirmed_cross_game": false,
     "status": "partial-structural-support",
-    "basis": "Value-sensitive intervention replicates across Poker and Liar's Dice, while information uptake/context alignment remain implementation-sensitive and RPS lacks the same intervention structure."
+    "basis": "Value-sensitive intervention is supported in Poker, Liar's Dice, and Micro-Fighter, while information uptake/context alignment remain implementation-sensitive. Micro-Fighter additionally shows that spatial withdrawal can be value-destroying even when it creates nominal distance."
   },
   "guardrails": [
     "No source policy, threshold, or frozen result is modified by this benchmark.",

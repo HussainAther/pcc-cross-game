@@ -26,8 +26,9 @@ def _family_status(values: dict[str, bool]) -> str:
     return "failed" if vals else "unresolved"
 
 
-def build_control_template_benchmark(poker_root: str | Path, liars_root: str | Path, rps_root: str | Path) -> dict[str, Any]:
+def build_control_template_benchmark(poker_root: str | Path, liars_root: str | Path, rps_root: str | Path, micro_root: str | Path | None = None) -> dict[str, Any]:
     poker_root, liars_root, rps_root = map(Path, (poker_root, liars_root, rps_root))
+    micro_root = Path(micro_root) if micro_root is not None else None
     p_context = _load(poker_root / "validation/contextual-control-observable.json")
     p_mech = _load(poker_root / "validation/control-pressure-mechanism.json")
     l_mech = _load(liars_root / "validation/control-chaos-mechanism.json")
@@ -107,6 +108,25 @@ def build_control_template_benchmark(poker_root: str | Path, liars_root: str | P
         },
     }
 
+    if micro_root is not None:
+        counter = _load(micro_root / "validation/control-counter-intervention-v0.5.0.json")
+        recovery = _load(micro_root / "validation/control-recovery-intervention-v0.7.0.json")
+        retreat = _load(micro_root / "validation/retreat-backfire-decomposition.json")
+        games["micro-fighter"] = {
+            "information_uptake": {
+                "status": "partial",
+                "basis": "Family B Control uses public action history to recognize a specific successful-defense/cooldown punish window; no independent cross-family information-ablation test exists yet.",
+            },
+            "context_alignment": {
+                "status": "partial",
+                "basis": "The v0.5 counter-window rule is context-specific and improves the targeted matchup, while the broader v0.7 sustained-threat rule backfires; context quality therefore matters but is not cross-family validated.",
+            },
+            "value_sensitive_intervention": {
+                "status": "confirmed",
+                "basis": "A prospectively justified counter-window intervention moves Pressure-vs-Control toward parity, whereas a prospectively justified retreat intervention moves it sharply away; the frozen comparison demonstrates that intervention value depends on what is done with the information.",
+            },
+        }
+
     portable = []
     for stage in STAGES:
         statuses = [games[g][stage]["status"] for g in games]
@@ -130,7 +150,7 @@ def build_control_template_benchmark(poker_root: str | Path, liars_root: str | P
             "single_scalar_control_supported": False,
             "full_three_stage_template_confirmed_cross_game": False,
             "status": "partial-structural-support",
-            "basis": "Value-sensitive intervention replicates across Poker and Liar's Dice, while information uptake/context alignment remain implementation-sensitive and RPS lacks the same intervention structure.",
+            "basis": "Value-sensitive intervention is supported in Poker, Liar's Dice, and Micro-Fighter, while information uptake/context alignment remain implementation-sensitive. Micro-Fighter additionally shows that spatial withdrawal can be value-destroying even when it creates nominal distance.",
         },
         "guardrails": [
             "No source policy, threshold, or frozen result is modified by this benchmark.",
@@ -142,15 +162,15 @@ def build_control_template_benchmark(poker_root: str | Path, liars_root: str | P
 
 
 def render_markdown(report: dict[str, Any]) -> str:
-    labels = {"poker": "Poker", "liars-dice": "Liar's Dice", "rps": "Repeated RPS"}
+    labels = {"poker": "Poker", "liars-dice": "Liar's Dice", "rps": "Repeated RPS", "micro-fighter": "Micro-Fighter"}
     lines = [
         "# Cross-Game Control Structural Template", "",
         "Proposed portable structure: **information uptake → context alignment → value-sensitive intervention**.", "",
-        "| Stage | Poker | Liar's Dice | Repeated RPS |", "|---|---|---|---|",
+        "| Stage | Poker | Liar's Dice | Repeated RPS | Micro-Fighter |", "|---|---|---|---|---|",
     ]
     for stage in STAGES:
-        vals = [report["games"][g][stage]["status"] for g in ("poker", "liars-dice", "rps")]
-        lines.append(f"| {stage.replace('_', ' ').title()} | {vals[0]} | {vals[1]} | {vals[2]} |")
+        vals = [report["games"][g][stage]["status"] for g in ("poker", "liars-dice", "rps", "micro-fighter") if g in report["games"]]
+        lines.append(f"| {stage.replace('_', ' ').title()} | " + " | ".join(vals) + " |")
     lines += ["", "## Interpretation", "", f"- **Overall status:** {report['conclusion']['status']}.", f"- {report['conclusion']['basis']}", ""]
     for game, label in labels.items():
         lines += [f"### {label}", ""]

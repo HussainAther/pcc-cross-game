@@ -89,3 +89,13 @@ make pressure-template
 ```
 
 Poker supports all three stages on frozen synthetic evidence. Liar's Dice confirms commitment exposure and strategic consequence but does not yet contain a separate response-constriction test. Repeated RPS is retained as an absent-by-design Pressure negative control. See `docs/PRESSURE_STRUCTURAL_TEMPLATE_PROTOCOL.md` and `validation/PRESSURE_STRUCTURAL_TEMPLATE.md`.
+
+## v0.8 Pressure response-constriction update
+
+The Pressure structural benchmark now incorporates `pcc-liars-dice` v0.5.0. The missing middle link is no longer untested: matched-state replay supports response constriction in Family B but not Family A. The cross-game Pressure template therefore remains **partial / implementation-sensitive**, not universally confirmed.
+
+## v0.9.0: Micro-Fighter integration
+
+The comparison layer now includes `pcc-micro-fighter` v0.8.0 as a fourth, spatial competitive environment. Micro-Fighter contributes frozen mechanistic evidence for spatial Pressure and value-sensitive Control, but **all three observational construct axes remain unresolved** because its frozen competitiveness prerequisite still fails. This distinction is intentional: mechanism evidence is not construct recovery.
+
+The four environments now play different methodological roles: Poker (rich imperfect information), Liar's Dice (bluff/escalation replication), repeated RPS (minimal negative-control/falsification lab), and Micro-Fighter (spatial threat/initiative lab).

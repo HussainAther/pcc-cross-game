@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "purpose": "Cross-game comparison of frozen synthetic evidence without assuming identical PCC topology or measurement validity across games.",
   "games": [
     {
@@ -199,7 +199,7 @@
     {
       "game": "liars-dice",
       "source_version": "0.4.0 construct recovery",
-      "source_root": "sources/pcc-liars-dice-v0.4.0",
+      "source_root": "sources/pcc-liars-dice-v0.5.0",
       "balance": {
         "status": "failed",
         "criterion": "all pairwise matchups competitive in two independent policy families",
@@ -474,6 +474,65 @@
         "negative_control_confirmed": false,
         "note": "The aggregate negative_control_confirmed flag is false because C/Chaos recovery also failed; Pressure absence itself passed in both families."
       }
+    },
+    {
+      "game": "micro-fighter",
+      "source_version": "0.8.0 spatial mechanism diagnostics",
+      "source_root": "sources/pcc-micro-fighter-v0.8.0",
+      "balance": {
+        "status": "failed",
+        "criterion": "all pairwise synthetic mechanism matchups must lie inside the frozen 30%-70% decisive-win-rate window in both independent families",
+        "cycle_required": false,
+        "failure_pattern": "multiple trivial-dominance matchups remain; construct recovery is intentionally blocked"
+      },
+      "axis_evidence": {
+        "pressure": {
+          "status": "unresolved",
+          "selected_components": [],
+          "basis": "Micro-Fighter has mechanistic diagnostics but no frozen cross-family observational construct-recovery experiment yet."
+        },
+        "control": {
+          "status": "unresolved",
+          "selected_components": [],
+          "basis": "Micro-Fighter has mechanistic diagnostics but no frozen cross-family observational construct-recovery experiment yet."
+        },
+        "chaos": {
+          "status": "unresolved",
+          "selected_components": [],
+          "basis": "Micro-Fighter has mechanistic diagnostics but no frozen cross-family observational construct-recovery experiment yet."
+        }
+      },
+      "mechanisms": [
+        {
+          "name": "spatial Pressure threat generation",
+          "status": "confirmed",
+          "scope": "space compression, attack-opportunity generation, and defensive-response forcing replicate across frozen Pressure matchups"
+        },
+        {
+          "name": "Control defense-to-counter conversion",
+          "status": "partial",
+          "scope": "the prospectively justified public counter-window rule improved Family B Pressure-vs-Control but did not clear the frozen competitiveness gate"
+        },
+        {
+          "name": "deterministic spatial retreat as Control",
+          "status": "failed",
+          "scope": "the prospective sustained-threat retreat rule worsened Pressure-vs-Control and is retained as a negative intervention result"
+        },
+        {
+          "name": "retreat-backfire decomposition",
+          "status": "confirmed",
+          "scope": "retreat commonly forfeits initiative, often fails to create distance, invites immediate re-entry, and rarely preserves separation"
+        },
+        {
+          "name": "damage conversion sufficiency",
+          "status": "failed",
+          "scope": "Pressure-generated threat volume does not universally convert into damage or victory; Family A Control is the counterexample"
+        }
+      ],
+      "negative_controls": {
+        "status": "present",
+        "note": "Prospective v0.5 and v0.7 Control interventions include one partial improvement and one retained negative result; no post-result tuning is used to relabel them."
+      }
     }
   ],
   "cross_game_findings": [
@@ -521,6 +580,21 @@
       "finding": "the cross-game framework can represent an absent axis",
       "status": "supported",
       "basis": "RPS Pressure is recorded as absent-by-design rather than failed, unresolved, or confirmed, separating environmental absence from construct evidence."
+    },
+    {
+      "finding": "PCC mechanisms can be probed in a spatial non-card environment",
+      "status": "supported",
+      "basis": "Micro-Fighter reproduces spatial Pressure threat-generation diagnostics and value-sensitive Control intervention effects without cards, dice, hidden information, or wagering."
+    },
+    {
+      "finding": "spatial Control is not equivalent to maximizing distance",
+      "status": "supported",
+      "basis": "The frozen retreat intervention worsens Control while the v0.8 decomposition shows frequent initiative forfeiture, ineffective displacement, rapid Pressure re-entry, and almost no persistent separation."
+    },
+    {
+      "finding": "mechanistic support can precede construct recovery",
+      "status": "supported",
+      "basis": "Micro-Fighter contributes Pressure and Control mechanism evidence while all three observational axes remain unresolved because the competitiveness prerequisite has not passed."
     }
   ],
   "guardrails": [

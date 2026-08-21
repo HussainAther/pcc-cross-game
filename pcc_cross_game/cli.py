@@ -13,25 +13,26 @@ def main() -> int:
     p.add_argument("--poker-root", required=True)
     p.add_argument("--liars-root", required=True)
     p.add_argument("--rps-root")
+    p.add_argument("--micro-root")
     p.add_argument("--output-dir", default="validation")
     p.add_argument("--control-benchmark", action="store_true", help="also write the cross-game Control mechanism benchmark")
     p.add_argument("--chaos-benchmark", action="store_true", help="also write the cross-game Chaos measurement benchmark")
     p.add_argument("--control-template", action="store_true", help="also write the cross-game Control structural-template benchmark")
     p.add_argument("--pressure-template", action="store_true", help="also write the cross-game Pressure structural-template benchmark")
     args = p.parse_args()
-    report = build_comparison(args.poker_root, args.liars_root, args.rps_root)
+    report = build_comparison(args.poker_root, args.liars_root, args.rps_root, args.micro_root)
     write_outputs(report, args.output_dir)
     if args.control_benchmark:
         control = build_control_benchmark(args.poker_root, args.liars_root, args.rps_root)
         write_control_outputs(control, args.output_dir)
     if args.chaos_benchmark:
-        chaos = build_chaos_benchmark(args.poker_root, args.liars_root, args.rps_root)
+        chaos = build_chaos_benchmark(args.poker_root, args.liars_root, args.rps_root, args.micro_root)
         write_chaos_outputs(chaos, args.output_dir)
     if args.control_template:
-        template = build_control_template_benchmark(args.poker_root, args.liars_root, args.rps_root)
+        template = build_control_template_benchmark(args.poker_root, args.liars_root, args.rps_root, args.micro_root)
         write_control_template_outputs(template, args.output_dir)
     if args.pressure_template:
-        pressure = build_pressure_template_benchmark(args.poker_root, args.liars_root, args.rps_root)
+        pressure = build_pressure_template_benchmark(args.poker_root, args.liars_root, args.rps_root, args.micro_root)
         write_pressure_template_outputs(pressure, args.output_dir)
     print(json.dumps({"games": [g["game"] for g in report["games"]], "findings": len(report["cross_game_findings"]), "output_dir": args.output_dir}, indent=2))
     return 0

@@ -44,8 +44,12 @@
         "basis": "the prespecified public commitment/escalation score responds strongly to assigned Pressure in both families"
       },
       "response_constriction": {
-        "status": "unresolved",
-        "basis": "the frozen Liar\u2019s Dice protocol does not separately measure whether escalating claims constrict an opponent response set"
+        "status": "partial",
+        "family_checks": {
+          "family-a": false,
+          "family-b": true
+        },
+        "basis": "the frozen matched-state replay finds response constriction in Family B but not Family A at closely matched truth probability"
       },
       "strategic_consequence": {
         "status": "confirmed",
@@ -70,22 +74,37 @@
         "status": "not-applicable",
         "basis": "without a Pressure channel there is no Pressure-specific strategic consequence to test"
       }
+    },
+    "micro-fighter": {
+      "commitment_exposure": {
+        "status": "confirmed",
+        "basis": "Pressure consistently converts forward spatial commitment into space compression and in-range attack opportunities across frozen matchups"
+      },
+      "response_constriction": {
+        "status": "confirmed",
+        "basis": "Pressure induces more next-tick defensive/retreat responses across all frozen Pressure matchups, providing a spatial response-constriction analogue"
+      },
+      "strategic_consequence": {
+        "status": "partial",
+        "basis": "Pressure threat volume has strategic consequences but damage conversion does not replicate universally; Family A Control wins despite being spatially constrained"
+      }
     }
   },
   "portable_confirmed_stages": [
     "commitment_exposure",
+    "response_constriction",
     "strategic_consequence"
   ],
   "conclusion": {
     "single_scalar_pressure_supported": false,
     "full_three_stage_template_confirmed_cross_game": false,
     "status": "partial-structural-support",
-    "basis": "Escalating public commitment transfers cleanly between Poker and Liar\u2019s Dice and is correctly absent in RPS. Opponent-response constriction is strongly supported in Poker but not yet separately tested in Liar\u2019s Dice, so the full Pressure mechanism is not yet cross-game confirmed."
+    "basis": "Commitment/threat exposure and response constriction now have direct support in Poker and Micro-Fighter, with commitment also supported in Liar\u2019s Dice and absent in RPS. Strategic consequence is not universal in Micro-Fighter because threat generation does not always convert into damage, so the full Pressure mechanism remains only partially portable."
   },
   "guardrails": [
     "No source policy, threshold, or frozen result is modified.",
     "Absent-by-design and not-applicable are structural statements, not failed Pressure recovery.",
-    "Liar\u2019s Dice Family B remains partial for Pressure discriminant recovery; this benchmark does not relabel it as fully recovered.",
+    "Liar\u2019s Dice Pressure recovery remains partial overall; the new response-constriction intervention is also family-specific and is not relabeled as a universal mechanism.",
     "This benchmark does not alter PCC Poker v0.8.0 or its human-data measurement contract."
   ]
 }

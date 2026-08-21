@@ -20,3 +20,12 @@ rps,chaos,failed,The provisional entropy-style Chaos observable fails because ii
 rps,mechanism:Pressure absence negative control,confirmed,Pressure candidate remains exactly zero in both independently coded families.
 rps,mechanism:Control observable recovery,partial,two-family repeated-RPS recovery test
 rps,mechanism:entropy-style Chaos recovery,failed,negative result: entropy alone does not distinguish strategic unpredictability from iid-uniform randomness
+micro-fighter,balance,failed,all pairwise synthetic mechanism matchups must lie inside the frozen 30%-70% decisive-win-rate window in both independent families
+micro-fighter,pressure,unresolved,Micro-Fighter has mechanistic diagnostics but no frozen cross-family observational construct-recovery experiment yet.
+micro-fighter,control,unresolved,Micro-Fighter has mechanistic diagnostics but no frozen cross-family observational construct-recovery experiment yet.
+micro-fighter,chaos,unresolved,Micro-Fighter has mechanistic diagnostics but no frozen cross-family observational construct-recovery experiment yet.
+micro-fighter,mechanism:spatial Pressure threat generation,confirmed,"space compression, attack-opportunity generation, and defensive-response forcing replicate across frozen Pressure matchups"
+micro-fighter,mechanism:Control defense-to-counter conversion,partial,the prospectively justified public counter-window rule improved Family B Pressure-vs-Control but did not clear the frozen competitiveness gate
+micro-fighter,mechanism:deterministic spatial retreat as Control,failed,the prospective sustained-threat retreat rule worsened Pressure-vs-Control and is retained as a negative intervention result
+micro-fighter,mechanism:retreat-backfire decomposition,confirmed,"retreat commonly forfeits initiative, often fails to create distance, invites immediate re-entry, and rarely preserves separation"
+micro-fighter,mechanism:damage conversion sufficiency,failed,Pressure-generated threat volume does not universally convert into damage or victory; Family A Control is the counterexample

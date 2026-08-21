@@ -8,3 +8,6 @@ liars-dice,value_sensitive_intervention,confirmed,Control challenge timing is mo
 rps,information_uptake,partial,Control candidate exceeds iid-neutral only in one independent family
 rps,context_alignment,unresolved,the frozen RPS protocols do not yet contain an aligned-vs-yoked history intervention
 rps,value_sensitive_intervention,not-applicable,simultaneous one-step RPS lacks the sequential challenge/intervention timing structure used in Poker and Liar's Dice
+micro-fighter,information_uptake,partial,Family B Control uses public action history to recognize a specific successful-defense/cooldown punish window; no independent cross-family information-ablation test exists yet.
+micro-fighter,context_alignment,partial,"The v0.5 counter-window rule is context-specific and improves the targeted matchup, while the broader v0.7 sustained-threat rule backfires; context quality therefore matters but is not cross-family validated."
+micro-fighter,value_sensitive_intervention,confirmed,"A prospectively justified counter-window intervention moves Pressure-vs-Control toward parity, whereas a prospectively justified retreat intervention moves it sharply away; the frozen comparison demonstrates that intervention value depends on what is done with the information."

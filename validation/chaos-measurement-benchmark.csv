@@ -14,3 +14,8 @@ rps,value_or_performance_guardrail,confirmed,conditional entropy weighted by res
 rps,exploitability_or_plausibility_guardrail,confirmed,fixed-marginal and online first-order exploiters penalize temporally predictable Chaos policies while leaving iid-neutral nearly unexploitable
 rps,cross_family_construct_recovery,failed,engineered Chaos does not exceed iid-neutral effective unpredictability in either family
 rps,latent_intent_identifiability,not-identifiable,"iid-uniform RPS is already maximally mixed, value-preserving, and minimally exploitable, so action-only data cannot distinguish strategic mixing intent from equivalent randomness"
+micro-fighter,raw_unpredictability_signal,unresolved,Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.
+micro-fighter,value_or_performance_guardrail,unresolved,Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.
+micro-fighter,exploitability_or_plausibility_guardrail,unresolved,Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.
+micro-fighter,cross_family_construct_recovery,unresolved,Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.
+micro-fighter,latent_intent_identifiability,unresolved,Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.

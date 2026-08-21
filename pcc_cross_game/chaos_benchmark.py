@@ -19,7 +19,7 @@ def _load(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def build_chaos_benchmark(poker_root: str | Path, liars_root: str | Path, rps_root: str | Path) -> dict[str, Any]:
+def build_chaos_benchmark(poker_root: str | Path, liars_root: str | Path, rps_root: str | Path, micro_root: str | Path | None = None) -> dict[str, Any]:
     poker_root, liars_root, rps_root = map(Path, (poker_root, liars_root, rps_root))
     poker = _load(poker_root / "validation/effective-chaos-validation.json")
     liars_construct = _load(liars_root / "validation/construct-recovery.json")
@@ -122,6 +122,14 @@ def build_chaos_benchmark(poker_root: str | Path, liars_root: str | Path, rps_ro
         },
     }
 
+    if micro_root is not None:
+        games["micro-fighter"] = {
+            name: {
+                "status": "unresolved",
+                "basis": "Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.",
+            } for name in MECHANISMS
+        }
+
     return {
         "schema_version": 1,
         "benchmark": "cross-game-chaos-measurement",
@@ -136,7 +144,7 @@ def build_chaos_benchmark(poker_root: str | Path, liars_root: str | Path, rps_ro
         },
         "conclusion": {
             "status": "partial-generalization",
-            "basis": "Across poker, Liar's Dice, and RPS, the portable structure is effective unpredictability = game-appropriate unpredictability × independent adequacy. The exact scalar ingredients are not portable, and RPS exposes a fundamental action-only identifiability limit.",
+            "basis": "Across poker, Liar's Dice, and RPS, the portable structure is effective unpredictability = game-appropriate unpredictability × independent adequacy. Micro-Fighter remains intentionally unresolved for Chaos until its competitiveness and construct-recovery prerequisites mature.",
         },
         "guardrails": [
             "No source experiment is rerun or retuned by this benchmark.",
@@ -148,16 +156,16 @@ def build_chaos_benchmark(poker_root: str | Path, liars_root: str | Path, rps_ro
 
 
 def render_markdown(report: dict[str, Any]) -> str:
-    labels = {"poker": "Poker", "liars-dice": "Liar's Dice", "rps": "Repeated RPS"}
+    labels = {"poker": "Poker", "liars-dice": "Liar's Dice", "rps": "Repeated RPS", "micro-fighter": "Micro-Fighter"}
     lines = [
         "# Cross-Game Chaos Measurement Benchmark", "",
         "This benchmark compares frozen Chaos-measurement evidence without defining a universal scalar Chaos score.", "",
-        "| Measurement requirement | Poker | Liar's Dice | Repeated RPS |", "|---|---|---|---|",
+        "| Measurement requirement | Poker | Liar's Dice | Repeated RPS | Micro-Fighter |", "|---|---|---|---|---|",
     ]
     for mechanism in MECHANISMS:
         pretty = mechanism.replace("_", " ").title()
-        vals = [report["games"][g][mechanism]["status"] for g in ("poker", "liars-dice", "rps")]
-        lines.append(f"| {pretty} | {vals[0]} | {vals[1]} | {vals[2]} |")
+        vals = [report["games"][g][mechanism]["status"] for g in ("poker", "liars-dice", "rps", "micro-fighter") if g in report["games"]]
+        lines.append(f"| {pretty} | " + " | ".join(vals) + " |")
     lines += ["", "## Cross-game conclusion", "", f"- {report['conclusion']['basis']}", ""]
     for game, label in labels.items():
         lines += [f"### {label}", ""]
