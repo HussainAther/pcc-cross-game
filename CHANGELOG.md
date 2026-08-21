@@ -61,3 +61,10 @@
 - Updated the Pressure structural template with the frozen Liar's Dice v0.5 matched-state response-constriction intervention.
 - Reclassified the Liar's Dice response-constriction stage from unresolved to partial: Family B passes, Family A does not.
 - Preserved the overall Pressure template as partial structural support rather than promoting a family-specific result.
+
+## 0.10.0
+
+- Add a canonical cross-game theory/status report generated from frozen comparison artifacts.
+- Consolidate the provisional structural hypotheses for Pressure, Control, and Chaos without promoting them to universal scalar definitions.
+- Make falsifications, absence-by-design, non-identifiability, and unresolved evidence first-class parts of the program status.
+- Keep PCC Poker v0.8.0 and its human-data/ORIA boundary unchanged.

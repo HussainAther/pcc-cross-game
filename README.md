@@ -99,3 +99,13 @@ The Pressure structural benchmark now incorporates `pcc-liars-dice` v0.5.0. The 
 The comparison layer now includes `pcc-micro-fighter` v0.8.0 as a fourth, spatial competitive environment. Micro-Fighter contributes frozen mechanistic evidence for spatial Pressure and value-sensitive Control, but **all three observational construct axes remain unresolved** because its frozen competitiveness prerequisite still fails. This distinction is intentional: mechanism evidence is not construct recovery.
 
 The four environments now play different methodological roles: Poker (rich imperfect information), Liar's Dice (bluff/escalation replication), repeated RPS (minimal negative-control/falsification lab), and Micro-Fighter (spatial threat/initiative lab).
+
+## Canonical theory/status report
+
+The comparative program now maintains one generated theory/status layer that summarizes what currently transfers, fails, remains unresolved, or is absent by design across Poker, Liar's Dice, Repeated RPS, and Micro-Fighter.
+
+```bash
+make theory-status
+```
+
+See `validation/THEORY_STATUS.md`. The report is descriptive of frozen synthetic evidence; it does not create new construct claims or alter PCC Poker's frozen human-data protocol.
