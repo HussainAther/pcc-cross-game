@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "title": "PCC cross-game theory and evidence status",
+  "scope": "Synthetic comparative program only; no human-data inference is made here.",
+  "games": [
+    "poker",
+    "liars-dice",
+    "rps",
+    "micro-fighter"
+  ],
+  "axis_status": {
+    "poker": {
+      "pressure": "confirmed",
+      "control": "unresolved",
+      "chaos": "unresolved"
+    },
+    "liars-dice": {
+      "pressure": "partial",
+      "control": "failed",
+      "chaos": "confirmed"
+    },
+    "rps": {
+      "pressure": "absent-by-design",
+      "control": "failed",
+      "chaos": "failed"
+    },
+    "micro-fighter": {
+      "pressure": "unresolved",
+      "control": "unresolved",
+      "chaos": "unresolved"
+    }
+  },
+  "structural_hypotheses": {
+    "pressure": {
+      "template": [
+        "commitment_or_threat_exposure",
+        "response_or_space_constriction",
+        "strategic_consequence"
+      ],
+      "summary": "Pressure is provisionally modeled as credible commitment/threat that narrows the opponent's viable response space and has downstream strategic consequence.",
+      "cross_game_status": "partial-structural-support",
+      "limits": [
+        "The poker-specific dominance cycle is not treated as universal.",
+        "Liar's Dice response constriction is implementation-sensitive rather than universal.",
+        "Micro-Fighter shows that threat generation can be strong even when conversion to value is not universal.",
+        "Pressure is absent-by-design in repeated RPS."
+      ]
+    },
+    "control": {
+      "template": [
+        "information_uptake",
+        "context_alignment",
+        "value_sensitive_intervention"
+      ],
+      "summary": "Control is provisionally modeled as using opponent-relevant information in the right context to choose an intervention whose value depends on timing and situation.",
+      "cross_game_status": "partial-structural-support",
+      "limits": [
+        "No single cross-game Control scalar is supported.",
+        "Information uptake and context alignment remain family-sensitive outside poker.",
+        "Micro-Fighter falsifies simple spatial withdrawal as a sufficient Control mechanism.",
+        "Sequential intervention timing is structurally not applicable to one-step RPS in the same form."
+      ]
+    },
+    "chaos": {
+      "template": [
+        "game_appropriate_unpredictability",
+        "independent_adequacy_guardrail"
+      ],
+      "operator": "multiply_or_jointly_require",
+      "summary": "Chaos is provisionally modeled as effective unpredictability: behavioral unpredictability that remains strategically adequate rather than randomness for its own sake.",
+      "cross_game_status": "partial-generalization",
+      "limits": [
+        "Raw entropy is not a portable Chaos measure.",
+        "Repeated RPS demonstrates that iid-uniform behavior can be maximally unpredictable and value-preserving without identifying latent Chaos intent.",
+        "Poker lacks a conservative family-invariant Chaos observable.",
+        "Micro-Fighter Chaos remains intentionally unresolved pending a dedicated frozen experiment."
+      ]
+    }
+  },
+  "portable_findings": [
+    {
+      "claim": "PCC axes are better represented by portable structural motifs than by universal scalar observables.",
+      "status": "partial",
+      "basis": "Pressure, Control, and Chaos each retain a cross-game structural pattern, while exact observables and full construct recovery differ by game and policy family."
+    },
+    {
+      "claim": "Mechanism evidence must remain separate from observational construct recovery.",
+      "status": "confirmed",
+      "basis": "Poker and Micro-Fighter contain mechanism-level support even where conservative cross-family observational axes remain unresolved."
+    },
+    {
+      "claim": "A PCC axis may be absent or structurally non-identifiable in a valid comparison environment.",
+      "status": "confirmed",
+      "basis": "Pressure is absent-by-design in RPS, and latent Chaos intent is not identifiable from action-only iid-uniform RPS behavior."
+    },
+    {
+      "claim": "The poker-specific Pressure-Chaos-Control dominance cycle is universal across competitive games.",
+      "status": "failed",
+      "basis": "Liar's Dice and Micro-Fighter do not reproduce the poker topology under their frozen competitiveness protocols, and RPS lacks Pressure by design."
+    },
+    {
+      "claim": "Randomness alone is sufficient evidence of Chaos.",
+      "status": "failed",
+      "basis": "RPS falsification shows high entropy can be strategically equivalent to neutral iid play or highly exploitable temporal structure."
+    },
+    {
+      "claim": "Creating distance is sufficient evidence of spatial Control.",
+      "status": "failed",
+      "basis": "Micro-Fighter's deterministic retreat intervention worsens Control by forfeiting initiative and allowing rapid Pressure re-entry."
+    }
+  ],
+  "game_roles": {
+    "poker": "Flagship imperfect-information environment and only current pre-human frozen study; strongest observational Pressure evidence.",
+    "liars-dice": "Independent bluff/escalation replication; strongest current cross-family Chaos recovery and useful Pressure/Control mechanism contrasts.",
+    "rps": "Minimal falsification/negative-control lab; Pressure absent by design and Chaos intent non-identifiable from action-only iid-uniform behavior.",
+    "micro-fighter": "Spatial competitive-control lab; mechanism evidence for threat, constriction, initiative, timing, and value-sensitive intervention without current construct-recovery authorization."
+  },
+  "current_boundaries": [
+    "Do not infer a universal PCC cycle from the poker result.",
+    "Do not promote mechanism evidence into an observational construct label without the relevant frozen recovery test.",
+    "Do not interpret entropy or stochasticity alone as Chaos.",
+    "Do not interpret prediction/history use alone as Control.",
+    "Do not force an absent or structurally mismatched axis into every game.",
+    "PCC Poker v0.8.0 remains scientifically frozen; this report does not alter its human-facing measurement contract or ORIA gate."
+  ],
+  "next_questions": [
+    "Can Micro-Fighter support a dedicated effective-Chaos falsification/recovery experiment without first forcing competitiveness?",
+    "Can Control information/context stages be isolated with matched interventions in Liar's Dice and Micro-Fighter?",
+    "Which Pressure constriction measures remain stable when policy implementation changes?",
+    "Can a future fifth environment add a genuinely new strategic substrate rather than duplicate bluffing, simultaneous choice, or spatial combat?"
+  ]
+}
