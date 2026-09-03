@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "title": "PCC cross-game architecture falsification: state axes vs contextual modulation",
+  "hypothesis": "Pressure and Chaos behave primarily as comparatively context-stable behavioral dimensions, while Control is expressed primarily through context-dependent modulation.",
+  "model_comparison": {
+    "additive": "behavior ~ Pressure + Control + Chaos + context",
+    "control_modulatory": "behavior ~ Pressure + Control + Chaos + context + Control x context",
+    "planned_discriminants": [
+      "Pressure x context",
+      "Chaos x context",
+      "cross-context rank stability",
+      "leave-one-game-out qualitative ordering"
+    ]
+  },
+  "prespecified_cross_game_criteria": {
+    "minimum_pooled_relative_improvement": 0.05,
+    "minimum_games_with_control_interaction_improvement": 4,
+    "control_interaction_should_exceed_pressure_or_chaos_interaction_in_majority": true,
+    "leave_one_game_out_required": true
+  },
+  "games": [
+    {
+      "game": "poker",
+      "status": "pending-trajectory-export",
+      "source": "sources/pcc-poker-v0.8.0/validation/control-architecture-export.json",
+      "reason": "Bundled frozen summaries do not contain the disjoint-seed agent-by-context rows required for additive vs interaction model fitting.",
+      "architecture_result": null
+    },
+    {
+      "game": "liars-dice",
+      "status": "pending-trajectory-export",
+      "source": "sources/pcc-liars-dice-v0.5.0/validation/control-architecture-export.json",
+      "reason": "Bundled frozen summaries do not contain the disjoint-seed agent-by-context rows required for additive vs interaction model fitting.",
+      "architecture_result": null
+    },
+    {
+      "game": "rps",
+      "status": "pending-trajectory-export",
+      "source": "sources/pcc-rps-v0.2.0/validation/control-architecture-export.json",
+      "reason": "Bundled frozen summaries do not contain the disjoint-seed agent-by-context rows required for additive vs interaction model fitting.",
+      "architecture_result": null
+    },
+    {
+      "game": "micro-fighter",
+      "status": "pending-trajectory-export",
+      "source": "sources/pcc-micro-fighter-v1.0.0/validation/control-architecture-export.json",
+      "reason": "Bundled frozen summaries do not contain the disjoint-seed agent-by-context rows required for additive vs interaction model fitting.",
+      "architecture_result": null
+    },
+    {
+      "game": "colonel-blotto",
+      "status": "evaluated",
+      "source": "sources/pcc-colonel-blotto-v1.1.0/validation/control-modulation.json",
+      "architecture_result": {
+        "additive_standardized_mae": 0.32649046821819294,
+        "control_context_standardized_mae": 0.27740229848517567,
+        "relative_improvement": 0.15035100412245955,
+        "targets_improved": [
+          "mean_payoff",
+          "mean_leverage_targeting",
+          "mean_opponent_viable_responses",
+          "lagged_counter_payoff"
+        ],
+        "targets_total": 4,
+        "primary_pass": true,
+        "latent_pcc_weights_in_generator": false,
+        "cross_validation": "leave-one-agent-out"
+      }
+    }
+  ],
+  "summary": {
+    "evaluated_games": 1,
+    "required_games": 5,
+    "games_passing_game_native_control_modulation_test": 1,
+    "pooled_claim_ready": false,
+    "cross_game_architecture_confirmed": false,
+    "status": "pending"
+  },
+  "guardrails": [
+    "Do not treat missing trajectory exports as negative evidence.",
+    "Do not refit game-native PCC observables to make the cross-game architecture pass.",
+    "A Blotto pass is evidence for Blotto, not proof of cross-game generality.",
+    "Control x context must be compared against Pressure x context and Chaos x context before claiming Control is disproportionately modulatory.",
+    "The final claim requires leave-one-game-out analysis after all five games are evaluable."
+  ]
+}

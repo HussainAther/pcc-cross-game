@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.12.0
+
+- Add Colonel Blotto v1.1.0 as the fifth cross-game environment.
+- Integrate frozen targeted-leverage Pressure, guarded-Chaos, learned-agent emergence, and Control-modulation evidence.
+- Add a prospective cross-game architecture falsification protocol for state-like Pressure/Chaos versus context-dependent Control.
+- Add normalized architecture-status outputs and preserve missing trajectory exports as pending rather than failed.
+- Extend CLI/Makefile comparison commands with `--blotto-root` and `--architecture-falsification`.
+- Update the canonical theory/status layer to include Colonel Blotto and the new architecture question.
+
+
+- Updated Micro-Fighter source evidence from v0.8.0 to v1.0.0.
+- Added the frozen v0.9 effective-Chaos comparison and v1.0 calibrated strong-exploiter falsification.
+- Cross-game Chaos benchmark now recognizes Micro-Fighter support for unpredictability + adequacy + exploitation resistance while keeping full cross-family construct recovery unresolved.
+- Added the explicit cross-game finding that Chaos is not randomness in spatial combat.
+- Kept PCC Poker v0.8.0 and its human-data gate unchanged.
+
+# Changelog
+
 ## 0.9.0
 
 - Add `pcc-micro-fighter` v0.8.0 as the fourth frozen comparison environment.

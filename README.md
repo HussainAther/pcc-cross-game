@@ -1,8 +1,8 @@
 # PCC Cross-Game
 
-A neutral comparison layer for frozen synthetic PCC evidence across games.
+A neutral comparison and architecture-falsification layer for frozen synthetic PCC evidence across games.
 
-This repository does **not** define a universal PCC game topology and does not merge the scientific protocols of `pcc-poker`, `pcc-liars-dice`, or `pcc-rps`. It compares evidence classes while preserving game-specific failures, absent dimensions, and asymmetries.
+This repository does **not** define a universal PCC game topology and does not merge the scientific protocols of `pcc-poker`, `pcc-liars-dice`, or `pcc-rps`. It now also integrates `pcc-micro-fighter` and `pcc-colonel-blotto` while preserving each game's native measurement contract. It compares evidence classes while preserving game-specific failures, absent dimensions, and asymmetries.
 
 ## Current comparison
 
@@ -109,3 +109,24 @@ make theory-status
 ```
 
 See `validation/THEORY_STATUS.md`. The report is descriptive of frozen synthetic evidence; it does not create new construct claims or alter PCC Poker's frozen human-data protocol.
+
+## v0.11.0 update
+
+Micro-Fighter v1.0 adds a calibrated held-out exploitation test supporting effective Chaos as value-preserving unpredictability rather than raw randomness. Its observational Chaos axis remains unresolved pending cross-family construct recovery.
+
+## v0.12.0: Colonel Blotto + cross-game architecture falsification
+
+Colonel Blotto v1.1.0 is now the fifth comparison environment. Its frozen results contribute targeted-leverage Pressure, guarded Chaos under held-out exploitation, learned-agent emergence without latent PCC generator weights, and a direct Control-as-modulation test.
+
+The new architecture protocol asks whether the same structural relationship generalizes across all five games:
+
+- Pressure and Chaos as comparatively context-stable behavioral dimensions;
+- Control as context-dependent modulation.
+
+Run:
+
+```bash
+make architecture-falsification
+```
+
+The current cross-game architecture conclusion is intentionally **pending**: Blotto is evaluable and passes its native `Control x context` test (15.04% LOAO MAE improvement), while Poker, Liar's Dice, RPS, and Micro-Fighter still need frozen disjoint-seed agent-by-context exports. Missing exports are not counted as failures. See `docs/CROSS_GAME_ARCHITECTURE_PROTOCOL.md` and `validation/CROSS_GAME_ARCHITECTURE.md`.

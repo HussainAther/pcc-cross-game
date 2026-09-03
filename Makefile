@@ -1,4 +1,4 @@
-.PHONY: install test compare control-benchmark chaos-benchmark control-template pressure-template theory-status preflight
+.PHONY: install test compare control-benchmark chaos-benchmark control-template pressure-template theory-status architecture-falsification preflight
 
 install:
 	python -m pip install -e ".[dev]"
@@ -11,7 +11,8 @@ compare:
 		--poker-root sources/pcc-poker-v0.8.0 \
 		--liars-root sources/pcc-liars-dice-v0.5.0 \
 		--rps-root sources/pcc-rps-v0.2.0 \
-		--micro-root sources/pcc-micro-fighter-v0.8.0 \
+		--micro-root sources/pcc-micro-fighter-v1.0.0 \
+		--blotto-root sources/pcc-colonel-blotto-v1.1.0 \
 		--output-dir validation
 
 control-benchmark:
@@ -19,7 +20,8 @@ control-benchmark:
 		--poker-root sources/pcc-poker-v0.8.0 \
 		--liars-root sources/pcc-liars-dice-v0.5.0 \
 		--rps-root sources/pcc-rps-v0.2.0 \
-		--micro-root sources/pcc-micro-fighter-v0.8.0 \
+		--micro-root sources/pcc-micro-fighter-v1.0.0 \
+		--blotto-root sources/pcc-colonel-blotto-v1.1.0 \
 		--output-dir validation \
 		--control-benchmark
 
@@ -28,7 +30,8 @@ chaos-benchmark:
 		--poker-root sources/pcc-poker-v0.8.0 \
 		--liars-root sources/pcc-liars-dice-v0.5.0 \
 		--rps-root sources/pcc-rps-v0.2.0 \
-		--micro-root sources/pcc-micro-fighter-v0.8.0 \
+		--micro-root sources/pcc-micro-fighter-v1.0.0 \
+		--blotto-root sources/pcc-colonel-blotto-v1.1.0 \
 		--output-dir validation \
 		--chaos-benchmark
 
@@ -37,7 +40,8 @@ control-template:
 		--poker-root sources/pcc-poker-v0.8.0 \
 		--liars-root sources/pcc-liars-dice-v0.5.0 \
 		--rps-root sources/pcc-rps-v0.2.0 \
-		--micro-root sources/pcc-micro-fighter-v0.8.0 \
+		--micro-root sources/pcc-micro-fighter-v1.0.0 \
+		--blotto-root sources/pcc-colonel-blotto-v1.1.0 \
 		--output-dir validation \
 		--control-template
 
@@ -46,11 +50,12 @@ pressure-template:
 		--poker-root sources/pcc-poker-v0.8.0 \
 		--liars-root sources/pcc-liars-dice-v0.5.0 \
 		--rps-root sources/pcc-rps-v0.2.0 \
-		--micro-root sources/pcc-micro-fighter-v0.8.0 \
+		--micro-root sources/pcc-micro-fighter-v1.0.0 \
+		--blotto-root sources/pcc-colonel-blotto-v1.1.0 \
 		--output-dir validation \
 		--pressure-template
 
-preflight: test control-benchmark chaos-benchmark control-template pressure-template theory-status
+preflight: test control-benchmark chaos-benchmark control-template pressure-template theory-status architecture-falsification
 	@echo "Cross-game preflight passed."
 
 theory-status:
@@ -58,6 +63,17 @@ theory-status:
 		--poker-root sources/pcc-poker-v0.8.0 \
 		--liars-root sources/pcc-liars-dice-v0.5.0 \
 		--rps-root sources/pcc-rps-v0.2.0 \
-		--micro-root sources/pcc-micro-fighter-v0.8.0 \
+		--micro-root sources/pcc-micro-fighter-v1.0.0 \
+		--blotto-root sources/pcc-colonel-blotto-v1.1.0 \
 		--output-dir validation \
 		--theory-status
+
+architecture-falsification:
+	python -m pcc_cross_game.cli \
+		--poker-root sources/pcc-poker-v0.8.0 \
+		--liars-root sources/pcc-liars-dice-v0.5.0 \
+		--rps-root sources/pcc-rps-v0.2.0 \
+		--micro-root sources/pcc-micro-fighter-v1.0.0 \
+		--blotto-root sources/pcc-colonel-blotto-v1.1.0 \
+		--output-dir validation \
+		--architecture-falsification

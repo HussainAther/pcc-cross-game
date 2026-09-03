@@ -8,8 +8,8 @@ def report():
     return build_theory_status(ROOT)
 
 
-def test_four_games_are_in_canonical_status():
-    assert report()["games"] == ["poker", "liars-dice", "rps", "micro-fighter"]
+def test_five_games_are_in_canonical_status():
+    assert report()["games"] == ["poker", "liars-dice", "rps", "micro-fighter", "colonel-blotto"]
 
 
 def test_axis_status_is_not_overclaimed():
@@ -18,6 +18,7 @@ def test_axis_status_is_not_overclaimed():
     assert r["liars-dice"] == {"pressure": "partial", "control": "failed", "chaos": "confirmed"}
     assert r["rps"]["pressure"] == "absent-by-design"
     assert r["micro-fighter"] == {"pressure": "unresolved", "control": "unresolved", "chaos": "unresolved"}
+    assert r["colonel-blotto"] == {"pressure": "confirmed", "control": "partial", "chaos": "confirmed"}
 
 
 def test_core_falsifications_are_retained():

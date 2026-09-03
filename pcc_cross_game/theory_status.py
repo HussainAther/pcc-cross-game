@@ -33,7 +33,7 @@ def build_theory_status(root: str | Path = ".") -> dict[str, Any]:
     game_order = [g["game"] for g in cross["games"]]
 
     report: dict[str, Any] = {
-        "schema_version": 1,
+        "schema_version": 2,
         "title": "PCC cross-game theory and evidence status",
         "scope": "Synthetic comparative program only; no human-data inference is made here.",
         "games": game_order,
@@ -47,6 +47,7 @@ def build_theory_status(root: str | Path = ".") -> dict[str, Any]:
                     "The poker-specific dominance cycle is not treated as universal.",
                     "Liar's Dice response constriction is implementation-sensitive rather than universal.",
                     "Micro-Fighter shows that threat generation can be strong even when conversion to value is not universal.",
+                    "Colonel Blotto shows that raw concentration is insufficient: targeted leverage, not concentration alone, drives response constriction.",
                     "Pressure is absent-by-design in repeated RPS.",
                 ],
             },
@@ -59,6 +60,7 @@ def build_theory_status(root: str | Path = ".") -> dict[str, Any]:
                     "Information uptake and context alignment remain family-sensitive outside poker.",
                     "Micro-Fighter falsifies simple spatial withdrawal as a sufficient Control mechanism.",
                     "Sequential intervention timing is structurally not applicable to one-step RPS in the same form.",
+                    "Colonel Blotto v1.0-v1.1 suggests Control may be better represented as context-dependent modulation than as an independent orthogonal axis.",
                 ],
             },
             "chaos": {
@@ -70,7 +72,8 @@ def build_theory_status(root: str | Path = ".") -> dict[str, Any]:
                     "Raw entropy is not a portable Chaos measure.",
                     "Repeated RPS demonstrates that iid-uniform behavior can be maximally unpredictable and value-preserving without identifying latent Chaos intent.",
                     "Poker lacks a conservative family-invariant Chaos observable.",
-                    "Micro-Fighter Chaos remains intentionally unresolved pending a dedicated frozen experiment.",
+                    "Micro-Fighter now supports effective-Chaos mechanism evidence under a calibrated held-out exploiter, but full cross-family observational construct recovery remains unresolved.",
+                    "Colonel Blotto supports guarded unpredictability under a held-out adaptive exploiter.",
                 ],
             },
         },
@@ -98,7 +101,7 @@ def build_theory_status(root: str | Path = ".") -> dict[str, Any]:
             {
                 "claim": "Randomness alone is sufficient evidence of Chaos.",
                 "status": "failed",
-                "basis": "RPS falsification shows high entropy can be strategically equivalent to neutral iid play or highly exploitable temporal structure.",
+                "basis": "RPS shows entropy can be behaviorally non-identifying, while Micro-Fighter shows a more-entropic random baseline can be strategically much worse than effective Chaos under neutral and calibrated adaptive opponents.",
             },
             {
                 "claim": "Creating distance is sufficient evidence of spatial Control.",
@@ -110,7 +113,8 @@ def build_theory_status(root: str | Path = ".") -> dict[str, Any]:
             "poker": "Flagship imperfect-information environment and only current pre-human frozen study; strongest observational Pressure evidence.",
             "liars-dice": "Independent bluff/escalation replication; strongest current cross-family Chaos recovery and useful Pressure/Control mechanism contrasts.",
             "rps": "Minimal falsification/negative-control lab; Pressure absent by design and Chaos intent non-identifiable from action-only iid-uniform behavior.",
-            "micro-fighter": "Spatial competitive-control lab; mechanism evidence for threat, constriction, initiative, timing, and value-sensitive intervention without current construct-recovery authorization.",
+            "micro-fighter": "Spatial competitive-control lab; mechanism evidence for threat, constriction, initiative, value-sensitive intervention, and effective Chaos resistance under calibrated exploitation, while full observational construct recovery remains unresolved.",
+            "colonel-blotto": "Resource-allocation and learned-agent architecture lab; confirms targeted-leverage Pressure and guarded Chaos, while learned-agent evidence suggests Control is context-dependent modulation rather than an independent PC3.",
         },
         "current_boundaries": [
             "Do not infer a universal PCC cycle from the poker result.",
@@ -121,10 +125,11 @@ def build_theory_status(root: str | Path = ".") -> dict[str, Any]:
             "PCC Poker v0.8.0 remains scientifically frozen; this report does not alter its human-facing measurement contract or ORIA gate.",
         ],
         "next_questions": [
-            "Can Micro-Fighter support a dedicated effective-Chaos falsification/recovery experiment without first forcing competitiveness?",
+            "Can Micro-Fighter reproduce effective-Chaos recovery across two independently coded policy families without retuning the calibrated exploiter?",
+            "Can PCC Poker resolve conservative cross-family Control and Chaos observables while preserving its v0.8.0 pre-human freeze and ORIA gate?",
             "Can Control information/context stages be isolated with matched interventions in Liar's Dice and Micro-Fighter?",
             "Which Pressure constriction measures remain stable when policy implementation changes?",
-            "Can a future fifth environment add a genuinely new strategic substrate rather than duplicate bluffing, simultaneous choice, or spatial combat?",
+            "Does the state-axes-versus-contextual-modulation architecture generalize from Colonel Blotto to Poker, Liar's Dice, RPS, and Micro-Fighter under one frozen cross-game protocol?",
         ],
     }
     return report
@@ -163,7 +168,7 @@ def _markdown(report: dict[str, Any]) -> str:
         "| Game | Pressure | Control | Chaos |",
         "|---|---|---|---|",
     ]
-    labels = {"poker":"Poker", "liars-dice":"Liar's Dice", "rps":"Repeated RPS", "micro-fighter":"Micro-Fighter"}
+    labels = {"poker":"Poker", "liars-dice":"Liar's Dice", "rps":"Repeated RPS", "micro-fighter":"Micro-Fighter", "colonel-blotto":"Colonel Blotto"}
     for game in report["games"]:
         s = report["axis_status"][game]
         lines.append(f"| {labels.get(game, game)} | {s['pressure']} | {s['control']} | {s['chaos']} |")

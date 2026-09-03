@@ -29,3 +29,13 @@ micro-fighter,mechanism:Control defense-to-counter conversion,partial,the prospe
 micro-fighter,mechanism:deterministic spatial retreat as Control,failed,the prospective sustained-threat retreat rule worsened Pressure-vs-Control and is retained as a negative intervention result
 micro-fighter,mechanism:retreat-backfire decomposition,confirmed,"retreat commonly forfeits initiative, often fails to create distance, invites immediate re-entry, and rarely preserves separation"
 micro-fighter,mechanism:damage conversion sufficiency,failed,Pressure-generated threat volume does not universally convert into damage or victory; Family A Control is the counterexample
+micro-fighter,mechanism:effective Chaos resistance to calibrated exploitation,confirmed,"a stronger adaptive exploiter is calibrated only on predictable play, frozen, then effective Chaos preserves substantially more held-out value than predictable or random baselines"
+micro-fighter,mechanism:Chaos is not randomness,confirmed,the random baseline is more entropic but much less competitively adequate than the effective-Chaos candidate
+colonel-blotto,balance,not-applicable,no universal dominance cycle is required; Blotto is used for resource-allocation mechanism and learned-agent architecture tests
+colonel-blotto,pressure,confirmed,"Matched intervention holds budget, expected value, and raw concentration approximately fixed while high-leverage targeting reduces viable responses by 48.0%."
+colonel-blotto,control,partial,"Control is stable but does not emerge as an independent PC3; Control x context improves held-out prediction by 15.04%, supporting a modulatory rather than orthogonal-axis interpretation."
+colonel-blotto,chaos,confirmed,Guarded Chaos retains 93.1% of uniform-random entropy while outperforming random allocation against a held-out learner by 0.294 payoff.
+colonel-blotto,mechanism:targeted-leverage Pressure,confirmed,matched resource-allocation intervention
+colonel-blotto,mechanism:guarded Chaos under held-out exploitation,confirmed,held-out adaptive exploiter
+colonel-blotto,mechanism:learned-agent low-dimensional PCC-related structure,partial,"independently optimized agents; Pressure and Chaos align strongly with PCs, Control does not form an independent PC3"
+colonel-blotto,mechanism:Control as context-dependent modulation,confirmed,leave-one-agent-out predictive comparison with disjoint signature/outcome seeds

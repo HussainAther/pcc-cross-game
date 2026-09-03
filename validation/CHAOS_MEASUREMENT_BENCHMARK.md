@@ -4,15 +4,15 @@ This benchmark compares frozen Chaos-measurement evidence without defining a uni
 
 | Measurement requirement | Poker | Liar's Dice | Repeated RPS | Micro-Fighter |
 |---|---|---|---|---|
-| Raw Unpredictability Signal | partial | confirmed | failed | unresolved |
-| Value Or Performance Guardrail | confirmed | confirmed | confirmed | unresolved |
-| Exploitability Or Plausibility Guardrail | unresolved | warning-confirmed | confirmed | unresolved |
+| Raw Unpredictability Signal | partial | confirmed | failed | confirmed |
+| Value Or Performance Guardrail | confirmed | confirmed | confirmed | confirmed |
+| Exploitability Or Plausibility Guardrail | unresolved | warning-confirmed | confirmed | confirmed |
 | Cross Family Construct Recovery | failed | confirmed | failed | unresolved |
 | Latent Intent Identifiability | unresolved | unresolved | not-identifiable | unresolved |
 
 ## Cross-game conclusion
 
-- Across poker, Liar's Dice, and RPS, the portable structure is effective unpredictability = game-appropriate unpredictability × independent adequacy. Micro-Fighter remains intentionally unresolved for Chaos until its competitiveness and construct-recovery prerequisites mature.
+- Across all four laboratories, the portable structure is effective unpredictability = game-appropriate unpredictability × independent adequacy. Micro-Fighter now adds a strong held-out exploitation-resistance test, while its full cross-family Chaos construct recovery remains unresolved.
 
 ### Poker
 
@@ -40,11 +40,11 @@ This benchmark compares frozen Chaos-measurement evidence without defining a uni
 
 ### Micro-Fighter
 
-- **raw unpredictability signal** — unresolved: Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.
-- **value or performance guardrail** — unresolved: Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.
-- **exploitability or plausibility guardrail** — unresolved: Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.
-- **cross family construct recovery** — unresolved: Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.
-- **latent intent identifiability** — unresolved: Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.
+- **raw unpredictability signal** — confirmed: effective-Chaos behavior is substantially more conditionally unpredictable than predictable competent play, while the still-more-entropic random baseline demonstrates that entropy magnitude alone is insufficient
+- **value or performance guardrail** — confirmed: effective Chaos preserves far more competitive value than the higher-entropy random baseline in the frozen v0.9 comparison
+- **exploitability or plausibility guardrail** — confirmed: a calibrated exploiter holds predictable play to 0.000 decisive wins while effective Chaos retains 0.720, exceeding random at 0.381
+- **cross family construct recovery** — unresolved: the strong falsification uses a dedicated effective-Chaos candidate and calibrated exploiter, not two independently coded Chaos policy families under a frozen cross-family recovery gate
+- **latent intent identifiability** — unresolved: the experiment supports an effective-unpredictability mechanism but does not uniquely identify latent strategic intent from behavior
 
 ## Guardrails
 

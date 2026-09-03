@@ -1,7 +1,27 @@
 {
-  "schema_version": 6,
-  "note": "Exact frozen validation summaries copied from named source release snapshots solely to reproduce cross-game comparisons. No human data are included. Micro-Fighter v0.8.0 is admitted at the mechanism-evidence level only because its competitiveness gate remains failed.",
+  "schema_version": 8,
+  "note": "Exact frozen validation summaries copied from named source release snapshots solely to reproduce cross-game comparisons. No human data are included. Colonel Blotto v1.1.0 adds the fifth environment and the first direct Control-as-context-modulation architecture result; missing architecture exports in other games remain pending.",
   "files": [
+    {
+      "path": "sources/pcc-colonel-blotto-v1.1.0/validation/chaos-exploiter-falsification.json",
+      "bytes": 3387,
+      "sha256": "d814ef16cc3350437602b8e6aa8899cb807922f3e7cadef25f6fc93e97975e9d"
+    },
+    {
+      "path": "sources/pcc-colonel-blotto-v1.1.0/validation/control-modulation.json",
+      "bytes": 10887,
+      "sha256": "99a570565170ec7298e1dbaba92a10102655d4cc42ef38162b2d54bad8f293e0"
+    },
+    {
+      "path": "sources/pcc-colonel-blotto-v1.1.0/validation/emergent-learned-agents.json",
+      "bytes": 48320,
+      "sha256": "bef829a00d15a05cecc147d115e80e5443ed92e5517393b2e89055b8c99a9b28"
+    },
+    {
+      "path": "sources/pcc-colonel-blotto-v1.1.0/validation/pressure-leverage-intervention.json",
+      "bytes": 36358,
+      "sha256": "51c2c3f3ea02174dc0745487220b60f594b222e06ee273323e4fed8011dc9ce1"
+    },
     {
       "path": "sources/pcc-liars-dice-v0.5.0/validation/balance.json",
       "bytes": 3272,
@@ -23,37 +43,47 @@
       "sha256": "ed2f3a4fbfbbe4eaa20c1128503e80b5e08396a7825eca6e08d7155af91d9ed5"
     },
     {
-      "path": "sources/pcc-micro-fighter-v0.8.0/validation/competitiveness.json",
+      "path": "sources/pcc-micro-fighter-v1.0.0/validation/competitiveness.json",
       "bytes": 2850,
       "sha256": "d65ebf9b946237ca37be0100316fd472c72f5bea1697575da880906050c266de"
     },
     {
-      "path": "sources/pcc-micro-fighter-v0.8.0/validation/control-counter-intervention-v0.5.0.json",
+      "path": "sources/pcc-micro-fighter-v1.0.0/validation/control-counter-intervention-v0.5.0.json",
       "bytes": 8122,
       "sha256": "25b54c768314f1c4fe6d75c8076c92f64dbefa1884f7e9f669c43f38fef55d5c"
     },
     {
-      "path": "sources/pcc-micro-fighter-v0.8.0/validation/control-recovery-intervention-v0.7.0.json",
+      "path": "sources/pcc-micro-fighter-v1.0.0/validation/control-recovery-intervention-v0.7.0.json",
       "bytes": 5240,
       "sha256": "b02cee6501ac2e3092629d302883afef41aecb309789adcc5b812c07b45d0eca"
     },
     {
-      "path": "sources/pcc-micro-fighter-v0.8.0/validation/pressure-dominance-decomposition.json",
+      "path": "sources/pcc-micro-fighter-v1.0.0/validation/effective-chaos-validation-v0.9.0.json",
+      "bytes": 2455,
+      "sha256": "1c2e2617435ad85f035031137adf12af31a87c4c711d504e83775e3bd39d3e6a"
+    },
+    {
+      "path": "sources/pcc-micro-fighter-v1.0.0/validation/pressure-dominance-decomposition.json",
       "bytes": 18778,
       "sha256": "14fd0dc0108f6db51d0ceb2920a7e4b40b58892c349eb64c07729fa37a7c84b7"
     },
     {
-      "path": "sources/pcc-micro-fighter-v0.8.0/validation/residual-pressure-decomposition.json",
+      "path": "sources/pcc-micro-fighter-v1.0.0/validation/residual-pressure-decomposition.json",
       "bytes": 2946,
       "sha256": "a96edbc85e16c9f3c6d95096d64ada0c6c10fadbee02271d4a3d61888298a74b"
     },
     {
-      "path": "sources/pcc-micro-fighter-v0.8.0/validation/retreat-backfire-decomposition.json",
+      "path": "sources/pcc-micro-fighter-v1.0.0/validation/retreat-backfire-decomposition.json",
       "bytes": 2164,
       "sha256": "06b2f8761b3d2f4a39b974b51f095c51467e70c7cdd80a992e7cc1ec83ed0d79"
     },
     {
-      "path": "sources/pcc-micro-fighter-v0.8.0/validation/threat-conversion-decomposition.json",
+      "path": "sources/pcc-micro-fighter-v1.0.0/validation/strong-exploiter-chaos-validation-v1.0.0.json",
+      "bytes": 3080,
+      "sha256": "01e832ee2343876db9e2c05b5a8c271e96ec0371e8f185b08bda2776841a3cf8"
+    },
+    {
+      "path": "sources/pcc-micro-fighter-v1.0.0/validation/threat-conversion-decomposition.json",
       "bytes": 9537,
       "sha256": "d36fb477b0c1f78e8cbaae4dea205fe33b00d80d0943f578aa230c52118faa24"
     },

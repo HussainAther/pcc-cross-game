@@ -281,12 +281,14 @@ def micro_fighter_summary(root: str | Path) -> dict[str, Any]:
     counter = _require(root, "validation/control-counter-intervention-v0.5.0.json")
     recovery = _require(root, "validation/control-recovery-intervention-v0.7.0.json")
     retreat = _require(root, "validation/retreat-backfire-decomposition.json")
+    chaos = _require(root, "validation/effective-chaos-validation-v0.9.0.json")
+    strong_chaos = _require(root, "validation/strong-exploiter-chaos-validation-v1.0.0.json")
 
     pressure_rep = pressure.get("replicated_diagnostics", {})
     retreat_checks = retreat.get("prespecified_checks", {})
     return {
         "game": "micro-fighter",
-        "source_version": "0.8.0 spatial mechanism diagnostics",
+        "source_version": "1.0.0 spatial mechanisms + strong Chaos falsification",
         "source_root": str(root),
         "balance": {
             "status": "failed" if not balance.get("competitiveness_confirmed") else "confirmed",
@@ -327,6 +329,16 @@ def micro_fighter_summary(root: str | Path) -> dict[str, Any]:
                 "status": "failed" if not pressure_rep.get("damage_conversion", {}).get("replicated_expected_direction", False) else "confirmed",
                 "scope": "Pressure-generated threat volume does not universally convert into damage or victory; Family A Control is the counterexample",
             },
+            {
+                "name": "effective Chaos resistance to calibrated exploitation",
+                "status": "confirmed" if strong_chaos.get("effective_chaos_resistance_supported", False) else "failed",
+                "scope": "a stronger adaptive exploiter is calibrated only on predictable play, frozen, then effective Chaos preserves substantially more held-out value than predictable or random baselines",
+            },
+            {
+                "name": "Chaos is not randomness",
+                "status": "confirmed" if chaos.get("prespecified_checks") and all(chaos.get("prespecified_checks", {}).values()) else "partial",
+                "scope": "the random baseline is more entropic but much less competitively adequate than the effective-Chaos candidate",
+            },
         ],
         "negative_controls": {
             "status": "present",
@@ -334,7 +346,48 @@ def micro_fighter_summary(root: str | Path) -> dict[str, Any]:
         },
     }
 
-def build_comparison(poker_root: str | Path, liars_root: str | Path, rps_root: str | Path | None = None, micro_root: str | Path | None = None) -> dict[str, Any]:
+
+def colonel_blotto_summary(root: str | Path) -> dict[str, Any]:
+    root = Path(root)
+    pressure = _require(root, "validation/pressure-leverage-intervention.json")
+    chaos = _require(root, "validation/chaos-exploiter-falsification.json")
+    emergence = _require(root, "validation/emergent-learned-agents.json")
+    modulation = _require(root, "validation/control-modulation.json")
+    return {
+        "game": "colonel-blotto",
+        "source_version": "1.1.0 learned-agent architecture + mechanistic freeze",
+        "source_root": str(root),
+        "balance": {
+            "status": "not-applicable",
+            "criterion": "no universal dominance cycle is required; Blotto is used for resource-allocation mechanism and learned-agent architecture tests",
+            "cycle_required": False,
+        },
+        "axis_evidence": {
+            "pressure": {"status": "confirmed", "selected_components": ["targeted_leverage", "response_constriction"], "basis": "Matched intervention holds budget, expected value, and raw concentration approximately fixed while high-leverage targeting reduces viable responses by 48.0%."},
+            "control": {"status": "partial", "selected_components": ["context_modulation"], "basis": "Control is stable but does not emerge as an independent PC3; Control x context improves held-out prediction by 15.04%, supporting a modulatory rather than orthogonal-axis interpretation."},
+            "chaos": {"status": "confirmed", "selected_components": ["guarded_unpredictability", "exploit_resistance"], "basis": "Guarded Chaos retains 93.1% of uniform-random entropy while outperforming random allocation against a held-out learner by 0.294 payoff."},
+        },
+        "mechanisms": [
+            {"name": "targeted-leverage Pressure", "status": "confirmed" if pressure.get("aggregate", {}).get("pairwise_reduction_rate") == 1.0 else "partial", "scope": "matched resource-allocation intervention"},
+            {"name": "guarded Chaos under held-out exploitation", "status": "confirmed" if chaos.get("aggregate", {}).get("all_primary_checks_pass") else "failed", "scope": "held-out adaptive exploiter"},
+            {"name": "learned-agent low-dimensional PCC-related structure", "status": "partial", "scope": "independently optimized agents; Pressure and Chaos align strongly with PCs, Control does not form an independent PC3"},
+            {"name": "Control as context-dependent modulation", "status": "confirmed" if modulation.get("aggregate", {}).get("all_primary_checks_pass") else "failed", "scope": "leave-one-agent-out predictive comparison with disjoint signature/outcome seeds"},
+        ],
+        "negative_controls": {
+            "status": "present",
+            "note": "Raw concentration fails as Pressure in v0.5, strong temporal-order claims for Control fail in v0.2-v0.4, and these negative results are retained rather than retuned away.",
+        },
+        "emergent_architecture": {
+            "latent_pcc_weights_in_generator": emergence["design"]["latent_pcc_weights_in_generator"],
+            "first_three_pc_cumulative_variance": emergence["aggregate"]["first_three_pc_cumulative_variance"],
+            "pressure_pc_correlation": emergence["aggregate"]["assigned_correlations"]["pressure"],
+            "control_forced_pc_correlation": emergence["aggregate"]["assigned_correlations"]["control"],
+            "chaos_pc_correlation": emergence["aggregate"]["assigned_correlations"]["chaos"],
+            "control_context_relative_improvement": modulation["aggregate"]["relative_mae_improvement_from_control_interactions"],
+        },
+    }
+
+def build_comparison(poker_root: str | Path, liars_root: str | Path, rps_root: str | Path | None = None, micro_root: str | Path | None = None, blotto_root: str | Path | None = None) -> dict[str, Any]:
     poker = poker_summary(poker_root)
     liars = liars_dice_summary(liars_root)
     games = [poker, liars]
@@ -344,6 +397,9 @@ def build_comparison(poker_root: str | Path, liars_root: str | Path, rps_root: s
     micro = micro_fighter_summary(micro_root) if micro_root is not None else None
     if micro is not None:
         games.append(micro)
+    blotto = colonel_blotto_summary(blotto_root) if blotto_root is not None else None
+    if blotto is not None:
+        games.append(blotto)
     findings = [
             {
                 "finding": "game topology is not invariant",
@@ -407,13 +463,24 @@ def build_comparison(poker_root: str | Path, liars_root: str | Path, rps_root: s
                 "basis": "The frozen retreat intervention worsens Control while the v0.8 decomposition shows frequent initiative forfeiture, ineffective displacement, rapid Pressure re-entry, and almost no persistent separation.",
             },
             {
+                "finding": "Chaos is not randomness in spatial combat",
+                "status": "supported",
+                "basis": "Micro-Fighter's more-entropic random baseline is strategically much worse than the effective-Chaos candidate, and a calibrated held-out exploiter suppresses predictable play while effective Chaos preserves positive value.",
+            },
+            {
                 "finding": "mechanistic support can precede construct recovery",
                 "status": "supported",
-                "basis": "Micro-Fighter contributes Pressure and Control mechanism evidence while all three observational axes remain unresolved because the competitiveness prerequisite has not passed.",
+                "basis": "Micro-Fighter contributes Pressure, Control, and strong effective-Chaos mechanism evidence while all three observational axes remain unresolved because no frozen cross-family construct-recovery gate has passed.",
             },
         ])
+    if blotto is not None:
+        findings.extend([
+            {"finding": "resource-allocation Pressure depends on targeted leverage rather than concentration alone", "status": "supported", "basis": "Blotto v0.5 falsifies raw concentration while v0.6 shows a 48.0% viable-response reduction when concentration is redirected toward leverage-bearing fronts under matched value and concentration."},
+            {"finding": "independently optimized agents can exhibit PCC-related structure without latent PCC generator weights", "status": "supported", "basis": "Blotto v1.0 learns agents under generic objectives/opponents; Pressure and Chaos align strongly with separate behavioral PCs while Control is stable but not an independent PC3."},
+            {"finding": "Control may be better represented as contextual modulation than as an orthogonal axis", "status": "supported-in-blotto", "basis": "Blotto v1.1 Control x context interactions reduce leave-one-agent-out standardized MAE by 15.04%; cross-game generalization remains pending."},
+        ])
     return {
-        "schema_version": 4,
+        "schema_version": 6,
         "purpose": "Cross-game comparison of frozen synthetic evidence without assuming identical PCC topology or measurement validity across games.",
         "games": games,
         "cross_game_findings": findings,
@@ -429,8 +496,8 @@ def build_comparison(poker_root: str | Path, liars_root: str | Path, rps_root: s
 
 def render_markdown(report: dict[str, Any]) -> str:
     games = {g["game"]: g for g in report["games"]}
-    ordered = [name for name in ("poker", "liars-dice", "rps", "micro-fighter") if name in games]
-    display = {"poker": "Poker", "liars-dice": "Liar's Dice", "rps": "Repeated RPS", "micro-fighter": "Micro-Fighter"}
+    ordered = [name for name in ("poker", "liars-dice", "rps", "micro-fighter", "colonel-blotto") if name in games]
+    display = {"poker": "Poker", "liars-dice": "Liar's Dice", "rps": "Repeated RPS", "micro-fighter": "Micro-Fighter", "colonel-blotto": "Colonel Blotto"}
     lines = [
         "# PCC Cross-Game Evidence Matrix",
         "",

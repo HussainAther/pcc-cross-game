@@ -32,6 +32,7 @@ These are provisional comparative structures, not universal scalar definitions.
 | Liar's Dice | partial | failed | confirmed |
 | Repeated RPS | absent-by-design | failed | failed |
 | Micro-Fighter | unresolved | unresolved | unresolved |
+| Colonel Blotto | confirmed | partial | confirmed |
 
 ## What each environment contributes
 
@@ -49,7 +50,11 @@ Minimal falsification/negative-control lab; Pressure absent by design and Chaos 
 
 ### Micro-Fighter
 
-Spatial competitive-control lab; mechanism evidence for threat, constriction, initiative, timing, and value-sensitive intervention without current construct-recovery authorization.
+Spatial competitive-control lab; mechanism evidence for threat, constriction, initiative, value-sensitive intervention, and effective Chaos resistance under calibrated exploitation, while full observational construct recovery remains unresolved.
+
+### Colonel Blotto
+
+Resource-allocation and learned-agent architecture lab; confirms targeted-leverage Pressure and guarded Chaos, while learned-agent evidence suggests Control is context-dependent modulation rather than an independent PC3.
 
 ## Portable findings
 
@@ -57,7 +62,7 @@ Spatial competitive-control lab; mechanism evidence for threat, constriction, in
 - **confirmed — Mechanism evidence must remain separate from observational construct recovery.** Poker and Micro-Fighter contain mechanism-level support even where conservative cross-family observational axes remain unresolved.
 - **confirmed — A PCC axis may be absent or structurally non-identifiable in a valid comparison environment.** Pressure is absent-by-design in RPS, and latent Chaos intent is not identifiable from action-only iid-uniform RPS behavior.
 - **failed — The poker-specific Pressure-Chaos-Control dominance cycle is universal across competitive games.** Liar's Dice and Micro-Fighter do not reproduce the poker topology under their frozen competitiveness protocols, and RPS lacks Pressure by design.
-- **failed — Randomness alone is sufficient evidence of Chaos.** RPS falsification shows high entropy can be strategically equivalent to neutral iid play or highly exploitable temporal structure.
+- **failed — Randomness alone is sufficient evidence of Chaos.** RPS shows entropy can be behaviorally non-identifying, while Micro-Fighter shows a more-entropic random baseline can be strategically much worse than effective Chaos under neutral and calibrated adaptive opponents.
 - **failed — Creating distance is sufficient evidence of spatial Control.** Micro-Fighter's deterministic retreat intervention worsens Control by forfeiting initiative and allowing rapid Pressure re-entry.
 
 ## Important falsifications and limits
@@ -67,6 +72,7 @@ Spatial competitive-control lab; mechanism evidence for threat, constriction, in
 - The poker-specific dominance cycle is not treated as universal.
 - Liar's Dice response constriction is implementation-sensitive rather than universal.
 - Micro-Fighter shows that threat generation can be strong even when conversion to value is not universal.
+- Colonel Blotto shows that raw concentration is insufficient: targeted leverage, not concentration alone, drives response constriction.
 - Pressure is absent-by-design in repeated RPS.
 
 ### Control
@@ -75,13 +81,15 @@ Spatial competitive-control lab; mechanism evidence for threat, constriction, in
 - Information uptake and context alignment remain family-sensitive outside poker.
 - Micro-Fighter falsifies simple spatial withdrawal as a sufficient Control mechanism.
 - Sequential intervention timing is structurally not applicable to one-step RPS in the same form.
+- Colonel Blotto v1.0-v1.1 suggests Control may be better represented as context-dependent modulation than as an independent orthogonal axis.
 
 ### Chaos
 
 - Raw entropy is not a portable Chaos measure.
 - Repeated RPS demonstrates that iid-uniform behavior can be maximally unpredictable and value-preserving without identifying latent Chaos intent.
 - Poker lacks a conservative family-invariant Chaos observable.
-- Micro-Fighter Chaos remains intentionally unresolved pending a dedicated frozen experiment.
+- Micro-Fighter now supports effective-Chaos mechanism evidence under a calibrated held-out exploiter, but full cross-family observational construct recovery remains unresolved.
+- Colonel Blotto supports guarded unpredictability under a held-out adaptive exploiter.
 
 ## Interpretation
 
@@ -100,10 +108,11 @@ The program therefore treats transfer as a falsifiable question: a game may conf
 
 ## Next questions
 
-- Can Micro-Fighter support a dedicated effective-Chaos falsification/recovery experiment without first forcing competitiveness?
+- Can Micro-Fighter reproduce effective-Chaos recovery across two independently coded policy families without retuning the calibrated exploiter?
+- Can PCC Poker resolve conservative cross-family Control and Chaos observables while preserving its v0.8.0 pre-human freeze and ORIA gate?
 - Can Control information/context stages be isolated with matched interventions in Liar's Dice and Micro-Fighter?
 - Which Pressure constriction measures remain stable when policy implementation changes?
-- Can a future fifth environment add a genuinely new strategic substrate rather than duplicate bluffing, simultaneous choice, or spatial combat?
+- Does the state-axes-versus-contextual-modulation architecture generalize from Colonel Blotto to Poker, Liar's Dice, RPS, and Micro-Fighter under one frozen cross-game protocol?
 
 ---
 

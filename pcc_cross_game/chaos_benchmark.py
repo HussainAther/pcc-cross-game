@@ -123,11 +123,34 @@ def build_chaos_benchmark(poker_root: str | Path, liars_root: str | Path, rps_ro
     }
 
     if micro_root is not None:
+        micro_root = Path(micro_root)
+        micro = _load(micro_root / "validation/effective-chaos-validation-v0.9.0.json")
+        strong = _load(micro_root / "validation/strong-exploiter-chaos-validation-v1.0.0.json")
+        held = strong.get("held_out_evaluation", {})
+        chaos_eval = held.get("effective_chaos", {})
+        random_eval = held.get("state_random", {})
+        predictable_eval = held.get("predictable_competent", {})
         games["micro-fighter"] = {
-            name: {
+            "raw_unpredictability_signal": {
+                "status": "confirmed",
+                "basis": "effective-Chaos behavior is substantially more conditionally unpredictable than predictable competent play, while the still-more-entropic random baseline demonstrates that entropy magnitude alone is insufficient",
+            },
+            "value_or_performance_guardrail": {
+                "status": "confirmed",
+                "basis": "effective Chaos preserves far more competitive value than the higher-entropy random baseline in the frozen v0.9 comparison",
+            },
+            "exploitability_or_plausibility_guardrail": {
+                "status": "confirmed" if strong.get("effective_chaos_resistance_supported", False) else "failed",
+                "basis": f"a calibrated exploiter holds predictable play to {predictable_eval.get('decisive_win_rate', 0):.3f} decisive wins while effective Chaos retains {chaos_eval.get('decisive_win_rate', 0):.3f}, exceeding random at {random_eval.get('decisive_win_rate', 0):.3f}",
+            },
+            "cross_family_construct_recovery": {
                 "status": "unresolved",
-                "basis": "Micro-Fighter has not yet run a frozen Chaos construct-recovery or effective-unpredictability benchmark; v0.8 evidence is currently Pressure/Control mechanistic only.",
-            } for name in MECHANISMS
+                "basis": "the strong falsification uses a dedicated effective-Chaos candidate and calibrated exploiter, not two independently coded Chaos policy families under a frozen cross-family recovery gate",
+            },
+            "latent_intent_identifiability": {
+                "status": "unresolved",
+                "basis": "the experiment supports an effective-unpredictability mechanism but does not uniquely identify latent strategic intent from behavior",
+            },
         }
 
     return {
@@ -144,7 +167,7 @@ def build_chaos_benchmark(poker_root: str | Path, liars_root: str | Path, rps_ro
         },
         "conclusion": {
             "status": "partial-generalization",
-            "basis": "Across poker, Liar's Dice, and RPS, the portable structure is effective unpredictability = game-appropriate unpredictability × independent adequacy. Micro-Fighter remains intentionally unresolved for Chaos until its competitiveness and construct-recovery prerequisites mature.",
+            "basis": "Across all four laboratories, the portable structure is effective unpredictability = game-appropriate unpredictability × independent adequacy. Micro-Fighter now adds a strong held-out exploitation-resistance test, while its full cross-family Chaos construct recovery remains unresolved.",
         },
         "guardrails": [
             "No source experiment is rerun or retuned by this benchmark.",

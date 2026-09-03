@@ -1,0 +1,6 @@
+game,status,relative_improvement,primary_pass,source
+poker,pending-trajectory-export,,,sources/pcc-poker-v0.8.0/validation/control-architecture-export.json
+liars-dice,pending-trajectory-export,,,sources/pcc-liars-dice-v0.5.0/validation/control-architecture-export.json
+rps,pending-trajectory-export,,,sources/pcc-rps-v0.2.0/validation/control-architecture-export.json
+micro-fighter,pending-trajectory-export,,,sources/pcc-micro-fighter-v1.0.0/validation/control-architecture-export.json
+colonel-blotto,evaluated,0.15035100412245955,True,sources/pcc-colonel-blotto-v1.1.0/validation/control-modulation.json

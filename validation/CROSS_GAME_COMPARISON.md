@@ -2,12 +2,12 @@
 
 This report compares frozen synthetic evidence without assuming that topology or measurements transfer unchanged across games.
 
-| Dimension | Poker | Liar's Dice | Repeated RPS | Micro-Fighter |
-|---|---|---|---|---|
-| Balance/topology | confirmed: engineered balanced cycle under the poker-specific frozen protocol | failed: all pairwise matchups competitive in two independent policy families | not-applicable: Repeated RPS is used as a two-axis Control/Chaos negative-control laboratory; no Pressure topology is defined. | failed: all pairwise synthetic mechanism matchups must lie inside the frozen 30%-70% decisive-win-rate window in both independent families |
-| Pressure observational construct | confirmed (pressure_exposure, predicted_fold_probability) | partial (public commitment/escalation score) | absent-by-design (pressure_candidate == 0) | unresolved (none) |
-| Control observational construct | unresolved (none) | failed (conditional mutual information between public opponent-profile regime and action, controlling for current-bid truth-probability bin) | failed (control_candidate) | unresolved (none) |
-| Chaos observational construct | unresolved (none) | confirmed (public-state-conditioned action entropy multiplied by an independent aggregate performance-adequacy floor) | failed (chaos_candidate) | unresolved (none) |
+| Dimension | Poker | Liar's Dice | Repeated RPS | Micro-Fighter | Colonel Blotto |
+|---|---|---|---|---|---|
+| Balance/topology | confirmed: engineered balanced cycle under the poker-specific frozen protocol | failed: all pairwise matchups competitive in two independent policy families | not-applicable: Repeated RPS is used as a two-axis Control/Chaos negative-control laboratory; no Pressure topology is defined. | failed: all pairwise synthetic mechanism matchups must lie inside the frozen 30%-70% decisive-win-rate window in both independent families | not-applicable: no universal dominance cycle is required; Blotto is used for resource-allocation mechanism and learned-agent architecture tests |
+| Pressure observational construct | confirmed (pressure_exposure, predicted_fold_probability) | partial (public commitment/escalation score) | absent-by-design (pressure_candidate == 0) | unresolved (none) | confirmed (targeted_leverage, response_constriction) |
+| Control observational construct | unresolved (none) | failed (conditional mutual information between public opponent-profile regime and action, controlling for current-bid truth-probability bin) | failed (control_candidate) | unresolved (none) | partial (context_modulation) |
+| Chaos observational construct | unresolved (none) | confirmed (public-state-conditioned action entropy multiplied by an independent aggregate performance-adequacy floor) | failed (chaos_candidate) | unresolved (none) | confirmed (guarded_unpredictability, exploit_resistance) |
 
 ## Mechanism evidence
 
@@ -32,6 +32,14 @@ This report compares frozen synthetic evidence without assuming that topology or
 - **deterministic spatial retreat as Control** — failed. the prospective sustained-threat retreat rule worsened Pressure-vs-Control and is retained as a negative intervention result
 - **retreat-backfire decomposition** — confirmed. retreat commonly forfeits initiative, often fails to create distance, invites immediate re-entry, and rarely preserves separation
 - **damage conversion sufficiency** — failed. Pressure-generated threat volume does not universally convert into damage or victory; Family A Control is the counterexample
+- **effective Chaos resistance to calibrated exploitation** — confirmed. a stronger adaptive exploiter is calibrated only on predictable play, frozen, then effective Chaos preserves substantially more held-out value than predictable or random baselines
+- **Chaos is not randomness** — confirmed. the random baseline is more entropic but much less competitively adequate than the effective-Chaos candidate
+
+### Colonel Blotto
+- **targeted-leverage Pressure** — confirmed. matched resource-allocation intervention
+- **guarded Chaos under held-out exploitation** — confirmed. held-out adaptive exploiter
+- **learned-agent low-dimensional PCC-related structure** — partial. independently optimized agents; Pressure and Chaos align strongly with PCs, Control does not form an independent PC3
+- **Control as context-dependent modulation** — confirmed. leave-one-agent-out predictive comparison with disjoint signature/outcome seeds
 
 ## Cross-game findings
 
@@ -46,7 +54,11 @@ This report compares frozen synthetic evidence without assuming that topology or
 - **the cross-game framework can represent an absent axis** — supported. RPS Pressure is recorded as absent-by-design rather than failed, unresolved, or confirmed, separating environmental absence from construct evidence.
 - **PCC mechanisms can be probed in a spatial non-card environment** — supported. Micro-Fighter reproduces spatial Pressure threat-generation diagnostics and value-sensitive Control intervention effects without cards, dice, hidden information, or wagering.
 - **spatial Control is not equivalent to maximizing distance** — supported. The frozen retreat intervention worsens Control while the v0.8 decomposition shows frequent initiative forfeiture, ineffective displacement, rapid Pressure re-entry, and almost no persistent separation.
-- **mechanistic support can precede construct recovery** — supported. Micro-Fighter contributes Pressure and Control mechanism evidence while all three observational axes remain unresolved because the competitiveness prerequisite has not passed.
+- **Chaos is not randomness in spatial combat** — supported. Micro-Fighter's more-entropic random baseline is strategically much worse than the effective-Chaos candidate, and a calibrated held-out exploiter suppresses predictable play while effective Chaos preserves positive value.
+- **mechanistic support can precede construct recovery** — supported. Micro-Fighter contributes Pressure, Control, and strong effective-Chaos mechanism evidence while all three observational axes remain unresolved because no frozen cross-family construct-recovery gate has passed.
+- **resource-allocation Pressure depends on targeted leverage rather than concentration alone** — supported. Blotto v0.5 falsifies raw concentration while v0.6 shows a 48.0% viable-response reduction when concentration is redirected toward leverage-bearing fronts under matched value and concentration.
+- **independently optimized agents can exhibit PCC-related structure without latent PCC generator weights** — supported. Blotto v1.0 learns agents under generic objectives/opponents; Pressure and Chaos align strongly with separate behavioral PCs while Control is stable but not an independent PC3.
+- **Control may be better represented as contextual modulation than as an orthogonal axis** — supported-in-blotto. Blotto v1.1 Control x context interactions reduce leave-one-agent-out standardized MAE by 15.04%; cross-game generalization remains pending.
 
 ## Guardrails
 
