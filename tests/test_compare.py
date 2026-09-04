@@ -41,6 +41,6 @@ def test_renderers_include_micro_fighter_and_blotto():
 def test_bundled_source_provenance_hashes_match():
     import hashlib,json
     provenance=json.loads((ROOT/'sources/PROVENANCE.json').read_text())
-    assert provenance['schema_version']==8
+    assert provenance['schema_version']==9
     for entry in provenance['files']:
         path=ROOT/entry['path']; assert path.is_file(); assert path.stat().st_size==entry['bytes']; assert hashlib.sha256(path.read_bytes()).hexdigest()==entry['sha256']

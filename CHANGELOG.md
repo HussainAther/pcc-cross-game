@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.13.0
+
+- Complete the five-game architecture falsification with Poker, Liar's Dice, repeated RPS, Micro-Fighter, and Colonel Blotto all evaluable.
+- Add pooled macro analysis: `Control x context` improves standardized held-out MAE by 3.96% on average, below the frozen 5% criterion.
+- Record only 2/5 game-native Control-modulation passes versus the frozen 4/5 requirement.
+- Add per-game Pressure/Control/Chaos interaction discriminants where prospectively exported and preserve Blotto's missing Pressure/Chaos discriminants as unresolved rather than backfilling them.
+- Add leave-one-game-out robustness analysis; the universal Control-modulation architecture fails in every fold.
+- Replace stale pending-export report language with the final falsification and substrate-dependent architecture interpretation.
+- Preserve the cross-context rank-stability criterion as unresolved because no common normalized statistic was exported by all five native repositories.
+
 ## 0.12.0
 
 - Add Colonel Blotto v1.1.0 as the fifth cross-game environment.

@@ -12,4 +12,4 @@ Current bundled sources:
 
 Colonel Blotto includes the frozen v1.1 Control-modulation result plus the v1.0 learned-agent emergence and the mechanistic Pressure/Chaos results needed to interpret that architecture experiment.
 
-The architecture falsification intentionally does **not** infer missing agent-by-context tables from older summary files. Poker, Liar's Dice, RPS, and Micro-Fighter remain pending until their native repositories export the required frozen rows.
+The architecture falsification now includes frozen architecture-level exports for all five games. Poker, Liar's Dice, repeated RPS, and Micro-Fighter provide normalized `control-architecture-export.json` artifacts; Colonel Blotto contributes its frozen v1.1 `control-modulation.json`. The cross-game layer preserves each native measurement contract and does not reconstruct missing discriminants post hoc. In particular, Blotto v1.1 did not prospectively export matched Pressure/Chaos interaction controls, and the common cross-context rank-stability criterion remains unresolved across the five normalized exports.

@@ -44,8 +44,18 @@ The final cross-game test must also fit otherwise matched models adding `Pressur
 
 A missing native trajectory export is **pending**, not failed.
 
-## Current frozen evidence
+## Final frozen evidence
 
-Colonel Blotto v1.1.0 is currently the only game with a direct architecture-level frozen result. Its `Control x context` model improves leave-one-agent-out standardized MAE by 15.04% and improves all four behavioral targets. The other four bundled repositories currently provide mechanism/construct summaries but not the disjoint-seed agent-by-context rows required for this model comparison.
+All five games now provide the required architecture-level export for the primary additive-versus-`Control x context` comparison. The frozen game-native Control-modulation results are:
 
-Therefore the cross-game claim is **not yet evaluable**.
+- Poker: **FAIL**, -4.09% relative improvement.
+- Liar's Dice: **FAIL**, +1.56%.
+- Repeated RPS: **PASS**, +6.56%.
+- Micro-Fighter: **FAIL**, +0.76%.
+- Colonel Blotto: **PASS**, +15.04%.
+
+The macro-mean improvement is **3.96%**, below the prespecified 5% threshold, and only **2/5** games pass rather than the required 4/5. The universal Control-dominant modulation architecture is therefore falsified on the frozen panel.
+
+Discriminant interaction exports show substrate dependence: Pressure is strongest in Poker, Chaos is strongest in Liar's Dice and repeated RPS, Micro-Fighter has only weak interaction gains with Pressure slightly largest, and Blotto prospectively exported only the Control interaction. Because the normalized exports do not contain one common cross-context rank-stability statistic for all three axes, criterion 4 remains explicitly unresolved rather than being reconstructed post hoc.
+
+Leave-one-game-out analysis is required in the generated final report and tests whether the universal Control architecture reappears after removing any single substrate.

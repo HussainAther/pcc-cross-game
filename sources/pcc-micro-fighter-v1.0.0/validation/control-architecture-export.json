@@ -1,0 +1,390 @@
+{
+  "schema_version": "1.0",
+  "game": "micro-fighter",
+  "status": "evaluated",
+  "additive_standardized_mae": 0.8910312110471161,
+  "control_context_standardized_mae": 0.8842564675252019,
+  "relative_improvement": 0.007603261746524802,
+  "targets_improved": 3,
+  "targets_total": 4,
+  "latent_pcc_weights_in_generator": false,
+  "cross_validation": "leave-one-agent-out",
+  "pressure_context_relative_improvement": 0.01289982886258415,
+  "chaos_context_relative_improvement": -0.009714622246725401,
+  "control_interaction_exceeds_pressure_and_chaos": false,
+  "evidence_level": "engineered_policy_families_game_native_signatures",
+  "design": {
+    "agents": [
+      "pressure",
+      "control",
+      "chaos",
+      "pressure_b",
+      "control_b",
+      "chaos_b"
+    ],
+    "contexts": [
+      "neutral",
+      "pressure_b",
+      "control_b",
+      "chaos_b"
+    ],
+    "targets": [
+      "net_damage",
+      "spatial_constriction",
+      "action_entropy",
+      "counter_alignment"
+    ],
+    "signature_matches": 48,
+    "outcome_matches": 48,
+    "signature_seed": 131001,
+    "outcome_seed": 141001,
+    "disjoint_signature_outcome_seeds": true,
+    "primary_threshold": 0.05,
+    "post_result_tuning_allowed": false
+  },
+  "signatures": {
+    "pressure": {
+      "pressure": 0.922574509981039,
+      "control": 0.2689200704734871,
+      "chaos": -1.5781233626568143
+    },
+    "control": {
+      "pressure": -1.6415719115228309,
+      "control": -0.103505054869169,
+      "chaos": -0.9737212895454149
+    },
+    "chaos": {
+      "pressure": -0.5018738902156995,
+      "control": -0.9863340466752477,
+      "chaos": 0.9000392376120229
+    },
+    "pressure_b": {
+      "pressure": 1.0633109962098972,
+      "control": 0.22453177149774595,
+      "chaos": -0.17274023017507487
+    },
+    "control_b": {
+      "pressure": 0.8065086799631288,
+      "control": 1.833748977141381,
+      "chaos": 0.7434529757344854
+    },
+    "chaos_b": {
+      "pressure": -0.6489483844155339,
+      "control": -1.2373617175681968,
+      "chaos": 1.081092669030797
+    }
+  },
+  "additive": {
+    "mae": 0.8910312110471161,
+    "per_target_mae": {
+      "net_damage": 1.7972411439547342,
+      "spatial_constriction": 1.3556349099184042,
+      "action_entropy": 0.1748676917958651,
+      "counter_alignment": 0.23638109851946124
+    }
+  },
+  "interactions": {
+    "pressure": {
+      "mae": 0.8795370609133872,
+      "relative_improvement": 0.01289982886258415,
+      "per_target_mae": {
+        "net_damage": 1.8103118195745533,
+        "spatial_constriction": 1.277160668925635,
+        "action_entropy": 0.2022857555863811,
+        "counter_alignment": 0.2283899995669796
+      },
+      "targets_improved": 2
+    },
+    "control": {
+      "mae": 0.8842564675252019,
+      "relative_improvement": 0.007603261746524802,
+      "per_target_mae": {
+        "net_damage": 1.8251502575849394,
+        "spatial_constriction": 1.328066852419467,
+        "action_entropy": 0.15693455752739163,
+        "counter_alignment": 0.22687420256900948
+      },
+      "targets_improved": 3
+    },
+    "chaos": {
+      "mae": 0.8996872426724811,
+      "relative_improvement": -0.009714622246725401,
+      "per_target_mae": {
+        "net_damage": 1.8005610569232153,
+        "spatial_constriction": 1.329729151426566,
+        "action_entropy": 0.219850158856002,
+        "counter_alignment": 0.24860860348414113
+      },
+      "targets_improved": 1
+    }
+  },
+  "control_x_context_improvement": 0.007603261746524802,
+  "primary_pass": false,
+  "control_targets_improved": 3,
+  "rows": [
+    {
+      "agent": "pressure",
+      "context": "neutral",
+      "pressure": 0.922574509981039,
+      "control": 0.2689200704734871,
+      "chaos": -1.5781233626568143,
+      "net_damage": 0.2708333333333333,
+      "spatial_constriction": 0.14094664365478615,
+      "action_entropy": 1.0739512181467958,
+      "counter_alignment": 0.48206299989643997
+    },
+    {
+      "agent": "pressure",
+      "context": "pressure_b",
+      "pressure": 0.922574509981039,
+      "control": 0.2689200704734871,
+      "chaos": -1.5781233626568143,
+      "net_damage": 0.0625,
+      "spatial_constriction": 0.18858031280335477,
+      "action_entropy": 1.0533014420036222,
+      "counter_alignment": 0.4894816727149301
+    },
+    {
+      "agent": "pressure",
+      "context": "control_b",
+      "pressure": 0.922574509981039,
+      "control": 0.2689200704734871,
+      "chaos": -1.5781233626568143,
+      "net_damage": 2.4791666666666665,
+      "spatial_constriction": 0.22446807168118918,
+      "action_entropy": 1.0566414428168054,
+      "counter_alignment": 0.5193170006645912
+    },
+    {
+      "agent": "pressure",
+      "context": "chaos_b",
+      "pressure": 0.922574509981039,
+      "control": 0.2689200704734871,
+      "chaos": -1.5781233626568143,
+      "net_damage": 1.2708333333333333,
+      "spatial_constriction": 0.1722464294596206,
+      "action_entropy": 1.0717542826441437,
+      "counter_alignment": 0.5091065622420266
+    },
+    {
+      "agent": "control",
+      "context": "neutral",
+      "pressure": -1.6415719115228309,
+      "control": -0.103505054869169,
+      "chaos": -0.9737212895454149,
+      "net_damage": 0.6666666666666666,
+      "spatial_constriction": 0.10483579740957906,
+      "action_entropy": 1.2103421386242867,
+      "counter_alignment": 0.4589196441356503
+    },
+    {
+      "agent": "control",
+      "context": "pressure_b",
+      "pressure": -1.6415719115228309,
+      "control": -0.103505054869169,
+      "chaos": -0.9737212895454149,
+      "net_damage": 1.2083333333333333,
+      "spatial_constriction": 0.09365531514820967,
+      "action_entropy": 1.1810647147793925,
+      "counter_alignment": 0.5750170715060665
+    },
+    {
+      "agent": "control",
+      "context": "control_b",
+      "pressure": -1.6415719115228309,
+      "control": -0.103505054869169,
+      "chaos": -0.9737212895454149,
+      "net_damage": 1.4791666666666667,
+      "spatial_constriction": 0.11367782862715778,
+      "action_entropy": 1.0990839609434446,
+      "counter_alignment": 0.6071100179508551
+    },
+    {
+      "agent": "control",
+      "context": "chaos_b",
+      "pressure": -1.6415719115228309,
+      "control": -0.103505054869169,
+      "chaos": -0.9737212895454149,
+      "net_damage": 1.1875,
+      "spatial_constriction": 0.1324958423618746,
+      "action_entropy": 1.2832445345643833,
+      "counter_alignment": 0.5054580265489381
+    },
+    {
+      "agent": "chaos",
+      "context": "neutral",
+      "pressure": -0.5018738902156995,
+      "control": -0.9863340466752477,
+      "chaos": 0.9000392376120229,
+      "net_damage": -1.7708333333333333,
+      "spatial_constriction": 0.1311788637085227,
+      "action_entropy": 1.5333012768625751,
+      "counter_alignment": 0.34136124748596586
+    },
+    {
+      "agent": "chaos",
+      "context": "pressure_b",
+      "pressure": -0.5018738902156995,
+      "control": -0.9863340466752477,
+      "chaos": 0.9000392376120229,
+      "net_damage": -1.6041666666666667,
+      "spatial_constriction": 0.13832855738920857,
+      "action_entropy": 1.510872387175192,
+      "counter_alignment": 0.4381243898310523
+    },
+    {
+      "agent": "chaos",
+      "context": "control_b",
+      "pressure": -0.5018738902156995,
+      "control": -0.9863340466752477,
+      "chaos": 0.9000392376120229,
+      "net_damage": -0.1875,
+      "spatial_constriction": 0.1267445653616364,
+      "action_entropy": 1.5377298732226117,
+      "counter_alignment": 0.4325660572481685
+    },
+    {
+      "agent": "chaos",
+      "context": "chaos_b",
+      "pressure": -0.5018738902156995,
+      "control": -0.9863340466752477,
+      "chaos": 0.9000392376120229,
+      "net_damage": 0.16666666666666666,
+      "spatial_constriction": 0.12052802639032506,
+      "action_entropy": 1.5238514048285405,
+      "counter_alignment": 0.36848342119934535
+    },
+    {
+      "agent": "pressure_b",
+      "context": "neutral",
+      "pressure": 1.0633109962098972,
+      "control": 0.22453177149774595,
+      "chaos": -0.17274023017507487,
+      "net_damage": 0.375,
+      "spatial_constriction": 0.1501626351219066,
+      "action_entropy": 1.348601829086858,
+      "counter_alignment": 0.45231505584323733
+    },
+    {
+      "agent": "pressure_b",
+      "context": "pressure_b",
+      "pressure": 1.0633109962098972,
+      "control": 0.22453177149774595,
+      "chaos": -0.17274023017507487,
+      "net_damage": 0.125,
+      "spatial_constriction": 0.22780650550859993,
+      "action_entropy": 1.2924668054244848,
+      "counter_alignment": 0.49628888889339207
+    },
+    {
+      "agent": "pressure_b",
+      "context": "control_b",
+      "pressure": 1.0633109962098972,
+      "control": 0.22453177149774595,
+      "chaos": -0.17274023017507487,
+      "net_damage": 2.5625,
+      "spatial_constriction": 0.27919148048565745,
+      "action_entropy": 1.2491995041894404,
+      "counter_alignment": 0.5536853990331284
+    },
+    {
+      "agent": "pressure_b",
+      "context": "chaos_b",
+      "pressure": 1.0633109962098972,
+      "control": 0.22453177149774595,
+      "chaos": -0.17274023017507487,
+      "net_damage": 1.4791666666666667,
+      "spatial_constriction": 0.19913534481136938,
+      "action_entropy": 1.3089569353051185,
+      "counter_alignment": 0.45435337528563435
+    },
+    {
+      "agent": "control_b",
+      "context": "neutral",
+      "pressure": 0.8065086799631288,
+      "control": 1.833748977141381,
+      "chaos": 0.7434529757344854,
+      "net_damage": -1.8541666666666667,
+      "spatial_constriction": 0.15663214043234072,
+      "action_entropy": 1.4889966346787142,
+      "counter_alignment": 0.6497672320576585
+    },
+    {
+      "agent": "control_b",
+      "context": "pressure_b",
+      "pressure": 0.8065086799631288,
+      "control": 1.833748977141381,
+      "chaos": 0.7434529757344854,
+      "net_damage": -2.4375,
+      "spatial_constriction": 0.21547067987485186,
+      "action_entropy": 1.5065875156043556,
+      "counter_alignment": 0.7366126453418442
+    },
+    {
+      "agent": "control_b",
+      "context": "control_b",
+      "pressure": 0.8065086799631288,
+      "control": 1.833748977141381,
+      "chaos": 0.7434529757344854,
+      "net_damage": -0.4791666666666667,
+      "spatial_constriction": 0.18151414977749228,
+      "action_entropy": 1.3598974327918614,
+      "counter_alignment": 0.7771345927213897
+    },
+    {
+      "agent": "control_b",
+      "context": "chaos_b",
+      "pressure": 0.8065086799631288,
+      "control": 1.833748977141381,
+      "chaos": 0.7434529757344854,
+      "net_damage": -0.020833333333333332,
+      "spatial_constriction": 0.16307033918058983,
+      "action_entropy": 1.469215094662275,
+      "counter_alignment": 0.7052437074416915
+    },
+    {
+      "agent": "chaos_b",
+      "context": "neutral",
+      "pressure": -0.6489483844155339,
+      "control": -1.2373617175681968,
+      "chaos": 1.081092669030797,
+      "net_damage": -1.0625,
+      "spatial_constriction": 0.1326443073761893,
+      "action_entropy": 1.5624239924318264,
+      "counter_alignment": 0.34062193346622577
+    },
+    {
+      "agent": "chaos_b",
+      "context": "pressure_b",
+      "pressure": -0.6489483844155339,
+      "control": -1.2373617175681968,
+      "chaos": 1.081092669030797,
+      "net_damage": -1.7291666666666667,
+      "spatial_constriction": 0.13373096786472577,
+      "action_entropy": 1.5408370091573158,
+      "counter_alignment": 0.420617015962618
+    },
+    {
+      "agent": "chaos_b",
+      "context": "control_b",
+      "pressure": -0.6489483844155339,
+      "control": -1.2373617175681968,
+      "chaos": 1.081092669030797,
+      "net_damage": 0.20833333333333334,
+      "spatial_constriction": 0.12760293941905604,
+      "action_entropy": 1.5432833967328987,
+      "counter_alignment": 0.42278470092741943
+    },
+    {
+      "agent": "chaos_b",
+      "context": "chaos_b",
+      "pressure": -0.6489483844155339,
+      "control": -1.2373617175681968,
+      "chaos": 1.081092669030797,
+      "net_damage": 0.10416666666666667,
+      "spatial_constriction": 0.12847751080334635,
+      "action_entropy": 1.5583969337567691,
+      "counter_alignment": 0.34304925066431086
+    }
+  ]
+}

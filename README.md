@@ -129,4 +129,11 @@ Run:
 make architecture-falsification
 ```
 
-The current cross-game architecture conclusion is intentionally **pending**: Blotto is evaluable and passes its native `Control x context` test (15.04% LOAO MAE improvement), while Poker, Liar's Dice, RPS, and Micro-Fighter still need frozen disjoint-seed agent-by-context exports. Missing exports are not counted as failures. See `docs/CROSS_GAME_ARCHITECTURE_PROTOCOL.md` and `validation/CROSS_GAME_ARCHITECTURE.md`.
+The five-game architecture falsification is now complete. All five native repositories provide frozen architecture-level exports. The prespecified universal Control-modulation hypothesis **fails**: macro-mean `Control x context` improvement is **3.96%** (target >=5%), and only **2/5** games pass their native Control-modulation threshold (target >=4/5). Leave-one-game-out analysis preserves the falsification in every fold. The strongest available interaction varies by substrate: Poker favors Pressure, Liar's Dice favors Chaos, repeated RPS favors Chaos over a passing Control interaction, Micro-Fighter shows only weak interaction gains, and Colonel Blotto strongly supports Control modulation. One prespecified rank-stability criterion remains unresolved because a common statistic was not exported across all five games. See `docs/CROSS_GAME_ARCHITECTURE_PROTOCOL.md` and `validation/CROSS_GAME_ARCHITECTURE.md`.
+
+
+## v0.13.0: Final five-game architecture result
+
+All five games are now architecture-evaluable. The frozen universal hypothesis that Control is disproportionately context-modulatory **fails**: macro-mean `Control x context` improvement is **3.96%** (target >=5%), only **2/5** games pass their native Control-modulation threshold (target >=4/5), and every leave-one-game-out fold still rejects the universal architecture.
+
+The strongest available interaction varies by substrate: Poker favors Pressure, Liar's Dice favors Chaos, repeated RPS favors Chaos over a passing Control interaction, Micro-Fighter shows weak interaction gains with Pressure slightly largest, and Colonel Blotto strongly supports Control modulation. This substrate-dependent pattern is a post-falsification interpretation, not a replacement preregistered success criterion. A common cross-context rank-stability statistic was not exported across all five games, so that prespecified criterion remains explicitly unresolved.

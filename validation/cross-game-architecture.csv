@@ -1,6 +1,6 @@
-game,status,relative_improvement,primary_pass,source
-poker,pending-trajectory-export,,,sources/pcc-poker-v0.8.0/validation/control-architecture-export.json
-liars-dice,pending-trajectory-export,,,sources/pcc-liars-dice-v0.5.0/validation/control-architecture-export.json
-rps,pending-trajectory-export,,,sources/pcc-rps-v0.2.0/validation/control-architecture-export.json
-micro-fighter,pending-trajectory-export,,,sources/pcc-micro-fighter-v1.0.0/validation/control-architecture-export.json
-colonel-blotto,evaluated,0.15035100412245955,True,sources/pcc-colonel-blotto-v1.1.0/validation/control-modulation.json
+game,status,pressure_relative_improvement,control_relative_improvement,chaos_relative_improvement,strongest_interaction_axis,primary_pass,source
+poker,evaluated,0.07926413938504936,-0.04093965430364947,0.03923849325054684,pressure,False,sources/pcc-poker-v0.8.0/validation/control-architecture-export.json
+liars-dice,evaluated,0.07686555782472006,0.015553647434404334,0.2983394574085739,chaos,False,sources/pcc-liars-dice-v0.5.0/validation/control-architecture-export.json
+rps,evaluated,0.0,0.06555970465649714,0.11136894597333184,chaos,True,sources/pcc-rps-v0.2.0/validation/control-architecture-export.json
+micro-fighter,evaluated,0.01289982886258415,0.007603261746524802,-0.009714622246725401,pressure,False,sources/pcc-micro-fighter-v1.0.0/validation/control-architecture-export.json
+colonel-blotto,evaluated,,0.15035100412245955,,control,True,sources/pcc-colonel-blotto-v1.1.0/validation/control-modulation.json

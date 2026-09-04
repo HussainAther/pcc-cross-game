@@ -1,6 +1,6 @@
 {
-  "schema_version": 8,
-  "note": "Exact frozen validation summaries copied from named source release snapshots solely to reproduce cross-game comparisons. No human data are included. Colonel Blotto v1.1.0 adds the fifth environment and the first direct Control-as-context-modulation architecture result; missing architecture exports in other games remain pending.",
+  "schema_version": 9,
+  "note": "Exact frozen validation summaries copied from named source release snapshots solely to reproduce cross-game comparisons. No human data are included. All five games now include the architecture-level evidence required for the primary Control-modulation comparison; missing discriminants and rank-stability statistics remain explicitly unresolved rather than reconstructed post hoc.",
   "files": [
     {
       "path": "sources/pcc-colonel-blotto-v1.1.0/validation/chaos-exploiter-falsification.json",
@@ -33,6 +33,11 @@
       "sha256": "132ebe669329c8edc0870e2bb75923373a942a0857c597453ca9a07752206ec5"
     },
     {
+      "path": "sources/pcc-liars-dice-v0.5.0/validation/control-architecture-export.json",
+      "bytes": 64704,
+      "sha256": "09cca0127f442306cbb5fcd44bd32bf51a048540c2d2af5a32b03baeeeb8fcb9"
+    },
+    {
       "path": "sources/pcc-liars-dice-v0.5.0/validation/control-chaos-mechanism.json",
       "bytes": 24841,
       "sha256": "b4ae5f88f8a2035b69ed623823c382621d82a032f28d5b37d8ceb73a0bc06ad8"
@@ -46,6 +51,11 @@
       "path": "sources/pcc-micro-fighter-v1.0.0/validation/competitiveness.json",
       "bytes": 2850,
       "sha256": "d65ebf9b946237ca37be0100316fd472c72f5bea1697575da880906050c266de"
+    },
+    {
+      "path": "sources/pcc-micro-fighter-v1.0.0/validation/control-architecture-export.json",
+      "bytes": 12141,
+      "sha256": "85bf2fda832c4bfff9ec1befa3315095c445425884b141e7e83045545bb1588a"
     },
     {
       "path": "sources/pcc-micro-fighter-v1.0.0/validation/control-counter-intervention-v0.5.0.json",
@@ -98,6 +108,11 @@
       "sha256": "6e6efc0bbaa43f532c5a700e684592f8de7f66443abf8bb76d99a2892b9025fc"
     },
     {
+      "path": "sources/pcc-poker-v0.8.0/validation/control-architecture-export.json",
+      "bytes": 20028,
+      "sha256": "654302dc48a03cf5482298ab5ad61445151007e44f8618bc3cb1bf43a86207b4"
+    },
+    {
       "path": "sources/pcc-poker-v0.8.0/validation/control-pressure-mechanism.json",
       "bytes": 229144,
       "sha256": "6b1c983952ca22007c9d327d508293277aef79f491b68fc084b3a66ed81f995c"
@@ -126,6 +141,11 @@
       "path": "sources/pcc-poker-v0.8.0/validation/research-status.json",
       "bytes": 7028,
       "sha256": "1d428079f5dee394f61416f564b87295d39d255f5f13216324e3afe8bd25d1df"
+    },
+    {
+      "path": "sources/pcc-rps-v0.2.0/validation/control-architecture-export.json",
+      "bytes": 73966,
+      "sha256": "e41fa7d9019f021d1e29bc144d3cb892b92246e3d1973dd5e3da0e5e93335abb"
     },
     {
       "path": "sources/pcc-rps-v0.2.0/validation/effective-chaos-falsification.json",
